@@ -147,10 +147,10 @@ TextureImporter:
       name: GetHit_1
       rect:
         serializedVersion: 2
-        x: 109
+        x: 113
         y: 32
-        width: 44
-        height: 44
+        width: 40
+        height: 42
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -165,10 +165,10 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GetHit_2
+      name: GetHit_3
       rect:
         serializedVersion: 2
-        x: 198
+        x: 288
         y: 32
         width: 45
         height: 45
@@ -179,8 +179,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b6ea30260517d394bbdba25b7776b6f4
-      internalID: 1772427935
+      spriteID: 4f59b1bb91ac8fa42b72daf2cf6c50d1
+      internalID: 984775699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GetHit_2
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 32
+        width: 44
+        height: 44
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e421cf61c0bbd314eb1123f7a3573b98
+      internalID: -776953178
       vertices: []
       indices: 
       edges: []
@@ -198,7 +219,8 @@ TextureImporter:
     nameFileIdTable:
       GetHit_0: -430640542
       GetHit_1: 1913776104
-      GetHit_2: 1772427935
+      GetHit_2: -776953178
+      GetHit_3: 984775699
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
