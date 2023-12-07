@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Black Samurai.sln"
+    "dotnet.defaultSolution": "Black-Samurai.sln"
 }
