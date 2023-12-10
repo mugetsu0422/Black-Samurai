@@ -11,10 +11,10 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - Map
+  - Enemy
+  - Enemy_thought_map
+  - projectile
   - 
   - 
   - 
