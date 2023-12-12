@@ -25,18 +25,25 @@ public class otter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Mathf.Abs(horizontal)>0.1){
-            ani.SetFloat("X",horizontal);
+        horizontal = Input.GetAxis("Horizontal");
+
+        if(Input.GetKeyDown(KeyCode.Space)){
+            Jump();
         }
-        if (Mathf.Abs(horizontal)>0.2){
-            ani.SetBool("Sleep",false);
-            Vector2 position = transform.position;
-            position.x = position.x + speed * horizontal * Time.deltaTime;
-            transform.position = position;
+
+        if (Mathf.Abs(horizontal)>0.05){
+            ani.SetFloat("X",horizontal);
+            if (Mathf.Abs(horizontal)>0.2){
+                ani.SetBool("Sleep",false);
+                rgbd.velocity = new Vector2(horizontal*speed*100*Time.deltaTime,rgbd.velocity.y);
+            }
+            else{
+                rgbd.velocity = new Vector2(0,rgbd.velocity.y);
+            }
         }
         if (isjump){
-            Bounds boxbounds = gameObject.GetComponent<BoxCollider2D>().bounds;
-            RaycastHit2D hit = Physics2D.Raycast(boxbounds.center,Vector2.down,boxbounds.extents.y+0.5f,LayerMask.GetMask("Map"));
+            Bounds boxbounds = gameObject.GetComponent<CapsuleCollider2D>().bounds;
+            RaycastHit2D hit = Physics2D.Raycast(boxbounds.center,Vector2.down,boxbounds.extents.y+1.1f,LayerMask.GetMask("Map"));
             if (hit.collider!=null){
                     ani.SetTrigger("Land");
                     isjump = false;
@@ -44,11 +51,14 @@ public class otter : MonoBehaviour
             }
         }
         else{
-            Bounds boxbounds = gameObject.GetComponent<BoxCollider2D>().bounds;
-            RaycastHit2D hit = Physics2D.Raycast(boxbounds.center,Vector2.down,boxbounds.extents.y+0.1f,LayerMask.GetMask("Map"));
+            Bounds boxbounds = gameObject.GetComponent<CapsuleCollider2D>().bounds;
+            RaycastHit2D hit = Physics2D.Raycast(boxbounds.center,Vector2.down,boxbounds.extents.y+1.1f,LayerMask.GetMask("Map"));
             if (hit.collider==null){
                 isjump = true;
                 ani.SetTrigger("Jump");
+            }
+            else{
+                rgbd.velocity.Set(rgbd.velocity.x,0);
             }
         }
     }

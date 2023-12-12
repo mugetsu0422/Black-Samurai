@@ -27,9 +27,10 @@ public class wolf : MonoBehaviour
             ani.SetFloat("X",horizontal);
         }
         if (Mathf.Abs(horizontal)>=0.2){
-            Vector2 position = transform.position;
-            position.x = position.x + speed * horizontal * Time.deltaTime;
-            transform.position = position;
+            rgbd.velocity = new Vector2(horizontal*speed*100*Time.deltaTime,rgbd.velocity.y);
+        }
+        else{
+            rgbd.velocity = new Vector2(0,rgbd.velocity.y);
         }
         if (isjump){
             Bounds boxbounds = gameObject.GetComponent<BoxCollider2D>().bounds;
