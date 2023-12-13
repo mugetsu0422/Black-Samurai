@@ -8,4 +8,16 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Level/Scenes/teleport_test.unity
+    guid: 2f325cb22930d9e48a490588419340f7
+  - enabled: 1
+    path: Assets/Level/Scenes/VillageScene.unity
+    guid: 8acedbc0dc9fd164b9d3b6c39ea5adf4
+  - enabled: 1
+    path: Assets/Level/Scenes/ForestScene.unity
+    guid: ffbe4ef821c2efa4b8614b70e366e093
+  - enabled: 1
+    path: Assets/Level/Scenes/CavernScene.unity
+    guid: a6fb9cbb8c933334ea98b637ae3fae4d
   m_configObjects: {}
