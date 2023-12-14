@@ -91,6 +91,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mob: {fileID: 0}
-  are: {fileID: 4236047309609741046}
+  area: {fileID: 4236047309609741046}
   Max_mobs: 10
   reproductive_rate: 1
