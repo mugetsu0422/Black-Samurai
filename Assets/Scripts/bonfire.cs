@@ -24,6 +24,18 @@ public class bonfire : MonoBehaviour
 
     // Update is called once per frame
 
+    void FixedUpdate(){
+        if(!isActive){
+        RaycastHit2D hit = Physics2D.CircleCast(gameObject.transform.position,4f,Vector2.zero,LayerMask.GetMask("Player"));
+            if (hit.collider.tag == "Player"){
+                Active();
+                Save_Point.savePointData.data[gameObject.scene.name][location_name].isActive = true;
+                this.enabled = false;
+            }
+        }
+    }
+
+
     public void Active(){
         isActive = true;
         transform.GetChild(0).gameObject.SetActive(true);

@@ -49,7 +49,7 @@ public class UI_teleport : MonoBehaviour
 
         number_of_location = new Dictionary<string, int>();
         foreach (String i in scenes){
-            number_of_location.Add(i,Save_Point.savePointData.SavePoint(i).Count);
+            number_of_location.Add(i,Save_Point.savePointData.SavePoint(i,true).Count);
         }
 
         LoadScene_text();
@@ -115,7 +115,7 @@ public class UI_teleport : MonoBehaviour
 
 
             if (Input.GetKeyDown(KeyCode.Return)){
-                List<Save_Point.SavePoint> saves = Save_Point.savePointData.SavePoint(scenes[selected_scene]);
+                List<Save_Point.SavePoint> saves = Save_Point.savePointData.SavePoint(scenes[selected_scene],true);
                 StartCoroutine(GameObject.Find("navigator").GetComponent<navigator>().Teleport(scenes[selected_scene],saves[selected_location].location));
             }
         }
@@ -142,7 +142,7 @@ public class UI_teleport : MonoBehaviour
             for(int i = 0 ; i < 8; i ++){
                 location.transform.GetChild(i).gameObject.SetActive(false);
             }
-            List<Save_Point.SavePoint> saves = Save_Point.savePointData.SavePoint(scene);
+            List<Save_Point.SavePoint> saves = Save_Point.savePointData.SavePoint(scene,true);
             int min = Math.Min(8,saves.Count);
             for(int i = 0 ; i < min ;i++){
                 Transform child = location.transform.GetChild(i);
@@ -152,7 +152,7 @@ public class UI_teleport : MonoBehaviour
         }
         else if (load_Mode == load_mode.up){
             if (number_of_location[scene] < 8 || index > number_of_location[scene] - 8)  return;
-            List<Save_Point.SavePoint> saves = Save_Point.savePointData.SavePoint(scene);
+            List<Save_Point.SavePoint> saves = Save_Point.savePointData.SavePoint(scene,true);
             for(int i = index ; i < index + 8 ; i ++){
                 Transform child = location.transform.GetChild(i - index);
                 child.GetComponentInChildren<TextMeshProUGUI>().SetText(saves[i-index].name);
@@ -161,7 +161,7 @@ public class UI_teleport : MonoBehaviour
         }
         else if (load_Mode == load_mode.down){
             if (number_of_location[scene] < 8 || index < 8)  return;
-            List<Save_Point.SavePoint> saves = Save_Point.savePointData.SavePoint(scene);
+            List<Save_Point.SavePoint> saves = Save_Point.savePointData.SavePoint(scene,true);
             for(int i = index-8 ; i < index ; i++){
                 Transform child = location.transform.GetChild(i - (index - 8));
                 child.GetComponentInChildren<TextMeshProUGUI>().SetText(saves[index - 8].name);

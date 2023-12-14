@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class otter : MonoBehaviour
+public class Otter : MonoBehaviour
 {
     // Start is called before the first frame update
     public float speed;
@@ -15,22 +15,17 @@ public class otter : MonoBehaviour
     [Range(-1f, 1f)]
     public float horizontal = 0;
     
-    void Start()
+    void Awake()
     {
-        ani = gameObject.GetComponent<Animator>();
-        rgbd = gameObject.transform.GetComponent<Rigidbody2D>();
+        ani = transform.GetComponent<Animator>();
+        rgbd = transform.GetComponent<Rigidbody2D>();
         default_speed = speed;
+        horizontal = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        horizontal = Input.GetAxis("Horizontal");
-
-        if(Input.GetKeyDown(KeyCode.Space)){
-            Jump();
-        }
-
         if (Mathf.Abs(horizontal)>0.05){
             ani.SetFloat("X",horizontal);
             if (Mathf.Abs(horizontal)>0.2){
@@ -70,7 +65,8 @@ public class otter : MonoBehaviour
     public void Jump(){
         if( isjump == false){
             isjump = true;
-            rgbd.AddForce(Vector2.up*force);
+            Wake();
+            rgbd.velocity =  Vector2.up*force;
             ani.SetTrigger("Jump");
             speed*=2.5f;
         }
