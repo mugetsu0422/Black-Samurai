@@ -7,7 +7,7 @@ public class CharacterScript : MonoBehaviour
 {
     private Rigidbody2D rb2d;
     float horizontal;
-    float jump;
+    float vertical;
     Vector2 lookDirection = new Vector2(1,0);
     Animator animator;
     public int maxHealth = 3;
@@ -17,22 +17,18 @@ public class CharacterScript : MonoBehaviour
     bool isInvincible = false;
     float invincibleTimer;
 
-    [SerializeField]public float speed;
-    [SerializeField]public float jumpHeight = 5.0f;
-    bool isGrounded;
+    
     // Start is called before the first frame update
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         currentHealth = maxHealth;
-        isGrounded = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        animator.SetFloat("yVelocity", rb2d.velocity.y);
         if(currentHealth == 0){
             Dead();
         }
@@ -44,24 +40,14 @@ public class CharacterScript : MonoBehaviour
         }
 
         horizontal = Input.GetAxis("Horizontal");
-        jump = Input.GetAxis("Jump");
 
-        Vector2 move = new Vector2(horizontal, rb2d.velocity.y);
+        Vector2 move = new Vector2(horizontal, 0);
         if (Mathf.Abs(move.x) > 0.05f)
         {
             lookDirection.Set(move.x, 0);
             lookDirection.Normalize();
-            animator.SetFloat("xVelocity", move.x);
+            animator.SetFloat("Move", move.x);
         }
-
-        if(isGrounded && Input.GetButtonDown("Jump")){
-            rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
-            rb2d.AddForce(new Vector2(0, jumpHeight), ForceMode2D.Impulse);
-            animator.SetBool("Jump", true);
-            isGrounded = false;
-        }
-        Debug.Log(isGrounded);
-
         if(Input.GetKeyDown(KeyCode.Z)){
             Attack1();
         }
@@ -71,22 +57,17 @@ public class CharacterScript : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.C)){
             Attack3();
         }
+        if(Input.GetKeyDown(KeyCode.Space)){
+            Jump();
+        }
         
     }
 
     void FixedUpdate()
     {
-        rb2d.velocity = new Vector2(speed * horizontal, rb2d.velocity.y); 
-        Bounds boxbounds = gameObject.GetComponent<CapsuleCollider2D>().bounds;
-        RaycastHit2D hit = Physics2D.Raycast(boxbounds.center,Vector2.down,boxbounds.extents.y+1.1f,LayerMask.GetMask("Map"));
-        if (hit.collider!=null){
-            animator.SetBool("Jump", false);
-            isGrounded = true;
-        }
-        else{
-            animator.SetBool("Jump", true);
-            isGrounded = false;
-        }
+        Vector2 position = transform.position;
+        position.x += 2f*horizontal * Time.deltaTime;
+        rb2d.MovePosition(position);
     }
 
     void Attack1(){
@@ -99,6 +80,11 @@ public class CharacterScript : MonoBehaviour
 
     void Attack3(){
         animator.SetTrigger("Attack3");
+    }
+
+    void Jump(){
+        animator.SetTrigger("Jump");
+        rb2d.AddForce(Vector2.up * 2f);
     }
 
     void Dead(){
