@@ -13,6 +13,9 @@ GameObject:
   - component: {fileID: 5541123510963457422}
   - component: {fileID: 6619497896471478385}
   - component: {fileID: 1912278400469737328}
+  - component: {fileID: 4670452160756660258}
+  - component: {fileID: 3117451976749003337}
+  - component: {fileID: 9188983545397141189}
   m_Layer: 0
   m_Name: InfectedFungus
   m_TagString: Untagged
@@ -113,7 +116,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &6619497896471478385
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -180,3 +183,64 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4670452160756660258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1279267189418528207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ac00f7c2b40d5e4198f45a12fe03d68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2500
+  pauseTime: 1
+  distance: 15
+  chaseSpeed: 5000
+--- !u!114 &3117451976749003337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1279267189418528207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff9fb00a9a7130c4a8688fb1b4577031, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <PlayerDetected>k__BackingField: 0
+  detectorSize: {x: 24, y: 10}
+  detectorOriginOffset: {x: 12, y: 5}
+  detectionDelay: 0.3
+  detectorLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+  gizmoIdleColor: {r: 0, g: 1, b: 0, a: 0.2}
+  gizmoDetectedcolor: {r: 1, g: 0, b: 0, a: 0.2}
+  showGizmos: 1
+--- !u!114 &9188983545397141189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1279267189418528207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bcd1dd0b49530d4ca155322aa72ced7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  OnPlayerDetected:
+    m_PersistentCalls:
+      m_Calls: []
+  radius: 6
+  detectorOriginOffset: {x: 0, y: 4}
+  gizmoColor: {r: 1, g: 1, b: 0, a: 0.2}
+  showGizmos: 1
+  <PlayerDetected>k__BackingField: 0

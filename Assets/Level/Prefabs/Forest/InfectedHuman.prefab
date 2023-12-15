@@ -13,6 +13,9 @@ GameObject:
   - component: {fileID: 8538273196988725938}
   - component: {fileID: 658356603088505105}
   - component: {fileID: 3905659622555736916}
+  - component: {fileID: 6498027255590376694}
+  - component: {fileID: 39105741414775546}
+  - component: {fileID: 1808928094615588990}
   m_Layer: 0
   m_Name: InfectedHuman
   m_TagString: Untagged
@@ -123,7 +126,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
-    oldSize: {x: 2.0625, y: 2.25}
+    oldSize: {x: 2.0625, y: 2.1875}
     newSize: {x: 2.0625, y: 2.25}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -147,7 +150,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -180,3 +183,64 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6498027255590376694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1317875420525742070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0b257d4c408de34094e4e45c89617db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2500
+  pauseTime: 1
+  distance: 9
+  chaseSpeed: 5000
+--- !u!114 &39105741414775546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1317875420525742070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff9fb00a9a7130c4a8688fb1b4577031, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <PlayerDetected>k__BackingField: 0
+  detectorSize: {x: 20, y: 10}
+  detectorOriginOffset: {x: 10, y: 5}
+  detectionDelay: 0.3
+  detectorLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+  gizmoIdleColor: {r: 0, g: 1, b: 0, a: 0.19607843}
+  gizmoDetectedcolor: {r: 1, g: 0, b: 0, a: 0.19607843}
+  showGizmos: 1
+--- !u!114 &1808928094615588990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1317875420525742070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bcd1dd0b49530d4ca155322aa72ced7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  OnPlayerDetected:
+    m_PersistentCalls:
+      m_Calls: []
+  radius: 6
+  detectorOriginOffset: {x: 0, y: 3}
+  gizmoColor: {r: 1, g: 1, b: 0, a: 0.2}
+  showGizmos: 1
+  <PlayerDetected>k__BackingField: 0
