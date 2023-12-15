@@ -8,7 +8,7 @@ public class AIPlayerDetector : MonoBehaviour
     public bool PlayerDetected { get; private set; }
     public Vector2 DirectionToTarget => (target.transform.position - transform.position).normalized;
 
-    [Header("Overlapbox parameters")]
+    [Header("OverlapBox parameters")]
     [SerializeField] Vector2 detectorSize = Vector2.one;
     [SerializeField] Vector2 detectorOriginOffset = Vector2.zero;
 

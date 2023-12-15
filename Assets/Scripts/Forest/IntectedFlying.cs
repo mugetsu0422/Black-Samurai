@@ -4,21 +4,21 @@ using UnityEngine;
 
 public class InfectedFlying : MonoBehaviour
 {
+    [SerializeField] float direction = 1f;
     [SerializeField] float speed = 10f;
     [SerializeField] float pauseTime = 1f;
-    [SerializeField] float distance = 3f;
 
     [Header("Chase player parameters")]
     [SerializeField] float chaseSpeed = 20f;
 
 
     Rigidbody2D rb2D;
-    int direction = 1;
     Vector2 initialPosition;
     bool isInitialPosition = true;
 
     Animator animator;
     AIPlayerDetector playerDetector;
+    AIMeleeAttackDetector attackDetector;
 
     // Start is called before the first frame update
     void Start()
@@ -26,11 +26,23 @@ public class InfectedFlying : MonoBehaviour
         rb2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         playerDetector = GetComponentInParent<AIPlayerDetector>();
+        attackDetector = GetComponent<AIMeleeAttackDetector>();
         initialPosition = transform.position;
+        animator.SetFloat("LookX", direction);
+
+        if (attackDetector != null)
+        {
+            attackDetector.OnPlayerDetected.AddListener(AttackPlayer);
+        }
     }
 
     // Update is called once per frame
     void Update()
+    {
+
+    }
+
+    private void FixedUpdate()
     {
         if (playerDetector && playerDetector.PlayerDetected)
         {
@@ -38,47 +50,21 @@ public class InfectedFlying : MonoBehaviour
             {
                 isInitialPosition = false;
             }
-            rb2D.velocity = Time.deltaTime * chaseSpeed * playerDetector.DirectionToTarget;
+            rb2D.position = Vector2.MoveTowards(rb2D.position, playerDetector.Target.transform.position, Time.deltaTime * chaseSpeed);
             animator.SetFloat("LookX", playerDetector.DirectionToTarget.x);
         }
         else
         {
-            if (isInitialPosition)
-            {
-                rb2D.velocity = new Vector2(Time.deltaTime * speed * direction, 0);
-                if (rb2D.position.x > initialPosition.x + distance)
-                {
-                    direction = -1;
-                }
-                else if (rb2D.position.x < initialPosition.x - distance)
-                {
-                    direction = 1;
-                }
-                animator.SetFloat("LookX", direction);
-            }
-            else
-            {
-                Debug.Log(rb2D.position);
-                Debug.Log(initialPosition);
-                if (rb2D.position == initialPosition)
-                {
-                    isInitialPosition = true;
-                    return;
-                }
-                Vector2 backDirection = (initialPosition - rb2D.position).normalized;
-                rb2D.velocity = Time.deltaTime * speed * backDirection;
-                // transform.position = Vector2.MoveTowards(transform.position, initialPosition, Time.deltaTime * speed);
-                // rb2D.MovePosition(initialPosition * Time.deltaTime * speed);
-                animator.SetFloat("LookX", backDirection.x);
-            }
-
+            rb2D.position = Vector2.MoveTowards(rb2D.position, initialPosition, Time.deltaTime * speed);
+            animator.SetFloat("LookX", direction);
         }
-
-
     }
 
-    private void FixedUpdate()
+    private void AttackPlayer(GameObject player)
     {
-
+        // Perform the attack logic here.
+        // For this example, let's assume the enemy inflicts 10 damage to the player.
+        // player.GetComponent<PlayerHealth>()?.TakeDamage(10);
+        animator.SetTrigger("Attack");
     }
 }

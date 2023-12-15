@@ -13,7 +13,7 @@ public class InfectedFungus : MonoBehaviour
 
 
     Rigidbody2D rb2D;
-    int direction = 1;
+    float direction = 1;
     Vector2 initialPosition;
     float pauseTimer;
     bool isPaused = false;
@@ -45,11 +45,11 @@ public class InfectedFungus : MonoBehaviour
         if (playerDetector && playerDetector.PlayerDetected)
         {
             // transform.position = Vector2.MoveTowards(transform.position, playerDetector.Target.transform.position, chaseSpeed * Time.deltaTime);
-            rb2D.velocity = new Vector2(Time.deltaTime * chaseSpeed * direction, 0);
+            rb2D.velocity = new Vector2(chaseSpeed * direction, 0);
         }
         else
         {
-            rb2D.velocity = new Vector2(Time.deltaTime * speed * direction, 0);
+            rb2D.velocity = new Vector2(speed * direction, 0);
             if (rb2D.position.x > initialPosition.x + distance)
             {
                 direction = -1;

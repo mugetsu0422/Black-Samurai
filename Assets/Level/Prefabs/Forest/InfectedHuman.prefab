@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6498027255590376694}
   - component: {fileID: 39105741414775546}
   - component: {fileID: 1808928094615588990}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: InfectedHuman
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -160,7 +160,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!95 &3905659622555736916
 Animator:
@@ -195,10 +195,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0b257d4c408de34094e4e45c89617db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2500
+  speed: 10
   pauseTime: 1
   distance: 9
-  chaseSpeed: 5000
+  chaseSpeed: 20
 --- !u!114 &39105741414775546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,8 +239,9 @@ MonoBehaviour:
   OnPlayerDetected:
     m_PersistentCalls:
       m_Calls: []
-  radius: 6
-  detectorOriginOffset: {x: 0, y: 3}
+  radius: 5
+  detectorOriginOffset: {x: 3, y: 3}
+  detectionCooldown: 1
   gizmoColor: {r: 1, g: 1, b: 0, a: 0.2}
   showGizmos: 1
   <PlayerDetected>k__BackingField: 0
