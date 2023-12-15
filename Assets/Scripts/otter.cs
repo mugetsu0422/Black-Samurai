@@ -11,6 +11,7 @@ public class Otter : MonoBehaviour
     private Rigidbody2D rgbd;
     private bool isjump = false;
     private float default_speed;
+    private Vector3 old_pos;
     
     [Range(-1f, 1f)]
     public float horizontal = 0;
@@ -40,6 +41,7 @@ public class Otter : MonoBehaviour
             Bounds boxbounds = gameObject.GetComponent<CapsuleCollider2D>().bounds;
             RaycastHit2D hit = Physics2D.Raycast(boxbounds.center,Vector2.down,boxbounds.extents.y+1.1f,LayerMask.GetMask("Map"));
             if (hit.collider!=null){
+                    ani.ResetTrigger("Land");
                     ani.SetTrigger("Land");
                     isjump = false;
                     speed=default_speed;
@@ -50,6 +52,7 @@ public class Otter : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(boxbounds.center,Vector2.down,boxbounds.extents.y+1.1f,LayerMask.GetMask("Map"));
             if (hit.collider==null){
                 isjump = true;
+                ani.ResetTrigger("Jump");
                 ani.SetTrigger("Jump");
             }
             else{
@@ -59,7 +62,11 @@ public class Otter : MonoBehaviour
     }
 
     public void setMove(float _horizontal){
-        horizontal = _horizontal;
+        if (Mathf.Abs(_horizontal)<=0.05){
+            horizontal = _horizontal < 0 ? -0.1f :0.1f;
+        }
+        else
+            horizontal = _horizontal;
     }
 
     public void Jump(){
@@ -73,6 +80,7 @@ public class Otter : MonoBehaviour
     }
 
     public void Sleep(){
+        horizontal = 0;
         ani.SetBool("Sleep",true);
     }
 

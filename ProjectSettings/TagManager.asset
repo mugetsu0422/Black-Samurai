@@ -6,6 +6,7 @@ TagManager:
   tags:
   - savepoint
   - Teleport_canvas
+  - Map
   layers:
   - Default
   - TransparentFX
