@@ -58,9 +58,12 @@ public static class Save_Point
                 return null;
             }
         }
-        public List<SavePoint> SavePoint(string scene){
+        public List<SavePoint> SavePoint(string scene,bool activeOnly = false){
             try{
-                return data[scene].Values.ToList();
+                if (activeOnly)
+                    return data[scene].Values.ToList().FindAll(e => e.isActive == true);
+                else
+                    return data[scene].Values.ToList();
             }
             catch(Exception){
                 return null;

@@ -24,8 +24,7 @@ public class navigator : MonoBehaviour
 
     void Update(){
         if (Input.GetKeyDown(KeyCode.T)){
-            
-            teleport_canvas.SetActive(!teleport_canvas.active);
+            teleport_canvas.SetActive(!teleport_canvas.activeSelf);
         }
     }
 
@@ -44,7 +43,7 @@ public class navigator : MonoBehaviour
             SceneManager.MoveGameObjectToScene(gameObject, loadScene);
             SceneManager.MoveGameObjectToScene(teleport_canvas, loadScene);
             try{
-                SceneManager.UnloadScene(old_scene);
+                SceneManager.UnloadSceneAsync(old_scene);
             }
             catch(Exception){}
         }
