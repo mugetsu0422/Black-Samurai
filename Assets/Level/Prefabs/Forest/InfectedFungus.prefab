@@ -195,10 +195,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ac00f7c2b40d5e4198f45a12fe03d68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hp: 25
+  atk: 1
   speed: 10
   pauseTime: 1
   distance: 15
   chaseSpeed: 20
+  attackTime: 1
+  attackSize: {x: 6, y: 9}
+  attackOriginOffset: {x: 3, y: 4}
+  attackLayerMask:
+    serializedVersion: 2
+    m_Bits: 1024
+  showGizmos: 1
 --- !u!114 &3117451976749003337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,10 +226,10 @@ MonoBehaviour:
   detectionDelay: 0.3
   detectorLayerMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 1024
   gizmoIdleColor: {r: 0, g: 1, b: 0, a: 0.2}
   gizmoDetectedcolor: {r: 1, g: 0, b: 0, a: 0.2}
-  showGizmos: 1
+  showGizmos: 0
 --- !u!114 &9188983545397141189
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -235,7 +244,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetLayer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 1024
   OnPlayerDetected:
     m_PersistentCalls:
       m_Calls: []

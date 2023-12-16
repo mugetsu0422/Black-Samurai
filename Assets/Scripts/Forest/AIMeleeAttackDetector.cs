@@ -15,7 +15,7 @@ public class AIMeleeAttackDetector : MonoBehaviour
     [SerializeField] Vector2 detectorOriginOffset = Vector2.zero;
 
     [Header("Cooldown parameters")]
-    [SerializeField] float detectionCooldown = 1f;
+    [SerializeField] float detectionCooldown = 2f;
     private float cooldownTimer;
 
     [Header("Gizmo parameters")]

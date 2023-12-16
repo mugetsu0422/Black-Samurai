@@ -17,6 +17,9 @@ public class CharacterScript : MonoBehaviour
     bool isInvincible = false;
     float invincibleTimer;
 
+    [SerializeField] float speed = 100f;
+    [SerializeField] float jumpForce = 500f;
+
     
     // Start is called before the first frame update
     void Start()
@@ -66,7 +69,7 @@ public class CharacterScript : MonoBehaviour
     void FixedUpdate()
     {
         Vector2 position = transform.position;
-        position.x += 2f*horizontal * Time.deltaTime;
+        position.x += speed *horizontal * Time.deltaTime;
         rb2d.MovePosition(position);
     }
 
@@ -84,7 +87,7 @@ public class CharacterScript : MonoBehaviour
 
     void Jump(){
         animator.SetTrigger("Jump");
-        rb2d.AddForce(Vector2.up * 2f);
+        rb2d.AddForce(Vector2.up * jumpForce);
     }
 
     void Dead(){
