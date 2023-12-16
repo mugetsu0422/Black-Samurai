@@ -14,7 +14,7 @@ public class InfectedFungus : MonoBehaviour
 
     [Header("Attack parameters")]
     [SerializeField] int atk = 1;
-    [SerializeField] float attackTime = 1f;
+    [SerializeField] float attackIntervalTime = 1.5f;
     [SerializeField] Vector2 attackSize = Vector2.one;
     [SerializeField] Vector2 attackOriginOffset = Vector2.zero;
     [SerializeField] LayerMask attackLayerMask;
@@ -24,8 +24,6 @@ public class InfectedFungus : MonoBehaviour
     Rigidbody2D rb2D;
     float direction = 1;
     Vector2 initialPosition;
-    float pauseTimer;
-    bool isPaused = false;
 
     Animator animator;
     AIPlayerDetector playerDetector;
@@ -39,7 +37,6 @@ public class InfectedFungus : MonoBehaviour
         playerDetector = GetComponent<AIPlayerDetector>();
         attackDetector = GetComponent<AIMeleeAttackDetector>();
         initialPosition = rb2D.position;
-        animator.SetBool("Run", true);
 
         if (attackDetector != null)
         {
@@ -54,7 +51,12 @@ public class InfectedFungus : MonoBehaviour
         {
             rb2D.velocity = new Vector2(0, rb2D.position.y);
             attackTimer -= Time.deltaTime;
+            animator.SetBool("Run", false);
             return;
+        }
+        else
+        {
+            animator.SetBool("Run", true);
         }
         if (playerDetector && playerDetector.PlayerDetected)
         {
@@ -85,9 +87,13 @@ public class InfectedFungus : MonoBehaviour
 
     private void AttackPlayer(GameObject player)
     {
+        if (attackTimer > 0)
+        {
+            return;
+        }
         // Perform the attack logic here.
         animator.SetTrigger("Attack");
-        attackTimer = attackTime;
+        attackTimer = attackIntervalTime;
     }
 
     // Call in animation event
