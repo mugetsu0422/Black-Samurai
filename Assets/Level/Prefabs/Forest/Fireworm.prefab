@@ -196,7 +196,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   direction: 1
   projectilePrefab: {fileID: 3742973803233758581, guid: 2edfb78655002cc4fa29d17082e21fdb, type: 3}
-  projectileForce: 600
+  projectileForce: 1000
+  attackAnimationDelay: 0.875
 --- !u!114 &446088381361119451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -218,7 +219,7 @@ MonoBehaviour:
   detectorLayerMask:
     serializedVersion: 2
     m_Bits: 8
-  detectionCooldown: 1
+  detectionCooldown: 3
   gizmoIdleColor: {r: 0, g: 1, b: 0, a: 0.2}
   gizmoDetectedcolor: {r: 1, g: 0, b: 0, a: 0.2}
   showGizmos: 1

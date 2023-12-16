@@ -13,6 +13,7 @@ public class Fireworm : MonoBehaviour
     [Header("Projectile")]
     [SerializeField] GameObject projectilePrefab;
     [SerializeField] float projectileForce = 600f;
+    [SerializeField] float attackAnimationDelay = 0.875f;
 
     // Start is called before the first frame update
     void Start()
@@ -42,19 +43,15 @@ public class Fireworm : MonoBehaviour
 
     private void AttackPlayer(GameObject player)
     {
-        // Perform the attack logic here.
-        // For this example, let's assume the enemy inflicts 10 damage to the player.
-        // player.GetComponent<PlayerHealth>()?.TakeDamage(10);
-        Attack();
+
+        animator.SetTrigger("Attack");
     }
 
     void Attack()
     {
-        GameObject projectileObject = Instantiate(projectilePrefab, rb2D.position + Vector2.up * 3f, Quaternion.identity);
-
+        GameObject projectileObject = Instantiate(projectilePrefab, rb2D.position + new Vector2(6f * direction, 3.5f), Quaternion.identity);
         FirewomFireBall projectile = projectileObject.GetComponent<FirewomFireBall>();
         projectile.Launch(new Vector2(direction, 0), projectileForce);
 
-        animator.SetTrigger("Attack");
     }
 }

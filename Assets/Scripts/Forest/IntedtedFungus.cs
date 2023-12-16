@@ -45,11 +45,11 @@ public class InfectedFungus : MonoBehaviour
         if (playerDetector && playerDetector.PlayerDetected)
         {
             // transform.position = Vector2.MoveTowards(transform.position, playerDetector.Target.transform.position, chaseSpeed * Time.deltaTime);
-            rb2D.velocity = new Vector2(chaseSpeed * direction, 0);
+            rb2D.velocity = new Vector2(chaseSpeed * direction, rb2D.position.y);
         }
         else
         {
-            rb2D.velocity = new Vector2(speed * direction, 0);
+            rb2D.velocity = new Vector2(speed * direction, rb2D.position.y);
             if (rb2D.position.x > initialPosition.x + distance)
             {
                 direction = -1;

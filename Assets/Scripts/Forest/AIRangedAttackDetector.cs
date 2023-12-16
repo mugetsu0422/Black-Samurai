@@ -16,7 +16,7 @@ public class AIRangedAttackDetector : MonoBehaviour
     [SerializeField] LayerMask detectorLayerMask;
 
     [Header("Cooldown parameters")]
-    [SerializeField] float detectionCooldown = 1f;
+    [SerializeField] float detectionCooldown = 3f;
     private float cooldownTimer;
 
     [Header("Gizmo parameters")]

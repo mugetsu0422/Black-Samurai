@@ -5,9 +5,11 @@ using UnityEngine;
 public class FirewomFireBall : MonoBehaviour
 {
     Rigidbody2D rb2D;
+    Animator animator;
     void Awake()
     {
         rb2D = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -21,12 +23,23 @@ public class FirewomFireBall : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        Debug.Log("Projectile Collision with " + other.gameObject);
+        if (other.collider.CompareTag("Player"))
+        {
+            // Change Health here
+        }
+        animator.SetTrigger("Explode");
+        StartCoroutine(DestroyAfterDelay(1f));
+    }
+
+    IEnumerator DestroyAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
         Destroy(gameObject);
     }
 
     public void Launch(Vector2 direction, float force)
     {
+        animator.SetFloat("LookX", direction.x);
         rb2D.AddForce(direction * force);
     }
 }
