@@ -202,7 +202,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 10
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -228,6 +228,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   timeInvincible: 1.5
+  speed: 40
+  jumpHeight: 50
+  ATK: 0
 --- !u!70 &3788585883854233059
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
