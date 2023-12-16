@@ -6,7 +6,6 @@ public class InfectedFlying : MonoBehaviour
 {
     [Header("Movement parameters")]
     [SerializeField] int hp = 20;
-    [SerializeField] int atk = 1;
 
     [Header("Movement parameters")]
     [SerializeField] float direction = 1f;
@@ -15,6 +14,7 @@ public class InfectedFlying : MonoBehaviour
     [SerializeField] float chaseSpeed = 20f;
 
     [Header("Attack parameters")]
+    [SerializeField] int atk = 1;
     [SerializeField] float attackTime = 1f;
     [SerializeField] Vector2 attackSize = Vector2.one;
     [SerializeField] Vector2 attackOriginOffset = Vector2.zero;

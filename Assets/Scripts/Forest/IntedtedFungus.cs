@@ -6,15 +6,14 @@ public class InfectedFungus : MonoBehaviour
 {
     [Header("Movement parameters")]
     [SerializeField] int hp = 25;
-    [SerializeField] int atk = 1;
 
     [Header("Movement parameters")]
     [SerializeField] float speed = 10f;
-    [SerializeField] float pauseTime = 1f;
     [SerializeField] float distance = 3f;
     [SerializeField] float chaseSpeed = 20f;
 
     [Header("Attack parameters")]
+    [SerializeField] int atk = 1;
     [SerializeField] float attackTime = 1f;
     [SerializeField] Vector2 attackSize = Vector2.one;
     [SerializeField] Vector2 attackOriginOffset = Vector2.zero;
@@ -41,7 +40,6 @@ public class InfectedFungus : MonoBehaviour
         attackDetector = GetComponent<AIMeleeAttackDetector>();
         initialPosition = rb2D.position;
         animator.SetBool("Run", true);
-        pauseTimer = pauseTime;
 
         if (attackDetector != null)
         {
