@@ -13,7 +13,9 @@ GameObject:
   - component: {fileID: 113709169158032471}
   - component: {fileID: 7977798634476597060}
   - component: {fileID: 2292422872260631021}
-  m_Layer: 0
+  - component: {fileID: 2599458950076228015}
+  - component: {fileID: 446088381361119451}
+  m_Layer: 7
   m_Name: Fireworm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -157,8 +159,8 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  m_CollisionDetection: 1
+  m_Constraints: 4
 --- !u!95 &2292422872260631021
 Animator:
   serializedVersion: 5
@@ -180,3 +182,44 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2599458950076228015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3524997093660388280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf095109698b18847b883e1f2c15fbb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  direction: 1
+  projectilePrefab: {fileID: 3742973803233758581, guid: 2edfb78655002cc4fa29d17082e21fdb, type: 3}
+  projectileForce: 1000
+  attackAnimationDelay: 0.875
+--- !u!114 &446088381361119451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3524997093660388280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d23ac9ea5b58f94a984145988e401fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnPlayerDetected:
+    m_PersistentCalls:
+      m_Calls: []
+  <PlayerDetected>k__BackingField: 0
+  detectorSize: {x: 50, y: 9}
+  detectorOriginOffset: {x: 25, y: 3.5}
+  detectorLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+  detectionCooldown: 3
+  gizmoIdleColor: {r: 0, g: 1, b: 0, a: 0.2}
+  gizmoDetectedcolor: {r: 1, g: 0, b: 0, a: 0.2}
+  showGizmos: 1
