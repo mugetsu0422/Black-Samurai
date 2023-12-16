@@ -12,7 +12,7 @@ using UnityEngine;
 public static class Save_Point
 {
     static string file_path = "data/bonfire.json";
-    public static SavePointData savePointData;
+    public static SavePointData savePointData = new SavePointData();
 
     [Serializable]
     public class SavePoint{
