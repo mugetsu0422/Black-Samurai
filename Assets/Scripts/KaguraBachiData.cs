@@ -10,7 +10,7 @@ public static class KaguraBachiData
     private static readonly int[] atk = { 5, 10, 15 };
     private static readonly int[] kiRegeneratePerHit = { 5, 7, 10 };
     private static readonly int maxWeaponLevel = 3;
-    private static int currentWeaponLevel = 1;
+    private static int weaponLevel = 1;
     private static int parasiteEssence = 0;
     private static int pureParasiteHeart = 0;
 
@@ -35,16 +35,16 @@ public static class KaguraBachiData
     }
     public static int Atk
     {
-        get { return atk[currentWeaponLevel - 1]; }
+        get { return atk[weaponLevel - 1]; }
     }
     public static int KiRegeneratePerHit
     {
-        get { return kiRegeneratePerHit[currentWeaponLevel - 1]; }
+        get { return kiRegeneratePerHit[weaponLevel - 1]; }
     }
     public static int CurrentWeaponLevel
     {
-        get { return currentWeaponLevel; }
-        set { currentWeaponLevel = Mathf.Clamp(value, 1, maxWeaponLevel); }
+        get { return weaponLevel; }
+        set { weaponLevel = Mathf.Clamp(value, 1, maxWeaponLevel); }
     }
     public static int ParasiteEssence
     {
