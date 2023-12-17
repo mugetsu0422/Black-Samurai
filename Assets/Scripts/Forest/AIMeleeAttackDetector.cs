@@ -15,8 +15,6 @@ public class AIMeleeAttackDetector : MonoBehaviour
     [SerializeField] Vector2 detectorOriginOffset = Vector2.zero;
 
     [Header("Cooldown parameters")]
-    [SerializeField] float detectionCooldown = 1f;
-    private float cooldownTimer;
 
     [Header("Gizmo parameters")]
     [SerializeField] Color gizmoColor = new Color(1f, 1f, 0f, 0.2f); // Purple
@@ -28,19 +26,11 @@ public class AIMeleeAttackDetector : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (cooldownTimer > 0)
+        var collider = Physics2D.OverlapCircle((Vector2)transform.position + detectorOriginOffset, radius, targetLayer);
+        PlayerDetected = collider != null;
+        if (PlayerDetected)
         {
-            cooldownTimer -= Time.deltaTime;
-        }
-        else
-        {
-            var collider = Physics2D.OverlapCircle((Vector2)transform.position + detectorOriginOffset, radius, targetLayer);
-            PlayerDetected = collider != null;
-            if (PlayerDetected)
-            {
-                OnPlayerDetected?.Invoke(collider.gameObject);
-                cooldownTimer = detectionCooldown;
-            }
+            OnPlayerDetected?.Invoke(collider.gameObject);
         }
     }
 

@@ -4,12 +4,23 @@ using UnityEngine;
 
 public class InfectedFlying : MonoBehaviour
 {
+    [Header("Movement parameters")]
+    [SerializeField] int hp = 20;
+
+    [Header("Movement parameters")]
     [SerializeField] float direction = 1f;
     [SerializeField] float speed = 10f;
     [SerializeField] float pauseTime = 1f;
-
-    [Header("Chase player parameters")]
     [SerializeField] float chaseSpeed = 20f;
+
+    [Header("Attack parameters")]
+    [SerializeField] int atk = 1;
+    [SerializeField] float attackTime = 1f;
+    [SerializeField] Vector2 attackSize = Vector2.one;
+    [SerializeField] Vector2 attackOriginOffset = Vector2.zero;
+    [SerializeField] LayerMask attackLayerMask;
+    [SerializeField] bool showGizmos = true;
+    float attackTimer;
 
 
     Rigidbody2D rb2D;
@@ -44,6 +55,12 @@ public class InfectedFlying : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (attackTimer > 0)
+        {
+            rb2D.velocity = Vector2.zero;
+            attackTimer -= Time.deltaTime;
+            return;
+        }
         if (playerDetector && playerDetector.PlayerDetected)
         {
             if (isInitialPosition)
@@ -63,8 +80,26 @@ public class InfectedFlying : MonoBehaviour
     private void AttackPlayer(GameObject player)
     {
         // Perform the attack logic here.
-        // For this example, let's assume the enemy inflicts 10 damage to the player.
-        // player.GetComponent<PlayerHealth>()?.TakeDamage(10);
         animator.SetTrigger("Attack");
+        attackTimer = attackTime;
+    }
+
+    // Call in animation event
+    void DealDamage()
+    {
+        Collider2D player = Physics2D.OverlapBox(rb2D.position + attackOriginOffset, attackSize, 0, attackLayerMask);
+        if (player)
+        {
+            player.GetComponent<CharacterScript>().changeHealth(-atk);
+        }
+    }
+
+    void OnDrawGizmos()
+    {
+        if (showGizmos)
+        {
+            Gizmos.color = new Color(0, 1f, 1f, 50f / 255f);
+            Gizmos.DrawCube((Vector2)transform.position + attackOriginOffset, attackSize);
+        }
     }
 }

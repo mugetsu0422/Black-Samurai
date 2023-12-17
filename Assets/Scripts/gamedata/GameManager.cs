@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
         data.pureParasiteHeart = KaguraBachiData.PureParasiteHeart;
         data.health = KaguraBachiData.Health;
         data.ki = KaguraBachiData.Ki;
-        data.weaponLevel = KaguraBachiData.CurrentWeaponLevel;
+        data.weaponLevel = KaguraBachiData.WeaponLevel;
         data.parasiteEssence = KaguraBachiData.ParasiteEssence;
 
         data.Save();
@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour
         KaguraBachiData.PureParasiteHeart = data.pureParasiteHeart;
         KaguraBachiData.Health = data.health;
         KaguraBachiData.Ki = data.ki;
-        KaguraBachiData.CurrentWeaponLevel = data.weaponLevel;
+        KaguraBachiData.WeaponLevel = data.weaponLevel;
         KaguraBachiData.ParasiteEssence = data.parasiteEssence;
 
         return (data.scene,data.position);

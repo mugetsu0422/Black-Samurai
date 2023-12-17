@@ -61,7 +61,6 @@ public class CharacterScript : MonoBehaviour
             animator.SetBool("Jump", true);
             isGrounded = false;
         }
-        Debug.Log(isGrounded);
 
         if(Input.GetKeyDown(KeyCode.Z)){
             Attack1();

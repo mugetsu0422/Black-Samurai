@@ -4,19 +4,26 @@ using UnityEngine;
 
 public class InfectedFungus : MonoBehaviour
 {
-    [SerializeField] float speed = 10f;
-    [SerializeField] float pauseTime = 1f;
-    [SerializeField] float distance = 3f;
+    [Header("Movement parameters")]
+    [SerializeField] int hp = 25;
 
-    [Header("Chase player parameters")]
+    [Header("Movement parameters")]
+    [SerializeField] float speed = 10f;
+    [SerializeField] float distance = 3f;
     [SerializeField] float chaseSpeed = 20f;
 
+    [Header("Attack parameters")]
+    [SerializeField] int atk = 1;
+    [SerializeField] float attackIntervalTime = 1.5f;
+    [SerializeField] Vector2 attackSize = Vector2.one;
+    [SerializeField] Vector2 attackOriginOffset = Vector2.zero;
+    [SerializeField] LayerMask attackLayerMask;
+    [SerializeField] bool showGizmos = true;
+    float attackTimer;
 
     Rigidbody2D rb2D;
     float direction = 1;
     Vector2 initialPosition;
-    float pauseTimer;
-    bool isPaused = false;
 
     Animator animator;
     AIPlayerDetector playerDetector;
@@ -30,8 +37,6 @@ public class InfectedFungus : MonoBehaviour
         playerDetector = GetComponent<AIPlayerDetector>();
         attackDetector = GetComponent<AIMeleeAttackDetector>();
         initialPosition = rb2D.position;
-        animator.SetBool("Run", true);
-        pauseTimer = pauseTime;
 
         if (attackDetector != null)
         {
@@ -42,9 +47,19 @@ public class InfectedFungus : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (attackTimer > 0)
+        {
+            rb2D.velocity = new Vector2(0, rb2D.position.y);
+            attackTimer -= Time.deltaTime;
+            animator.SetBool("Run", false);
+            return;
+        }
+        else
+        {
+            animator.SetBool("Run", true);
+        }
         if (playerDetector && playerDetector.PlayerDetected)
         {
-            // transform.position = Vector2.MoveTowards(transform.position, playerDetector.Target.transform.position, chaseSpeed * Time.deltaTime);
             rb2D.velocity = new Vector2(chaseSpeed * direction, rb2D.position.y);
         }
         else
@@ -69,12 +84,35 @@ public class InfectedFungus : MonoBehaviour
 
     }
 
-    
+
     private void AttackPlayer(GameObject player)
     {
+        if (attackTimer > 0)
+        {
+            return;
+        }
         // Perform the attack logic here.
-        // For this example, let's assume the enemy inflicts 10 damage to the player.
-        // player.GetComponent<PlayerHealth>()?.TakeDamage(10);
         animator.SetTrigger("Attack");
+        attackTimer = attackIntervalTime;
+    }
+
+    // Call in animation event
+    void DealDamage()
+    {
+        Collider2D player = Physics2D.OverlapBox(rb2D.position + attackOriginOffset, attackSize, 0, attackLayerMask);
+        if (player)
+        {
+            player.GetComponent<CharacterScript>().changeHealth(-atk);
+        }
+
+    }
+
+    void OnDrawGizmos()
+    {
+        if (showGizmos)
+        {
+            Gizmos.color = new Color(0, 1f, 1f, 50f / 255f);
+            Gizmos.DrawCube((Vector2)transform.position + attackOriginOffset, attackSize);
+        }
     }
 }

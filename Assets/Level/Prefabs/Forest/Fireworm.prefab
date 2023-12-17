@@ -218,7 +218,7 @@ MonoBehaviour:
   detectorOriginOffset: {x: 25, y: 3.5}
   detectorLayerMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 1024
   detectionCooldown: 3
   gizmoIdleColor: {r: 0, g: 1, b: 0, a: 0.2}
   gizmoDetectedcolor: {r: 1, g: 0, b: 0, a: 0.2}

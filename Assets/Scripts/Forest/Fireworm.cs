@@ -7,13 +7,16 @@ public class Fireworm : MonoBehaviour
     Rigidbody2D rb2D;
     [SerializeField] float direction = 1;
 
-    Animator animator;
-    AIRangedAttackDetector attackDetector;
+    [Header("Attack parameters")]
+    [SerializeField] int atk = 1;
 
     [Header("Projectile")]
     [SerializeField] GameObject projectilePrefab;
     [SerializeField] float projectileForce = 600f;
     [SerializeField] float attackAnimationDelay = 0.875f;
+
+    Animator animator;
+    AIRangedAttackDetector attackDetector;
 
     // Start is called before the first frame update
     void Start()
@@ -52,6 +55,10 @@ public class Fireworm : MonoBehaviour
         GameObject projectileObject = Instantiate(projectilePrefab, rb2D.position + new Vector2(6f * direction, 3.5f), Quaternion.identity);
         FirewomFireBall projectile = projectileObject.GetComponent<FirewomFireBall>();
         projectile.Launch(new Vector2(direction, 0), projectileForce);
+    }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log(other.name);
     }
 }

@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class FirewomFireBall : MonoBehaviour
 {
+    [Header("Attack parameters")]
+    [SerializeField] int atk = 1;
+
     Rigidbody2D rb2D;
     Animator animator;
     void Awake()
@@ -26,6 +29,7 @@ public class FirewomFireBall : MonoBehaviour
         if (other.collider.CompareTag("Player"))
         {
             // Change Health here
+            other.collider.GetComponent<CharacterScript>().changeHealth(-atk);
         }
         animator.SetTrigger("Explode");
         StartCoroutine(DestroyAfterDelay(1f));
