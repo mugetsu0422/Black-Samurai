@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Fireworm : MonoBehaviour
 {
+    [Header("Health parameters")]
+    [SerializeField] int hp = 53;
     Rigidbody2D rb2D;
     [SerializeField] float direction = 1;
 

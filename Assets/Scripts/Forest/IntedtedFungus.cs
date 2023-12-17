@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InfectedFungus : MonoBehaviour
 {
-    [Header("Movement parameters")]
+    [Header("Health parameters")]
     [SerializeField] int hp = 25;
 
     [Header("Movement parameters")]
@@ -49,7 +49,7 @@ public class InfectedFungus : MonoBehaviour
     {
         if (attackTimer > 0)
         {
-            rb2D.velocity = new Vector2(0, rb2D.position.y);
+            rb2D.velocity = new Vector2(0, rb2D.velocity.y);
             attackTimer -= Time.deltaTime;
             animator.SetBool("Run", false);
             return;
@@ -60,11 +60,11 @@ public class InfectedFungus : MonoBehaviour
         }
         if (playerDetector && playerDetector.PlayerDetected)
         {
-            rb2D.velocity = new Vector2(chaseSpeed * direction, rb2D.position.y);
+            rb2D.velocity = new Vector2(chaseSpeed * direction, rb2D.velocity.y);
         }
         else
         {
-            rb2D.velocity = new Vector2(speed * direction, rb2D.position.y);
+            rb2D.velocity = new Vector2(speed * direction, rb2D.velocity.y);
             if (rb2D.position.x > initialPosition.x + distance)
             {
                 direction = -1;

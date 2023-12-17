@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InfectedHuman : MonoBehaviour
 {
-    [Header("Movement parameters")]
+    [Header("Health parameters")]
     [SerializeField] int hp = 27;
 
     [Header("Movement parameters")]
@@ -49,7 +49,7 @@ public class InfectedHuman : MonoBehaviour
     {
         if (attackTimer > 0)
         {
-            rb2D.velocity = new Vector2(0, rb2D.position.y);
+            rb2D.velocity = new Vector2(0, rb2D.velocity.y);
             attackTimer -= Time.deltaTime;
             animator.SetBool("Run", false);
             return;
@@ -60,11 +60,11 @@ public class InfectedHuman : MonoBehaviour
         }
         if (playerDetector && playerDetector.PlayerDetected)
         {
-            rb2D.velocity = new Vector2(chaseSpeed * direction, rb2D.position.y);
+            rb2D.velocity = new Vector2(chaseSpeed * direction, rb2D.velocity.y);
         }
         else
         {
-            rb2D.velocity = new Vector2(speed * direction, rb2D.position.y);
+            rb2D.velocity = new Vector2(speed * direction, rb2D.velocity.y);
             if (rb2D.position.x > initialPosition.x + distance)
             {
                 direction = -1;
@@ -75,8 +75,6 @@ public class InfectedHuman : MonoBehaviour
             }
             animator.SetFloat("LookX", direction);
         }
-
-
     }
 
     private void FixedUpdate()

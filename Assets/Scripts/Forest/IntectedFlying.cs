@@ -4,18 +4,17 @@ using UnityEngine;
 
 public class InfectedFlying : MonoBehaviour
 {
-    [Header("Movement parameters")]
+    [Header("Health parameters")]
     [SerializeField] int hp = 20;
 
     [Header("Movement parameters")]
     [SerializeField] float direction = 1f;
     [SerializeField] float speed = 10f;
-    [SerializeField] float pauseTime = 1f;
     [SerializeField] float chaseSpeed = 20f;
 
     [Header("Attack parameters")]
     [SerializeField] int atk = 1;
-    [SerializeField] float attackTime = 1f;
+    [SerializeField] float attackIntervalTime = 1.5f;
     [SerializeField] Vector2 attackSize = Vector2.one;
     [SerializeField] Vector2 attackOriginOffset = Vector2.zero;
     [SerializeField] LayerMask attackLayerMask;
@@ -67,8 +66,9 @@ public class InfectedFlying : MonoBehaviour
             {
                 isInitialPosition = false;
             }
+            var directionToTarget = (Vector2)playerDetector.Target.transform.position - rb2D.position;
             rb2D.position = Vector2.MoveTowards(rb2D.position, playerDetector.Target.transform.position, Time.deltaTime * chaseSpeed);
-            animator.SetFloat("LookX", playerDetector.DirectionToTarget.x);
+            animator.SetFloat("LookX", directionToTarget.x >= 0 ? 1f : -1f);
         }
         else
         {
@@ -79,9 +79,13 @@ public class InfectedFlying : MonoBehaviour
 
     private void AttackPlayer(GameObject player)
     {
+        if (attackTimer > 0)
+        {
+            return;
+        }
         // Perform the attack logic here.
         animator.SetTrigger("Attack");
-        attackTimer = attackTime;
+        attackTimer = attackIntervalTime;
     }
 
     // Call in animation event
