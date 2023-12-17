@@ -33,7 +33,6 @@ public class Navigator : MonoBehaviour
                 yield return null;
             }
             UnityEngine.SceneManagement.Scene loadScene = SceneManager.GetSceneByName(name);
-
             if (keep == null){
                 SceneManager.MoveGameObjectToScene(UIGroup, loadScene);
                 SceneManager.MoveGameObjectToScene(player, loadScene);

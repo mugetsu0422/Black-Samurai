@@ -21,7 +21,6 @@ public class MainUI : MonoBehaviour
     public UIController uIController;
     private int chossing;
     private List<GameObject> Bars = new List<GameObject>();
-    
     void Awake()
     {   
         chossing = 0;
@@ -66,7 +65,6 @@ public class MainUI : MonoBehaviour
             }
         }
     }
-
     public IEnumerator NewGame(){
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(1, LoadSceneMode.Additive);
         while (!asyncLoad.isDone) {yield return null;}
