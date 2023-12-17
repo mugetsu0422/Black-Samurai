@@ -77,7 +77,20 @@ public static class Save_Point
                 return null;
             }
         }
-
+        public void Add(SavePoint savePoint){
+            if(data.ContainsKey(savePoint.scene_name)){
+                if(data[savePoint.scene_name].ContainsKey(savePoint.name)){
+                    data[savePoint.scene_name][savePoint.name] = savePoint;
+                }
+                else{
+                    data[savePoint.scene_name].Add(savePoint.name,savePoint);
+                }
+            }
+            else{
+                data.Add(savePoint.scene_name,new Dictionary<string, SavePoint>());
+                data[savePoint.scene_name].Add(savePoint.name,savePoint);
+            }
+        }
         public void Add(SavePointData _right,bool keep_old = true){
             foreach(string i in _right.data.Keys){
                 if (!data.ContainsKey(i)){
