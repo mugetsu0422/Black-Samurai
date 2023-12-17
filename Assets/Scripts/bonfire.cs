@@ -19,6 +19,12 @@ public class bonfire : MonoBehaviour
         catch(Exception){
             isActive = false;
             transform.GetChild(0).gameObject.SetActive(false);
+            Save_Point.SavePoint temp = new Save_Point.SavePoint();
+            temp.name = location_name;
+            temp.isActive = isActive;
+            temp.location = gameObject.transform.position;
+            temp.scene_name = gameObject.scene.name;
+            Save_Point.savePointData.Add(temp);
         }
     }
 
@@ -39,5 +45,6 @@ public class bonfire : MonoBehaviour
     public void Active(){
         isActive = true;
         transform.GetChild(0).gameObject.SetActive(true);
+        Save_Point.savePointData.SavePoint(gameObject.scene.name,location_name).isActive = true;
     }
 }

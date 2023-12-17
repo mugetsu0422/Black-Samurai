@@ -49,7 +49,8 @@ public class InGameUI : MonoBehaviour
                 SetingUI.SetActive(true);
             }
             if (chossing == 2){
-                GameManager.Save();
+                GameObject pl =  GameObject.FindGameObjectWithTag("Player");
+                GameManager.Save(pl);
                 Time.timeScale = 1;
                 gameObject.SetActive(false);
                 //return main screen

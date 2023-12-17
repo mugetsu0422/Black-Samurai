@@ -4,6 +4,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System;
 
 public class MainUI : MonoBehaviour
 {
@@ -13,9 +14,11 @@ public class MainUI : MonoBehaviour
     public GameObject SettingsBar;
     public GameObject QuitBar;
     public GameObject ChossingBar;
-
+    public Vector3 init_player_index;
     public GameObject SettingBarUI;
-    private navigator nav = new navigator();
+    public GameObject player;
+    public GameObject UIGroup;
+    public UIController uIController;
     private int chossing;
     private List<GameObject> Bars = new List<GameObject>();
     void Awake()
@@ -48,13 +51,10 @@ public class MainUI : MonoBehaviour
         }
         if(Input.GetKeyDown(KeyCode.Return)){
             if (chossing == 0){
-                //
-            }
+                StartCoroutine(NewGame());
+            }  
             else if (chossing == 1){
-                GameManager.Load();
-                // screen = Game character data.scene;
-                // sceen  
-                //nav.Teleport()
+                StartCoroutine(ContinueGame());
             }
             else if (chossing == 2){
                 SettingBarUI.SetActive(true);
@@ -64,5 +64,37 @@ public class MainUI : MonoBehaviour
                 Application.Quit();
             }
         }
+    }
+    public IEnumerator NewGame(){
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(1, LoadSceneMode.Additive);
+        while (!asyncLoad.isDone) {yield return null;}
+        UnityEngine.SceneManagement.Scene loadScene = SceneManager.GetSceneByBuildIndex(1);
+        SceneManager.MoveGameObjectToScene(UIGroup,loadScene);
+        SceneManager.MoveGameObjectToScene(player,loadScene);
+        player.SetActive(true);
+        player.transform.position = init_player_index;
+        uIController.enabled = true;
+        try{
+            SceneManager.UnloadSceneAsync(gameObject.scene.name);
+        }
+        catch(Exception){}
+    }
+
+    public  IEnumerator ContinueGame(){
+        string scene;
+        Vector3 player_pos;
+        (scene,player_pos) = GameManager.Load();
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(scene, LoadSceneMode.Additive);
+        while (!asyncLoad.isDone) {yield return null;}
+        UnityEngine.SceneManagement.Scene loadScene = SceneManager.GetSceneByName(scene);
+        SceneManager.MoveGameObjectToScene(UIGroup,loadScene);
+        SceneManager.MoveGameObjectToScene(player,loadScene);
+        player.SetActive(true);
+        player.transform.position = player_pos;
+        uIController.enabled = true;
+        try{
+            SceneManager.UnloadSceneAsync(gameObject.scene.name);
+        }
+        catch(Exception){}
     }
 }
