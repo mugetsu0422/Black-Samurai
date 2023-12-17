@@ -55,6 +55,10 @@ public class Fireworm : MonoBehaviour
         GameObject projectileObject = Instantiate(projectilePrefab, rb2D.position + new Vector2(6f * direction, 3.5f), Quaternion.identity);
         FirewomFireBall projectile = projectileObject.GetComponent<FirewomFireBall>();
         projectile.Launch(new Vector2(direction, 0), projectileForce);
+    }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log(other.name);
     }
 }
