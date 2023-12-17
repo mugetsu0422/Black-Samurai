@@ -1,19 +1,20 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class navigator : MonoBehaviour
+public class Navigator : MonoBehaviour
 {
     // Start is called before the first frame update
 
     public GameObject player;
+    public GameObject UIGroup;
     public string[] scenePaths;
     private Dictionary<string,string> name_to_path;
-    public GameObject teleport_canvas;
     void Start(){
         name_to_path  = new Dictionary<string, string>();
         foreach (string i in scenePaths){
@@ -22,14 +23,8 @@ public class navigator : MonoBehaviour
         }
     }
 
-    void Update(){
-        if (Input.GetKeyDown(KeyCode.T)){
-            teleport_canvas.SetActive(!teleport_canvas.activeSelf);
-        }
-    }
-
     // Update is called once per frame
-    public IEnumerator  Teleport(string name,Vector3 position)
+    public IEnumerator Teleport(string name,Vector3 position,GameObject[] keep = null)
     {
         string old_scene = gameObject.scene.name;
         if (old_scene != name){
@@ -38,20 +33,23 @@ public class navigator : MonoBehaviour
                 yield return null;
             }
             UnityEngine.SceneManagement.Scene loadScene = SceneManager.GetSceneByName(name);
-    
-            teleport_canvas.SetActive(false);
-            SceneManager.MoveGameObjectToScene(gameObject, loadScene);
-            SceneManager.MoveGameObjectToScene(teleport_canvas, loadScene);
+            if (keep == null){
+                SceneManager.MoveGameObjectToScene(UIGroup, loadScene);
+                SceneManager.MoveGameObjectToScene(player, loadScene);
+            }
+            else{
+                foreach(GameObject i in keep)
+                    SceneManager.MoveGameObjectToScene(i,loadScene);
+            }
             try{
                 SceneManager.UnloadSceneAsync(old_scene);
             }
             catch(Exception){}
         }
         else{
-            teleport_canvas.SetActive(false);
+
         }
         position.y+=5;
-        GameObject.FindWithTag("Player").transform.position= position;
-
+        player.transform.position= position;
     }
 }

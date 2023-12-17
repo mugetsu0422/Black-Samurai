@@ -72,6 +72,12 @@ public class CharacterScript : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.C)){
             Attack3();
         }
+        if(Input.GetKeyDown(KeyCode.A)){
+            Manabar.instance.setFillAmount(10);
+        }
+        if(Input.GetKeyDown(KeyCode.C)){
+            changeHealth(-1);
+        }
         
     }
 
@@ -96,6 +102,7 @@ public class CharacterScript : MonoBehaviour
 
     void Attack2(){
         animator.SetTrigger("Attack2");
+        
     }
 
     void Attack3(){
@@ -126,5 +133,6 @@ public class CharacterScript : MonoBehaviour
             invincibleTimer = timeInvincible;
         }
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+        Healthbar.instance.setFillAmount((float)amount);
     }
 }

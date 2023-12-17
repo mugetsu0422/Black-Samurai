@@ -2,6 +2,24 @@ using UnityEngine;
 
 public static class KaguraBachiData
 {
+    public enum KiConsumption
+    {
+        RestoreHP = 70,
+        SpecialAttack1 = 30,
+        SpecialAttack2 = 50,
+    }
+
+    public static class AttackMultiplier
+    {
+        private static readonly float normal = 1;
+        private static readonly float special1 = 1.5f;
+        private static readonly float special2 = 1.75f;
+
+        public static float Normal { get { return normal; } }
+        public static float Special1 { get { return special1; } }
+        public static float Special2 { get { return special2; } }
+    }
+
     // atk based on weapon level
     private static readonly int maxHealth = 3;
     private static int health = 3;
@@ -41,7 +59,7 @@ public static class KaguraBachiData
     {
         get { return kiRegeneratePerHit[weaponLevel - 1]; }
     }
-    public static int CurrentWeaponLevel
+    public static int WeaponLevel
     {
         get { return weaponLevel; }
         set { weaponLevel = Mathf.Clamp(value, 1, maxWeaponLevel); }

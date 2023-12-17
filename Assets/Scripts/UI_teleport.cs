@@ -12,6 +12,7 @@ public class UI_teleport : MonoBehaviour
 
     public GameObject map_mask;
     public GameObject location_mask;
+    public Navigator navigator;
     public int pad;
     private int selected_scene;
     private int selected_location;
@@ -31,7 +32,6 @@ public class UI_teleport : MonoBehaviour
     }
     void OnEnable()
     {
-        Debug.Log("on");
         state = 0;
         selected_scene = 0;
         selected_location = 0;
@@ -42,13 +42,10 @@ public class UI_teleport : MonoBehaviour
 
         location_mask.SetActive(false);
         map_mask.SetActive(true);
-
-        initgame load_data = GameObject.Find("navigator").GetComponent<initgame>();
-        while( initgame.loaded == false){}
         scenes =  Save_Point.savePointData.getScenes();
 
         number_of_location = new Dictionary<string, int>();
-        foreach (String i in scenes){
+        foreach (string i in scenes){
             number_of_location.Add(i,Save_Point.savePointData.SavePoint(i,true).Count);
         }
 
@@ -116,7 +113,8 @@ public class UI_teleport : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Return)){
                 List<Save_Point.SavePoint> saves = Save_Point.savePointData.SavePoint(scenes[selected_scene],true);
-                StartCoroutine(GameObject.Find("navigator").GetComponent<navigator>().Teleport(scenes[selected_scene],saves[selected_location].location));
+                StartCoroutine(navigator.Teleport(scenes[selected_scene],saves[selected_location].location));
+                gameObject.SetActive(false);
             }
         }
     }

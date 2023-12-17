@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 861317017093026373}
   m_Layer: 0
   m_Name: TurtleabaneBullet
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -171,3 +171,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c13042732916e4dc680d37bd3cce4afd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lifetime: 2
