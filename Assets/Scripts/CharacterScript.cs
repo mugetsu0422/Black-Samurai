@@ -21,6 +21,7 @@ public class CharacterScript : MonoBehaviour
     [SerializeField]public float jumpHeight = 5.0f;
     [SerializeField]public float ATK;
     bool isGrounded;
+
     // Start is called before the first frame update
     void Start()
     {
