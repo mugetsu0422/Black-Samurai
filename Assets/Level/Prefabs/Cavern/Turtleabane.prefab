@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5677285888336118924}
   m_Layer: 0
   m_Name: Turtleabane
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -113,7 +113,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &7091840891599744303
 BoxCollider2D:
@@ -172,7 +172,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ad0114df9d6744d288fa17541fa81db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  patrolSpeed: 2
+  chaseSpeed: 5
+  patrolRange: 5
+  chaseRange: 9
+  attackRange: 3
+  attackCooldown: 2
   bulletPrefab: {fileID: 645516695361413607, guid: 43a195114a34349fbbd44157d0e077ec, type: 3}
 --- !u!95 &5677285888336118924
 Animator:

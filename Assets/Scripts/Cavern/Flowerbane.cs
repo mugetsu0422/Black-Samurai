@@ -5,47 +5,82 @@ using UnityEngine;
 public class Flowerbane : MonoBehaviour
 {
     private Rigidbody2D rb2d;
-    float horizontal;
-    public float speed;
+    private Transform characterTransform;
+    private bool isChasing = false;
+    private bool isPatrolling = false;
+    private float patrolDirection = 1.0f; 
+    public float patrolSpeed;
+    public float chaseSpeed;
+    public float patrolRange;
+    public float chaseRange;
+    public float attackRange;
+    public float attackCooldown;
+    private float lastAttackTime;
     Animator animator;
     private Vector2 lookDirection = new Vector2(1, 0);
-    // Start is called before the first frame update
+
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        characterTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        StartPatrol();
     }
 
-    // Update is called once per frame
+    void StartPatrol()
+    {
+        isPatrolling = true;
+    }
+
     void Update()
     {
-        horizontal = Input.GetAxis("Horizontal");
+        float distanceToCharacter = Vector2.Distance(transform.position, characterTransform.position);
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (distanceToCharacter < chaseRange)
         {
-            animator.SetTrigger("Hit");
+            isChasing = true;
+            isPatrolling = false;
         }
-        if (Input.GetKeyDown(KeyCode.Q))
+        else
         {
-            animator.SetTrigger("Attack1");
+            isChasing = false;
+            isPatrolling = true;
         }
-        if (Input.GetKeyDown(KeyCode.W))
+
+        if (isChasing)
         {
-            animator.SetTrigger("Attack2");
+            Vector2 direction = (characterTransform.position - transform.position).normalized;
+        
+            if (distanceToCharacter < attackRange)
+            {
+                if (Time.time - lastAttackTime > attackCooldown)
+                {
+                    int randomAttack = Random.Range(1, 3); 
+                    animator.SetTrigger("Attack" + randomAttack);
+                    lastAttackTime = Time.time;
+                }
+            }
+            else {
+                rb2d.velocity = direction * chaseSpeed;
+            }
         }
-        if (Input.GetKeyDown(KeyCode.R))
+        else if (isPatrolling)
         {
-            animator.SetTrigger("Dead");
-            StartCoroutine(DestroyAfterDelay(2f));
+            rb2d.velocity = new Vector2(patrolSpeed * patrolDirection, 0);
+
+            if ((patrolDirection > 0 && transform.position.x >= initialPosition.x + patrolRange) ||
+                (patrolDirection < 0 && transform.position.x <= initialPosition.x - patrolRange))
+            {
+                patrolDirection *= -1;
+            }
         }
     }
+
+    Vector3 initialPosition;
 
     void FixedUpdate()
     {
-        Vector2 velocity = new Vector2(horizontal, 0) * speed;
-        rb2d.velocity = velocity;
-
-        Vector2 move = new Vector2(horizontal, 0);
+        Vector2 move = rb2d.velocity;
         if (!Mathf.Approximately(move.x, 0.0f))
         {
             lookDirection.Set(move.x, 0);
@@ -56,10 +91,8 @@ public class Flowerbane : MonoBehaviour
         animator.SetFloat("Speed", move.magnitude);
     }
 
-    // Coroutine to destroy the object after a delay
-    IEnumerator DestroyAfterDelay(float delay)
+    void Awake()
     {
-        yield return new WaitForSeconds(delay);
-        Destroy(gameObject);
+        initialPosition = transform.position;
     }
 }

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2123860182696815953}
   m_Layer: 0
   m_Name: Flowerbane
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -113,7 +113,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &1290083700162209509
 BoxCollider2D:
@@ -193,4 +193,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa06cb753827645bc8746007885e93be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  patrolSpeed: 2
+  chaseSpeed: 5
+  patrolRange: 5
+  chaseRange: 6
+  attackRange: 3.5
+  attackCooldown: 2

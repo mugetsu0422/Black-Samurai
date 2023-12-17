@@ -6,6 +6,8 @@ TagManager:
   tags:
   - savepoint
   - Teleport_canvas
+  - Enemy
+  - Ground
   layers:
   - Default
   - TransparentFX

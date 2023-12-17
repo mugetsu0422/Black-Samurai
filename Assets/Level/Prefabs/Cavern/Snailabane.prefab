@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 4943282108107527712}
   - component: {fileID: 7157037271881785200}
   - component: {fileID: 8287078081811076017}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Snailabane
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -113,7 +113,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &4943282108107527712
 BoxCollider2D:
@@ -172,7 +172,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c07cedf3579348d0bff6de2f28901e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  patrolSpeed: 2
+  chaseSpeed: 5
+  patrolRange: 5
+  chaseRange: 6
+  attackRange: 3
+  attackCooldown: 2
 --- !u!95 &8287078081811076017
 Animator:
   serializedVersion: 5
