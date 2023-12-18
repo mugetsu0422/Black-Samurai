@@ -13,9 +13,11 @@ GameObject:
   - component: {fileID: 8303492924267976809}
   - component: {fileID: 9071562344379877356}
   - component: {fileID: 4247922020229420213}
-  m_Layer: 0
+  - component: {fileID: 3367900858245159537}
+  - component: {fileID: 7964944151527956153}
+  m_Layer: 7
   m_Name: Cthulu
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -113,7 +115,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &9071562344379877356
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -146,7 +148,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.33028936}
+  m_Offset: {x: 0, y: 0.33670366}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -157,7 +159,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.62999994, y: 0.6605787}
+  m_Size: {x: 0.62999994, y: 0.64775014}
   m_EdgeRadius: 0
 --- !u!95 &4247922020229420213
 Animator:
@@ -180,3 +182,50 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3367900858245159537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 149647756019285588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd722e0ee8b05bd42925cb874ef080f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 500
+  atk: 1
+  attackIntervalTime: 1.5
+  attackSize: {x: 12, y: 8}
+  attackOriginOffset: {x: 3, y: 4}
+  attackLayerMask:
+    serializedVersion: 2
+    m_Bits: 1024
+  showGizmos: 1
+  direction: 1
+  speed: 10
+  chaseSpeed: 20
+--- !u!114 &7964944151527956153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 149647756019285588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bcd1dd0b49530d4ca155322aa72ced7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  OnPlayerDetected:
+    m_PersistentCalls:
+      m_Calls: []
+  radius: 5.5
+  detectorOriginOffset: {x: 2.5, y: 4}
+  gizmoColor: {r: 1, g: 1, b: 0, a: 0.2}
+  showGizmos: 1
+  <PlayerDetected>k__BackingField: 0

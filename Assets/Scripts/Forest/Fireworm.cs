@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Fireworm : MonoBehaviour
 {
+    [Header("Health parameters")]
+    [SerializeField] int hp = 53;
+    int currentHP;
     Rigidbody2D rb2D;
     [SerializeField] float direction = 1;
 
@@ -13,7 +16,6 @@ public class Fireworm : MonoBehaviour
     [Header("Projectile")]
     [SerializeField] GameObject projectilePrefab;
     [SerializeField] float projectileForce = 600f;
-    [SerializeField] float attackAnimationDelay = 0.875f;
 
     Animator animator;
     AIRangedAttackDetector attackDetector;
@@ -25,6 +27,7 @@ public class Fireworm : MonoBehaviour
         animator = GetComponent<Animator>();
         attackDetector = GetComponent<AIRangedAttackDetector>();
         animator.SetFloat("LookX", direction);
+        currentHP = hp;
 
         if (attackDetector != null)
         {
@@ -59,6 +62,29 @@ public class Fireworm : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log(other.name);
+        if (other.CompareTag("Sword"))
+        {
+            ChangeHealth(-(int)other.GetComponentInParent<CharacterScript>().getATK);
+        }
+    }
+
+    void ChangeHealth(int amount)
+    {
+        if (amount < 0 && currentHP > 0)
+        {
+            animator.SetTrigger("Hurt");
+            currentHP = Mathf.Clamp(currentHP + amount, 0, hp);
+
+            if (currentHP <= 0)
+            {
+                Dead();
+            }
+        }
+    }
+
+    void Dead()
+    {
+        Destroy(gameObject, 1.5f);
+        animator.SetTrigger("Death");
     }
 }
