@@ -14,13 +14,14 @@ public class Blacksmith : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        DialogueContainer.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Q) && playerIsClosed){
+            Debug.Log(DialogueContainer.activeInHierarchy);
             if(DialogueContainer.activeInHierarchy){
                 ZeroText();
             }
