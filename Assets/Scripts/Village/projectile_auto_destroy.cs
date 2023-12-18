@@ -18,4 +18,12 @@ public class projectile_auto_destroy : MonoBehaviour
         
     }
 
+    void OnCollisionEnter(Collision collision)
+    {
+        if(collision.transform.tag == "Player"){
+            Destroy(gameObject);
+            collision.transform.GetComponent<CharacterScript>().changeHealth(-1);
+        }
+    }
+
 }

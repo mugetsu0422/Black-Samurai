@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class bee : MonoBehaviour
@@ -10,10 +11,13 @@ public class bee : MonoBehaviour
     private Vector2 look_direction;
     private Vector2 direction;
     private Animator ani;
+    public int health=1;
     public float speed;
     public GameObject projectile;
     public GameObject shoot_position;
     public float force;
+    private bool can_shoot = true;
+    private GameObject player;
     void Start()
     {
         ani = gameObject.GetComponent<Animator>();
@@ -26,6 +30,18 @@ public class bee : MonoBehaviour
         look_direction = new Vector2( Convert.ToSingle(transform.GetComponent<SpriteRenderer>().flipX)-0.5f,0);
         look_direction.Normalize();
 
+        RaycastHit2D hit = Physics2D.CircleCast(gameObject.transform.position,50,Vector2.zero,0,LayerMask.GetMask("Player"));
+        if (hit.collider != null){
+            Vector2 temp = hit.collider.transform.position - gameObject.transform.position;
+            temp.Normalize();
+            setMove(temp);
+
+            if ( Mathf.Abs(temp.y)<0.1f){
+                Attack();
+                Invoke("Dead",3);
+            }
+        }
+
         if (Mathf.Abs(direction.sqrMagnitude)>0.1){
             ani.SetFloat("X",direction.x);
             Vector2 positison = transform.position;
@@ -35,13 +51,24 @@ public class bee : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Sword"))
+        {
+            ChangeHealth(-(int)other.GetComponentInParent<CharacterScript>().getATK);
+        }
+    }
+
     public void setMove(Vector2 _direction){
         direction = _direction;
     }
 
     public void Attack(){
-        ani.SetTrigger("shoot");
-        Invoke("_shoot",0.1f);
+        if (can_shoot){
+            can_shoot = false;
+            ani.SetTrigger("shoot");
+            Invoke("_shoot",0.1f);
+        }
     }
     private void _shoot(){
         GameObject temp = Instantiate(projectile,shoot_position.transform.position+ new Vector3(look_direction.x,look_direction.y,transform.position.z)*0.5f,gameObject.transform.rotation);
@@ -56,5 +83,14 @@ public class bee : MonoBehaviour
 
     public void Dead(){
         ani.SetTrigger("dead");
+        Destroy(gameObject,1);
+    }
+
+    public void ChangeHealth(int x){
+        hurt();
+        health = Math.Max(0,health-x);
+        if (health < 1){
+            Dead();
+        }
     }
 }
