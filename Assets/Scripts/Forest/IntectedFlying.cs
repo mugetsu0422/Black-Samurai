@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class InfectedFlying : MonoBehaviour
 {
-    [Header("Movement parameters")]
+    [Header("Health parameters")]
     [SerializeField] int hp = 20;
+    int currentHP;
 
     [Header("Movement parameters")]
     [SerializeField] float direction = 1f;
     [SerializeField] float speed = 10f;
-    [SerializeField] float pauseTime = 1f;
     [SerializeField] float chaseSpeed = 20f;
 
     [Header("Attack parameters")]
     [SerializeField] int atk = 1;
-    [SerializeField] float attackTime = 1f;
+    [SerializeField] float attackIntervalTime = 1.5f;
     [SerializeField] Vector2 attackSize = Vector2.one;
     [SerializeField] Vector2 attackOriginOffset = Vector2.zero;
     [SerializeField] LayerMask attackLayerMask;
@@ -40,6 +40,7 @@ public class InfectedFlying : MonoBehaviour
         attackDetector = GetComponent<AIMeleeAttackDetector>();
         initialPosition = transform.position;
         animator.SetFloat("LookX", direction);
+        currentHP = hp;
 
         if (attackDetector != null)
         {
@@ -67,8 +68,9 @@ public class InfectedFlying : MonoBehaviour
             {
                 isInitialPosition = false;
             }
+            var directionToTarget = (Vector2)playerDetector.Target.transform.position - rb2D.position;
             rb2D.position = Vector2.MoveTowards(rb2D.position, playerDetector.Target.transform.position, Time.deltaTime * chaseSpeed);
-            animator.SetFloat("LookX", playerDetector.DirectionToTarget.x);
+            animator.SetFloat("LookX", directionToTarget.x >= 0 ? 1f : -1f);
         }
         else
         {
@@ -79,9 +81,13 @@ public class InfectedFlying : MonoBehaviour
 
     private void AttackPlayer(GameObject player)
     {
+        if (attackTimer > 0)
+        {
+            return;
+        }
         // Perform the attack logic here.
         animator.SetTrigger("Attack");
-        attackTimer = attackTime;
+        attackTimer = attackIntervalTime;
     }
 
     // Call in animation event
@@ -101,5 +107,33 @@ public class InfectedFlying : MonoBehaviour
             Gizmos.color = new Color(0, 1f, 1f, 50f / 255f);
             Gizmos.DrawCube((Vector2)transform.position + attackOriginOffset, attackSize);
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Sword"))
+        {
+            ChangeHealth(-(int)other.GetComponentInParent<CharacterScript>().getATK);
+        }
+    }
+
+    void ChangeHealth(int amount)
+    {
+        if (amount < 0 && currentHP > 0)
+        {
+            animator.SetTrigger("Hurt");
+            currentHP = Mathf.Clamp(currentHP + amount, 0, hp);
+
+            if (currentHP <= 0)
+            {
+                Dead();
+            }
+        }
+    }
+
+    void Dead()
+    {
+        Destroy(gameObject, 1.5f);
+        animator.SetTrigger("Death");
     }
 }
