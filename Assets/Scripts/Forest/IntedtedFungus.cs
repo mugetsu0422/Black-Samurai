@@ -22,6 +22,8 @@ public class InfectedFungus : MonoBehaviour
     [SerializeField] bool showGizmos = true;
     float attackTimer;
 
+    [SerializeField] int parasiteEssenceDrop = 50;
+
     Rigidbody2D rb2D;
     float direction = 1;
     Vector2 initialPosition;
@@ -148,5 +150,7 @@ public class InfectedFungus : MonoBehaviour
     {
         Destroy(gameObject, 1.5f);
         animator.SetTrigger("Death");
+        var player = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterScript>();
+        player.ChangeParasiteEssence(parasiteEssenceDrop);
     }
 }

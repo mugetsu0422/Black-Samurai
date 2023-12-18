@@ -17,6 +17,8 @@ public class Fireworm : MonoBehaviour
     [SerializeField] GameObject projectilePrefab;
     [SerializeField] float projectileForce = 600f;
 
+    [SerializeField] int parasiteEssenceDrop = 50;
+
     Animator animator;
     AIRangedAttackDetector attackDetector;
 
@@ -64,7 +66,9 @@ public class Fireworm : MonoBehaviour
     {
         if (other.CompareTag("Sword"))
         {
-            ChangeHealth(-(int)other.GetComponentInParent<CharacterScript>().getATK);
+            var player = other.GetComponentInParent<CharacterScript>();
+            ChangeHealth(-(int)player.getATK);
+            player.ChangeKi(KaguraBachiData.KiRegeneratePerHit);
         }
     }
 
@@ -86,5 +90,7 @@ public class Fireworm : MonoBehaviour
     {
         Destroy(gameObject, 1.5f);
         animator.SetTrigger("Death");
+        var player = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterScript>();
+        player.ChangeParasiteEssence(parasiteEssenceDrop);
     }
 }

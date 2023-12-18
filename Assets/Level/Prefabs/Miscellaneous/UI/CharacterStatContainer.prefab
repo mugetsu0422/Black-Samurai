@@ -455,6 +455,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5620940452658264392, guid: eaefb2ce1f94dde439d61c39eb333b81, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 79.2765
+      objectReference: {fileID: 0}
+    - target: {fileID: 5620940452658264392, guid: eaefb2ce1f94dde439d61c39eb333b81, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 7.8599
+      objectReference: {fileID: 0}
     - target: {fileID: 7951648469141391623, guid: eaefb2ce1f94dde439d61c39eb333b81, type: 3}
       propertyPath: m_Name
       value: EssenceContainer

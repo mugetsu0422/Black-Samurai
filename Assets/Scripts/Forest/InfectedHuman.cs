@@ -26,6 +26,8 @@ public class InfectedHuman : MonoBehaviour
     [SerializeField] bool showGizmos = true;
     float attackTimer;
 
+    [SerializeField] int parasiteEssenceDrop = 50;
+
     Animator animator;
     AIPlayerDetector playerDetector;
     AIMeleeAttackDetector attackDetector;
@@ -147,5 +149,7 @@ public class InfectedHuman : MonoBehaviour
     {
         Destroy(gameObject, 1.5f);
         animator.SetTrigger("Death");
+        var player = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterScript>();
+        player.ChangeParasiteEssence(parasiteEssenceDrop);
     }
 }
