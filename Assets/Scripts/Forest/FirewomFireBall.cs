@@ -18,10 +18,7 @@ public class FirewomFireBall : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // if (transform.position.magnitude > 100f)
-        // {
-        //     Destroy(gameObject);
-        // }
+        
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -38,7 +35,7 @@ public class FirewomFireBall : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             // Change Health here
-            // other.GetComponent<CharacterScript>().changeHealth(-atk);
+            other.GetComponent<CharacterScript>().changeHealth(-atk);
         }
         rb2D.velocity = new Vector2(0, 0);
         animator.SetTrigger("Explode");
