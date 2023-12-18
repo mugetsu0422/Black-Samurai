@@ -1,16 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class wolf : MonoBehaviour
 {
     // Start is called before the first frame update
     public float speed=20;
     public float force=2000;
+    public int health=20;
+
     private Animator ani;
     private Rigidbody2D rgbd;
     private bool isjump = false;
-    
+    private float attackTime = -1;
     [Range(-1f, 1f)]
     public float horizontal = 0;
     
@@ -23,11 +26,12 @@ public class wolf : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        ///
         if (Mathf.Abs(horizontal)>0.05){
             ani.SetFloat("X",horizontal);
         }
         if (Mathf.Abs(horizontal)>=0.2){
-            rgbd.velocity = new Vector2(horizontal*speed*100*Time.deltaTime,rgbd.velocity.y);
+            rgbd.velocity = new Vector2(horizontal*speed,rgbd.velocity.y);
         }
         else{
             rgbd.velocity = new Vector2(0,rgbd.velocity.y);
@@ -48,6 +52,29 @@ public class wolf : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Sword"))
+        {
+            ChangeHealth(-(int)other.GetComponentInParent<CharacterScript>().getATK);
+        }
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if(Time.time - attackTime < 1 && collision.transform.tag == "Player"){
+            Destroy(gameObject);
+            collision.transform.GetComponent<CharacterScript>().changeHealth(-1);
+        }
+    }
+
+    public void ChangeHealth(int x){
+        health = Math.Max(0,health-x);
+        if (health < 1){
+            Dead();
+        }
+    }
+
     public void setMove(float _horizontal){
         horizontal = _horizontal;
     }
@@ -60,10 +87,12 @@ public class wolf : MonoBehaviour
     }
 
     public void Attack(){
+        attackTime=Time.time;
         ani.SetTrigger("Attack");
     }
 
     public void Dead(){
         ani.SetTrigger("Dead");
+        Destroy(gameObject,2);
     }
 }

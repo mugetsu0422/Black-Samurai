@@ -152,6 +152,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8b417c614dbf7e4fb64ee124688c7cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 1
+  speed: 10
   projectile: {fileID: 2443611416749323243, guid: 84965697cb6b4cb4595e87f98d1de3da, type: 3}
   shoot_position: {fileID: 7600049519218729917}
   force: 500
