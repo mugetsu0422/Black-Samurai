@@ -75,7 +75,7 @@ public class CharacterScript : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.A)){
             Manabar.instance.setFillAmount(10);
         }
-        if(Input.GetKeyDown(KeyCode.C)){
+        if(Input.GetKeyDown(KeyCode.D)){
             changeHealth(-1);
         }
         
