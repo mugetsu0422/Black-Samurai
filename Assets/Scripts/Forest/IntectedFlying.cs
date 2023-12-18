@@ -22,6 +22,7 @@ public class InfectedFlying : MonoBehaviour
     [SerializeField] bool showGizmos = true;
     float attackTimer;
 
+    [SerializeField] int parasiteEssenceDrop = 50;
 
     Rigidbody2D rb2D;
     Vector2 initialPosition;
@@ -135,5 +136,7 @@ public class InfectedFlying : MonoBehaviour
     {
         Destroy(gameObject, 1.5f);
         animator.SetTrigger("Death");
+        var player = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterScript>();
+        player.ChangeParasiteEssence(parasiteEssenceDrop);
     }
 }
