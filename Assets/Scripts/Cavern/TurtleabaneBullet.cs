@@ -5,6 +5,7 @@ using UnityEngine;
 public class TurtleabaneBullet : MonoBehaviour
 {
     private Rigidbody2D rb2d;
+    public int atk = 1;
 
     public float lifetime = 2f; // Thời gian tồn tại của viên đạn
 
@@ -35,6 +36,17 @@ public class TurtleabaneBullet : MonoBehaviour
         else if (rb2d.velocity.x > 0)
         {
             transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        // Collide with player
+        if (other.CompareTag("Player"))
+        {
+            // Change Health here
+            other.GetComponent<CharacterScript>().changeHealth(-atk);
+            Destroy(gameObject);
         }
     }
 }
