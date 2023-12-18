@@ -6,6 +6,7 @@ public class InfectedFungus : MonoBehaviour
 {
     [Header("Health parameters")]
     [SerializeField] int hp = 25;
+    int currentHP;
 
     [Header("Movement parameters")]
     [SerializeField] float speed = 10f;
@@ -37,6 +38,7 @@ public class InfectedFungus : MonoBehaviour
         playerDetector = GetComponent<AIPlayerDetector>();
         attackDetector = GetComponent<AIMeleeAttackDetector>();
         initialPosition = rb2D.position;
+        currentHP = hp;
 
         if (attackDetector != null)
         {
@@ -47,6 +49,10 @@ public class InfectedFungus : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (currentHP <= 0)
+        {
+            return;
+        }
         if (attackTimer > 0)
         {
             rb2D.velocity = new Vector2(0, rb2D.velocity.y);
@@ -114,5 +120,33 @@ public class InfectedFungus : MonoBehaviour
             Gizmos.color = new Color(0, 1f, 1f, 50f / 255f);
             Gizmos.DrawCube((Vector2)transform.position + attackOriginOffset, attackSize);
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Sword"))
+        {
+            ChangeHealth(-(int)other.GetComponentInParent<CharacterScript>().getATK);
+        }
+    }
+
+    void ChangeHealth(int amount)
+    {
+        if (amount < 0 && currentHP > 0)
+        {
+            animator.SetTrigger("Hurt");
+            currentHP = Mathf.Clamp(currentHP + amount, 0, hp);
+
+            if (currentHP <= 0)
+            {
+                Dead();
+            }
+        }
+    }
+
+    void Dead()
+    {
+        Destroy(gameObject, 1.5f);
+        animator.SetTrigger("Death");
     }
 }

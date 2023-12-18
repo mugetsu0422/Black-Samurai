@@ -197,8 +197,8 @@ MonoBehaviour:
   hp: 500
   atk: 1
   attackIntervalTime: 1.5
-  attackSize: {x: 1, y: 1}
-  attackOriginOffset: {x: 0, y: 0}
+  attackSize: {x: 12, y: 8}
+  attackOriginOffset: {x: 3, y: 4}
   attackLayerMask:
     serializedVersion: 2
     m_Bits: 1024

@@ -6,6 +6,7 @@ public class InfectedFlying : MonoBehaviour
 {
     [Header("Health parameters")]
     [SerializeField] int hp = 20;
+    int currentHP;
 
     [Header("Movement parameters")]
     [SerializeField] float direction = 1f;
@@ -39,6 +40,7 @@ public class InfectedFlying : MonoBehaviour
         attackDetector = GetComponent<AIMeleeAttackDetector>();
         initialPosition = transform.position;
         animator.SetFloat("LookX", direction);
+        currentHP = hp;
 
         if (attackDetector != null)
         {
@@ -105,5 +107,33 @@ public class InfectedFlying : MonoBehaviour
             Gizmos.color = new Color(0, 1f, 1f, 50f / 255f);
             Gizmos.DrawCube((Vector2)transform.position + attackOriginOffset, attackSize);
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Sword"))
+        {
+            ChangeHealth(-(int)other.GetComponentInParent<CharacterScript>().getATK);
+        }
+    }
+
+    void ChangeHealth(int amount)
+    {
+        if (amount < 0 && currentHP > 0)
+        {
+            animator.SetTrigger("Hurt");
+            currentHP = Mathf.Clamp(currentHP + amount, 0, hp);
+
+            if (currentHP <= 0)
+            {
+                Dead();
+            }
+        }
+    }
+
+    void Dead()
+    {
+        Destroy(gameObject, 1.5f);
+        animator.SetTrigger("Death");
     }
 }

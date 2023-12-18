@@ -8,6 +8,7 @@ public class Cthulu : MonoBehaviour
 
     [Header("Health parameters")]
     [SerializeField] int hp = 500;
+    int currentHP;
 
     [Header("Attack parameters")]
     [SerializeField] int atk = 1;
@@ -35,6 +36,7 @@ public class Cthulu : MonoBehaviour
         animator = GetComponent<Animator>();
         playerDetector = GetComponentInParent<AIPlayerDetector>();
         attackDetector = GetComponent<AIMeleeAttackDetector>();
+        currentHP = hp;
 
         animator.SetFloat("LookX", direction);
 
@@ -96,5 +98,31 @@ public class Cthulu : MonoBehaviour
             Gizmos.color = new Color(0, 1f, 1f, 50f / 255f);
             Gizmos.DrawCube((Vector2)transform.position + attackOriginOffset, attackSize);
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Sword"))
+        {
+            ChangeHealth(-(int)other.GetComponentInParent<CharacterScript>().getATK);
+        }
+    }
+
+    void ChangeHealth(int amount)
+    {
+        if (amount < 0 && currentHP > 0)
+        {
+            animator.SetTrigger("Hurt");
+            currentHP = Mathf.Clamp(currentHP + amount, 0, hp);
+
+            if (currentHP <= 0) {
+                Dead();
+            }
+        }
+    }
+
+    void Dead() {
+        Destroy(gameObject, 1.5f);
+        animator.SetTrigger("Death");
     }
 }

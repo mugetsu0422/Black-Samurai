@@ -196,12 +196,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 27
-  atk: 1
   speed: 10
-  pauseTime: 1
   distance: 9
   chaseSpeed: 20
-  attackTime: 1
+  atk: 1
+  attackIntervalTime: 2
   attackSize: {x: 9, y: 9}
   attackOriginOffset: {x: 4, y: 4}
   attackLayerMask:
@@ -250,7 +249,6 @@ MonoBehaviour:
       m_Calls: []
   radius: 5
   detectorOriginOffset: {x: 3, y: 3}
-  detectionCooldown: 2
   gizmoColor: {r: 1, g: 1, b: 0, a: 0.2}
   showGizmos: 0
   <PlayerDetected>k__BackingField: 0

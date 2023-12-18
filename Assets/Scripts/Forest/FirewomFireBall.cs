@@ -26,19 +26,23 @@ public class FirewomFireBall : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.collider.CompareTag("Player"))
-        {
-            // Change Health here
-            other.collider.GetComponent<CharacterScript>().changeHealth(-atk);
-        }
+        // Collide with map
+        rb2D.velocity = new Vector2(0, 0);
         animator.SetTrigger("Explode");
-        StartCoroutine(DestroyAfterDelay(1f));
+        Destroy(gameObject, 1f);
     }
 
-    IEnumerator DestroyAfterDelay(float delay)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        yield return new WaitForSeconds(delay);
-        Destroy(gameObject);
+        // Collide with player
+        if (other.CompareTag("Player"))
+        {
+            // Change Health here
+            // other.GetComponent<CharacterScript>().changeHealth(-atk);
+        }
+        rb2D.velocity = new Vector2(0, 0);
+        animator.SetTrigger("Explode");
+        Destroy(gameObject, 1f);
     }
 
     public void Launch(Vector2 direction, float force)
