@@ -57,6 +57,10 @@ public class InfectedFlying : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (currentHP <= 0)
+        {
+            return;
+        }
         if (attackTimer > 0)
         {
             rb2D.velocity = Vector2.zero;
@@ -135,6 +139,7 @@ public class InfectedFlying : MonoBehaviour
     void Dead()
     {
         Destroy(gameObject, 1.5f);
+        Destroy(transform.parent.gameObject, 2f);
         animator.SetTrigger("Death");
         var player = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterScript>();
         player.ChangeParasiteEssence(parasiteEssenceDrop);
