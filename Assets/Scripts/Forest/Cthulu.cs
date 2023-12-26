@@ -122,6 +122,7 @@ public class Cthulu : MonoBehaviour
     }
 
     void Dead() {
+        GetComponentInParent<BossZone>().BossDefeated();
         Destroy(gameObject, 1.5f);
         animator.SetTrigger("Death");
     }
