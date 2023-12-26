@@ -30,6 +30,10 @@ public class CharacterScript : MonoBehaviour
 
     int attackDamage = 1;
 
+    [Header("Special Attacks")]
+    [SerializeField] GameObject specialAttack1;
+    [SerializeField] GameObject specialAttack2;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -148,6 +152,17 @@ public class CharacterScript : MonoBehaviour
         attackTimer = attackIntervalTime;
     }
 
+    void SpecialAttack1VFX(float direction)
+    {
+        var width = GetComponent<Renderer>().bounds.size.x;
+        if (direction < 0)
+        {
+            width = -width;
+        }
+        GameObject vfx = Instantiate(specialAttack1, rb2d.position + new Vector2(width, 0f), Quaternion.identity);
+        vfx.GetComponent<SpecialAttack1>().SetDirection(direction);
+    }
+
     void Attack3()
     {
         if (ki < (int)KaguraBachiData.KiConsumption.SpecialAttack2)
@@ -199,7 +214,8 @@ public class CharacterScript : MonoBehaviour
         Manabar.instance.setFillAmount(amount);
     }
 
-    public void ChangeParasiteEssence(int amount) {
+    public void ChangeParasiteEssence(int amount)
+    {
         EssenceCollected.instance.setNormalEssence(KaguraBachiData.ParasiteEssence, amount);
         KaguraBachiData.ParasiteEssence += amount;
     }
