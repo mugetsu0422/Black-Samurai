@@ -74,9 +74,9 @@ public class wolf : MonoBehaviour
 
     public void ChangeHealth(int x){
         ani.SetTrigger("Hit");
-        health = Math.Max(0,health-x);
+        health = Math.Max(0,health+x);
         if (health < 1){
-            Dead();
+             Dead();
         }
     }
 
@@ -98,6 +98,7 @@ public class wolf : MonoBehaviour
 
     public void Dead(){
         ani.SetTrigger("Dead");
-        Destroy(gameObject,2);
+        this.enabled = false;
+        Destroy(gameObject,1);
     }
 }

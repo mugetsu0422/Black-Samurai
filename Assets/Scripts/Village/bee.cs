@@ -104,14 +104,15 @@ public class bee : MonoBehaviour
 
     public void Dead(){
         ani.SetTrigger("dead");
+        this.enabled = false;
         Destroy(gameObject,1);
     }
 
     public void ChangeHealth(int x){
-        hurt();
-        health = Math.Max(0,health-x);
+        ani.SetTrigger("hurt");
+        health = Math.Max(0,health+x);
         if (health < 1){
-            Dead();
+             Dead();
         }
     }
 }

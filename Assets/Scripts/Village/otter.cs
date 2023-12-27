@@ -59,7 +59,7 @@ public class Otter : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Sword"))
-        {
+        {   
             ChangeHealth(-(int)other.GetComponentInParent<CharacterScript>().getATK);
         }
         else if (other.CompareTag("SwordProjectile"))
@@ -77,9 +77,9 @@ public class Otter : MonoBehaviour
 
     public void ChangeHealth(int x){
         ani.SetTrigger("Hit");
-        health = Math.Max(0,health-x);
+        health = Math.Max(0,health+x);
         if (health < 1){
-            Dead();
+             Dead();
         }
     }
 
@@ -106,6 +106,7 @@ public class Otter : MonoBehaviour
     void Dead(){
         horizontal = 0;
         ani.SetBool("Sleep",true);
-        Destroy(gameObject,0);
+        this.enabled = false;
+        Destroy(gameObject,1);
     }
 }
