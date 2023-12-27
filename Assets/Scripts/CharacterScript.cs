@@ -30,10 +30,14 @@ public class CharacterScript : MonoBehaviour
 
     int attackDamage = 1;
 
-    [Header("Special Attacks")]
+    [Header("Attack VFXs")]
+    [SerializeField] GameObject normalAttack;
     [SerializeField] GameObject specialAttack1;
     [SerializeField] GameObject specialAttack2;
 
+    // Character size
+    float width;
+    float height;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +45,8 @@ public class CharacterScript : MonoBehaviour
         animator = GetComponent<Animator>();
         currentHealth = maxHealth;
         isGrounded = true;
+        width = GetComponent<Renderer>().bounds.size.x;
+        height = GetComponent<Renderer>().bounds.size.y;
     }
 
     // Update is called once per frame
@@ -140,6 +146,12 @@ public class CharacterScript : MonoBehaviour
         attackTimer = attackIntervalTime;
     }
 
+    void NormalAttackVFX(float direction)
+    {
+        GameObject vfx = Instantiate(normalAttack, rb2d.position + new Vector2(width * direction, height * 0.75f), normalAttack.transform.rotation);
+        vfx.GetComponent<NormalAttack>().SetDirection(direction);
+    }
+
     void Attack2()
     {
         if (ki < (int)KaguraBachiData.KiConsumption.SpecialAttack1)
@@ -154,12 +166,7 @@ public class CharacterScript : MonoBehaviour
 
     void SpecialAttack1VFX(float direction)
     {
-        var width = GetComponent<Renderer>().bounds.size.x;
-        if (direction < 0)
-        {
-            width = -width;
-        }
-        GameObject vfx = Instantiate(specialAttack1, rb2d.position + new Vector2(width, 0f), Quaternion.identity);
+        GameObject vfx = Instantiate(specialAttack1, rb2d.position + new Vector2(width * direction, 0f), Quaternion.identity);
         vfx.GetComponent<SpecialAttack1>().SetDirection(direction);
     }
 
@@ -173,6 +180,12 @@ public class CharacterScript : MonoBehaviour
         attackDamage = (int)(ATK * KaguraBachiData.AttackMultiplier.Special2);
         animator.SetTrigger("Attack3");
         attackTimer = attackIntervalTime;
+    }
+
+    void SpecialAttack2VFX(float direction)
+    {
+        GameObject vfx = Instantiate(specialAttack2, rb2d.position + new Vector2(width * direction, 1f + height / 2), Quaternion.identity);
+        vfx.GetComponent<SpecialAttack2>().SetDirection(direction);
     }
 
     void Dead()

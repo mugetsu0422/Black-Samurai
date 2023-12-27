@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpecialAttack1 : MonoBehaviour
+public class NormalAttack : MonoBehaviour
 {
     Animator animator;
     void Awake()
