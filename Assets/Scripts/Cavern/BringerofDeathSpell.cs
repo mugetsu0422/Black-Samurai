@@ -7,6 +7,7 @@ public class BringerofDeathSpell : MonoBehaviour
     private Rigidbody2D rb2d;
 
     public float lifetime = 0.1f;
+    public int atk = 1;
     Animator animator;
     // Start is called before the first frame update
     void Awake()
@@ -27,9 +28,13 @@ public class BringerofDeathSpell : MonoBehaviour
         animator.SetTrigger("Spell");
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        
+        // Collide with player
+        if (other.CompareTag("Player"))
+        {
+            // Change Health here
+            other.GetComponent<CharacterScript>().changeHealth(-atk);
+        }
     }
 }
