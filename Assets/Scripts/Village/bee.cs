@@ -74,6 +74,10 @@ public class bee : MonoBehaviour
         {
             ChangeHealth(-(int)other.GetComponentInParent<CharacterScript>().getATK);
         }
+        else if (other.CompareTag("SwordProjectile"))
+        {
+            ChangeHealth(-other.GetComponent<SpecialAttack2>().getATK);
+        }
     }
 
     public void setMove(Vector2 _direction){

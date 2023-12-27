@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class VillageBoss : MonoBehaviour
 {
     private Rigidbody2D rb2d;
     float horizontal;
     public float speed;
+    public int health;
     Animator animator;
     private Vector2 lookDirection = new Vector2(1, 0);
     private Transform characterTransform;
@@ -57,7 +59,7 @@ public class VillageBoss : MonoBehaviour
             {
                 if (Time.time - lastAttackTime > attackCooldown)
                 {
-                    int randomAttack = Random.Range(1, 3);
+                    int randomAttack = UnityEngine.Random.Range(1, 3);
                     animator.SetTrigger("Attack" + randomAttack);
                     lastAttackTime = Time.time;
                 }
@@ -97,5 +99,33 @@ public class VillageBoss : MonoBehaviour
     void Awake()
     {
         initialPosition = transform.position;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Sword"))
+        {
+            ChangeHealth(-(int)other.GetComponentInParent<CharacterScript>().getATK);
+        }
+        else if (other.CompareTag("SwordProjectile"))
+        {
+            ChangeHealth(-other.GetComponent<SpecialAttack2>().getATK);
+        }
+    }
+
+    public void ChangeHealth(int x){
+        hurt();
+        health = Math.Max(0,health-x);
+        if (health < 1){
+            Dead();
+        }
+    }
+
+    private void Dead(){
+
+    }
+
+    private void hurt(){
+
     }
 }
