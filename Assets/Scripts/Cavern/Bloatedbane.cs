@@ -19,39 +19,22 @@ public class Bloatedbane : MonoBehaviour
     Animator animator;
     private Vector2 lookDirection = new Vector2(1, 0);
     public GameObject bulletPrefab;
-    public int hp = 10;
-    int currentHP;
-    int atk = 1;
-    private BoxCollider2D boxCollider;
-    private bool isDead = false;
 
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         characterTransform = GameObject.FindGameObjectWithTag("Player").transform;
-        boxCollider = GetComponent<BoxCollider2D>();
+        StartPatrol();
+    }
+
+    void StartPatrol()
+    {
         isPatrolling = true;
-        currentHP = hp;
     }
 
     void Update()
     {
-        if (isDead)
-            return;
-
-        AnimatorStateInfo currentState = animator.GetCurrentAnimatorStateInfo(0);
-        Vector2 colliderSize = boxCollider.size;
-        Collider2D[] colliders = Physics2D.OverlapBoxAll(transform.position, colliderSize, 5f);
-        foreach (Collider2D collider in colliders)
-        {
-            if (collider.CompareTag("Player") && currentState.IsName("Attack2"))
-            {
-                CharacterScript characterScript = collider.GetComponentInParent<CharacterScript>();
-                characterScript.changeHealth(-atk);
-            }
-        }
-
         float distanceToCharacter = Vector2.Distance(transform.position, characterTransform.position);
 
         if (distanceToCharacter < chaseRange)
@@ -74,6 +57,7 @@ public class Bloatedbane : MonoBehaviour
             {
                 if (Time.time - lastAttackTime > attackCooldown)
                 {
+                    ResetAllTriggers();
                     animator.SetTrigger("Attack2");
                     lastAttackTime = Time.time;
                 }
@@ -82,6 +66,7 @@ public class Bloatedbane : MonoBehaviour
             {
                 if (Time.time - lastAttackTime > attackCooldown)
                 {
+                    ResetAllTriggers();
                     animator.SetTrigger("Attack1");
                     Launch();
                     lastAttackTime = Time.time;
@@ -130,35 +115,16 @@ public class Bloatedbane : MonoBehaviour
         bullet.Launch(lookDirection, 50);
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    void ResetAllTriggers()
     {
-        if (other.CompareTag("Sword"))
-        {
-            var player = other.GetComponentInParent<CharacterScript>();
-            ChangeHealth(-(int)player.getATK);
-            player.ChangeKi(KaguraBachiData.KiRegeneratePerHit);
-        }
-    }
+        AnimatorControllerParameter[] parameters = animator.parameters;
 
-    void ChangeHealth(int amount)
-    {
-        if (amount < 0 && currentHP > 0)
+        foreach (AnimatorControllerParameter parameter in parameters)
         {
-            animator.SetTrigger("Hit");
-            currentHP = Mathf.Clamp(currentHP + amount, 0, hp);
-
-            if (currentHP <= 0)
+            if (parameter.type == AnimatorControllerParameterType.Trigger)
             {
-                isDead = true;
-                StartCoroutine(Dead());
+                animator.ResetTrigger(parameter.name);
             }
         }
-    }
-
-    IEnumerator Dead()
-    {
-        yield return new WaitForSeconds(0.6f);
-        Destroy(gameObject, 1.3f);
-        animator.SetTrigger("Dead");
     }
 }

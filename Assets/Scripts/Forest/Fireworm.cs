@@ -70,10 +70,6 @@ public class Fireworm : MonoBehaviour
             ChangeHealth(-(int)player.getATK);
             player.ChangeKi(KaguraBachiData.KiRegeneratePerHit);
         }
-        else if (other.CompareTag("SwordProjectile"))
-        {
-            ChangeHealth(-other.GetComponent<SpecialAttack2>().getATK);
-        }
     }
 
     void ChangeHealth(int amount)

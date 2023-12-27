@@ -130,10 +130,6 @@ public class InfectedFungus : MonoBehaviour
         {
             ChangeHealth(-(int)other.GetComponentInParent<CharacterScript>().getATK);
         }
-        else if (other.CompareTag("SwordProjectile"))
-        {
-            ChangeHealth(-other.GetComponent<SpecialAttack2>().getATK);
-        }
     }
 
     void ChangeHealth(int amount)

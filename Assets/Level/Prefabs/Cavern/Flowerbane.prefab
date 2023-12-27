@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 1290083700162209509}
   - component: {fileID: 3433347020689504281}
   - component: {fileID: 2123860182696815953}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Flowerbane
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -46.03, y: -3.51, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -199,4 +199,3 @@ MonoBehaviour:
   chaseRange: 6
   attackRange: 3.5
   attackCooldown: 2
-  hp: 10

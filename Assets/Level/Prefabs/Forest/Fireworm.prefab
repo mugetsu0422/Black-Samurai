@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 446088381361119451}
   m_Layer: 7
   m_Name: Fireworm
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -194,12 +194,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf095109698b18847b883e1f2c15fbb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 53
   direction: 1
-  atk: 1
   projectilePrefab: {fileID: 3742973803233758581, guid: 2edfb78655002cc4fa29d17082e21fdb, type: 3}
   projectileForce: 1000
-  parasiteEssenceDrop: 50
+  attackAnimationDelay: 0.875
 --- !u!114 &446088381361119451
 MonoBehaviour:
   m_ObjectHideFlags: 0

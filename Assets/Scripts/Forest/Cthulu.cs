@@ -24,8 +24,6 @@ public class Cthulu : MonoBehaviour
     [SerializeField] float speed = 10f;
     [SerializeField] float chaseSpeed = 20f;
 
-    [SerializeField] int parasiteEssenceDrop = 100;
-
     Rigidbody2D rb2D;
     Animator animator;
     AIPlayerDetector playerDetector;
@@ -108,10 +106,6 @@ public class Cthulu : MonoBehaviour
         {
             ChangeHealth(-(int)other.GetComponentInParent<CharacterScript>().getATK);
         }
-        else if (other.CompareTag("SwordProjectile"))
-        {
-            ChangeHealth(-other.GetComponent<SpecialAttack2>().getATK);
-        }
     }
 
     void ChangeHealth(int amount)
@@ -121,18 +115,14 @@ public class Cthulu : MonoBehaviour
             animator.SetTrigger("Hurt");
             currentHP = Mathf.Clamp(currentHP + amount, 0, hp);
 
-            if (currentHP <= 0)
-            {
+            if (currentHP <= 0) {
                 Dead();
             }
         }
     }
 
-    void Dead()
-    {
+    void Dead() {
         Destroy(gameObject, 1.5f);
         animator.SetTrigger("Death");
-        var player = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterScript>();
-        player.ChangeParasiteEssence(parasiteEssenceDrop);
     }
 }

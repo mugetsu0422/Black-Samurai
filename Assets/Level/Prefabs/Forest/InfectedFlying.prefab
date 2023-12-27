@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 5317835152814863918}
   m_Layer: 7
   m_Name: InfectedFlying
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -206,7 +206,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   showGizmos: 1
-  parasiteEssenceDrop: 50
 --- !u!114 &5317835152814863918
 MonoBehaviour:
   m_ObjectHideFlags: 0

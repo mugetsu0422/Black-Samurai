@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 9188983545397141189}
   m_Layer: 7
   m_Name: InfectedFungus
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -207,7 +207,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   showGizmos: 1
-  parasiteEssenceDrop: 50
 --- !u!114 &3117451976749003337
 MonoBehaviour:
   m_ObjectHideFlags: 0

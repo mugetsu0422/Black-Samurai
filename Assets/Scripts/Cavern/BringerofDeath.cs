@@ -21,40 +21,23 @@ public class BringerofDeath : MonoBehaviour
     public float attackRange;
     public float attackCooldown;
     private float lastAttackTime;
-    public int hp = 10;
-    int currentHP;
-    int atk = 1;
-    private BoxCollider2D boxCollider;
-    private bool isDead = false;
+    
 
-     void Start()
+    void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         characterTransform = GameObject.FindGameObjectWithTag("Player").transform;
-        boxCollider = GetComponent<BoxCollider2D>();
+        StartPatrol();
+    }
+
+    void StartPatrol()
+    {
         isPatrolling = true;
-        currentHP = hp;
     }
 
     void Update()
     {
-        if (isDead)
-            return;
-
-        AnimatorStateInfo currentState = animator.GetCurrentAnimatorStateInfo(0);
-        Vector2 colliderSize = boxCollider.size;
-        Collider2D[] colliders = Physics2D.OverlapBoxAll(transform.position, colliderSize, 20f);
-        foreach (Collider2D collider in colliders)
-        {
-            Debug.Log("hi" + currentState.IsName("Attack"));
-            Debug.Log("hello" + collider.CompareTag("Player"));
-            if (collider.CompareTag("Player") && currentState.IsName("Attack"))
-            {
-                CharacterScript characterScript = collider.GetComponentInParent<CharacterScript>();
-                characterScript.changeHealth(-atk);
-            }
-        }
         float distanceToCharacter = Vector2.Distance(transform.position, characterTransform.position);
 
         if (distanceToCharacter < chaseRange)
@@ -123,6 +106,13 @@ public class BringerofDeath : MonoBehaviour
         initialPosition = transform.position;
     }
 
+    // Coroutine to destroy the object after a delay
+    IEnumerator DestroyAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        Destroy(gameObject);
+    }
+
     IEnumerator Launch(float xOffset)
     {
         yield return new WaitForSeconds(1f);
@@ -138,37 +128,5 @@ public class BringerofDeath : MonoBehaviour
 
         BringerofDeathSpell spell = spellObject.GetComponent<BringerofDeathSpell>();
         spell.Launch();
-    }
-
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Sword"))
-        {
-            var player = other.GetComponentInParent<CharacterScript>();
-            ChangeHealth(-(int)player.getATK);
-            player.ChangeKi(KaguraBachiData.KiRegeneratePerHit);
-        }
-    }
-
-    void ChangeHealth(int amount)
-    {
-        if (amount < 0 && currentHP > 0)
-        {
-            animator.SetTrigger("Hit");
-            currentHP = Mathf.Clamp(currentHP + amount, 0, hp);
-
-            if (currentHP <= 0)
-            {
-                isDead = true;
-                StartCoroutine(Dead());
-            }
-        }
-    }
-
-    IEnumerator Dead()
-    {
-        yield return new WaitForSeconds(0.6f);
-        Destroy(gameObject, 1.3f);
-        animator.SetTrigger("Dead");
     }
 }

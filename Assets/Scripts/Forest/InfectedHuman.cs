@@ -127,12 +127,7 @@ public class InfectedHuman : MonoBehaviour
     {
         if (other.CompareTag("Sword"))
         {
-            Debug.Log("hit");
             ChangeHealth(-(int)other.GetComponentInParent<CharacterScript>().getATK);
-        }
-        else if (other.CompareTag("SwordProjectile"))
-        {
-            ChangeHealth(-other.GetComponent<SpecialAttack2>().getATK);
         }
     }
 
