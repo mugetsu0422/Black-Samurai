@@ -232,9 +232,11 @@ MonoBehaviour:
   jumpHeight: 50
   attackIntervalTime: 1
   maxHealth: 3
-  normalAttack: {fileID: 0}
+  normalAttack: {fileID: 5065844039894019178, guid: d6155f0dde6248846b359263078a49f8, type: 3}
   specialAttack1: {fileID: 2811790570030353727, guid: 02f17528bcd1151408e0fe418f710a1a, type: 3}
   specialAttack2: {fileID: 3065604119798350553, guid: 9f5cd5df97bb39d449b3fbc3b2415226, type: 3}
+  restoreHPTime: 2
+  testingEnvironment: 1
 --- !u!70 &3788585883854233059
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
