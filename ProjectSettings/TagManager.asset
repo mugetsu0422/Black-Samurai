@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - Ground
   - Sword
+  - SwordProjectile
   layers:
   - Default
   - TransparentFX
@@ -23,7 +24,6 @@ TagManager:
   - Player
   - Blacksmith
   - Confiner
-  - 
   - 
   - 
   - 

@@ -22,7 +22,7 @@ public static class KaguraBachiData
 
     // atk based on weapon level
     private static readonly int maxHealth = 3;
-    private static int health = 3;
+    private static int health = maxHealth;
     private static readonly int maxKi = 100;
     private static int ki = 0;
     private static readonly int[] atk = { 5, 10, 15 };
