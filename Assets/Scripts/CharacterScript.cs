@@ -24,9 +24,8 @@ public class CharacterScript : MonoBehaviour
     float attackTimer;
 
     [Header("Stats")]
-    [SerializeField] int maxHealth = 3;
+    [SerializeField] int maxHealth = KaguraBachiData.MaxHealth;
     readonly int ATK = KaguraBachiData.Atk;
-    int ki = KaguraBachiData.Ki;
 
     int attackDamage = 1;
 
@@ -34,6 +33,12 @@ public class CharacterScript : MonoBehaviour
     [SerializeField] GameObject normalAttack;
     [SerializeField] GameObject specialAttack1;
     [SerializeField] GameObject specialAttack2;
+    ParticleSystem restoreHPVFX;
+
+    [SerializeField] float restoreHPTime = 2f;
+    float restoreHPStartTime = 0f;
+
+    [SerializeField] bool testingEnvironment = true;
 
     // Character size
     float width;
@@ -47,6 +52,7 @@ public class CharacterScript : MonoBehaviour
         isGrounded = true;
         width = GetComponent<Renderer>().bounds.size.x;
         height = GetComponent<Renderer>().bounds.size.y;
+        restoreHPVFX = transform.Find("RestoreHPVFX").GetComponent<ParticleSystem>();
     }
 
     // Update is called once per frame
@@ -111,15 +117,44 @@ public class CharacterScript : MonoBehaviour
             }
         }
         // Testing purpose
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKey(KeyCode.A))
         {
-            ChangeKi(100);
+            if (currentHealth == maxHealth || KaguraBachiData.Ki < (int)KaguraBachiData.KiConsumption.RestoreHP)
+            {
+                return;
+            }
+            if (restoreHPStartTime == 0)
+            {
+                restoreHPVFX.Play();
+
+            }
+            restoreHPStartTime += Time.deltaTime;
+            if (restoreHPStartTime >= restoreHPTime)
+            {
+                changeHealth(1);
+                ChangeKi(-(int)KaguraBachiData.KiConsumption.RestoreHP);
+                restoreHPStartTime = 0f;
+            }
+        }
+        else
+        {
+            restoreHPVFX.Stop();
+            restoreHPStartTime = 0f;
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
-            changeHealth(-1);
+            if (testingEnvironment)
+            {
+                changeHealth(-1);
+            }
         }
-
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            if (testingEnvironment)
+            {
+                ChangeKi(100);
+            }
+        }
     }
 
     void FixedUpdate()
@@ -154,7 +189,7 @@ public class CharacterScript : MonoBehaviour
 
     void Attack2()
     {
-        if (ki < (int)KaguraBachiData.KiConsumption.SpecialAttack1)
+        if (KaguraBachiData.Ki < (int)KaguraBachiData.KiConsumption.SpecialAttack1)
         {
             return;
         }
@@ -172,7 +207,7 @@ public class CharacterScript : MonoBehaviour
 
     void Attack3()
     {
-        if (ki < (int)KaguraBachiData.KiConsumption.SpecialAttack2)
+        if (KaguraBachiData.Ki < (int)KaguraBachiData.KiConsumption.SpecialAttack2)
         {
             return;
         }
@@ -223,7 +258,7 @@ public class CharacterScript : MonoBehaviour
 
     public void ChangeKi(int amount)
     {
-        ki += amount;
+        KaguraBachiData.Ki += amount;
         Manabar.instance.setFillAmount(amount);
     }
 
