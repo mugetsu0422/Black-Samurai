@@ -126,6 +126,6 @@ public class VillageBoss : MonoBehaviour
     }
 
     private void hurt(){
-
+        animator.SetTrigger("Hit");
     }
 }

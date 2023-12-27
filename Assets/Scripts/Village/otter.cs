@@ -76,6 +76,7 @@ public class Otter : MonoBehaviour
     }
 
     public void ChangeHealth(int x){
+        ani.SetTrigger("Hit");
         health = Math.Max(0,health-x);
         if (health < 1){
             Dead();
