@@ -69,7 +69,7 @@ public class VillageBoss : MonoBehaviour
         }
         else if (isPatrolling)
         {
-            rb2d.velocity = new Vector2(patrolSpeed * patrolDirection, 0);
+            rb2d.velocity = new Vector2(patrolSpeed * patrolDirection, rb2d.velocity.y + Physics2D.gravity.y*Time.deltaTime);
 
             if ((patrolDirection > 0 && transform.position.x >= initialPosition.x + patrolRange) ||
                 (patrolDirection < 0 && transform.position.x <= initialPosition.x - patrolRange))

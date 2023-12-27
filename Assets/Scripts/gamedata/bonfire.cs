@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
 
 public class bonfire : MonoBehaviour
@@ -8,9 +9,10 @@ public class bonfire : MonoBehaviour
     // Start is called before the first frame update
     public string location_name;
     public bool isActive;
-
+    public GameObject tip;
     void Start()
     {
+        tip.SetActive(false);
         try{
             Save_Point.SavePoint savePoint =  Save_Point.savePointData.SavePoint(gameObject.scene.name,location_name);
             transform.GetChild(0).gameObject.SetActive(savePoint.isActive);
@@ -31,14 +33,15 @@ public class bonfire : MonoBehaviour
     // Update is called once per frame
 
     void FixedUpdate(){
-        if(!isActive){
+        tip.transform.position =  Camera.main.WorldToScreenPoint(gameObject.transform.position+Vector3.up*6);
         RaycastHit2D hit = Physics2D.CircleCast(gameObject.transform.position,4f,Vector2.zero,LayerMask.GetMask("Player"));
-            if (hit.collider.tag == "Player"){
-                Active();
-                Save_Point.savePointData.data[gameObject.scene.name][location_name].isActive = true;
-                this.enabled = false;
-            }
+        if (hit.collider.tag == "Player"){
+            Active();
+            tip.SetActive(true);
+            Save_Point.savePointData.data[gameObject.scene.name][location_name].isActive = true;
         }
+        else
+            tip.SetActive(false);
     }
 
 

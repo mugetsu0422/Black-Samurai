@@ -18,12 +18,16 @@ public class bee : MonoBehaviour
     public float force;
     private bool can_shoot = true;
     private GameObject player;
+    Vector3 initPosition;
     void Start()
     {
         ani = gameObject.GetComponent<Animator>();
         ani.SetFloat("X",0.1f);
     }
 
+    void Awake(){
+        initPosition = gameObject.transform.position;
+    }
     // Update is called once per frame
     void Update()
     {  
@@ -32,16 +36,29 @@ public class bee : MonoBehaviour
 
         RaycastHit2D hit = Physics2D.CircleCast(gameObject.transform.position,50,Vector2.zero,0,LayerMask.GetMask("Player"));
         if (hit.collider != null){
-            Vector2 temp = hit.collider.transform.position - gameObject.transform.position;
-            temp.Normalize();
-            setMove(temp);
-
-            if ( Mathf.Abs(temp.y)<0.1f){
-                Attack();
-                Invoke("Dead",3);
+            RaycastHit2D obstacle = Physics2D.Linecast(gameObject.transform.position,hit.collider.transform.position,LayerMask.GetMask("Map"));
+            if (obstacle.collider == null){
+                Vector2 temp = hit.collider.transform.position - gameObject.transform.position;
+                temp.Normalize();
+                setMove(temp);
+                if ( Mathf.Abs(temp.y)<0.1f){
+                    Attack();
+                    Invoke("Dead",3);
+                }
+            }
+            else{
+                Vector2 temp = initPosition - gameObject.transform.position;
+                temp.Normalize();
+                setMove(temp);
             }
         }
+        else{
+            Vector2 temp = initPosition - gameObject.transform.position;
+            temp.Normalize();
+            setMove(temp);
+        }
 
+        
         if (Mathf.Abs(direction.sqrMagnitude)>0.1){
             ani.SetFloat("X",direction.x);
             Vector2 positison = transform.position;
