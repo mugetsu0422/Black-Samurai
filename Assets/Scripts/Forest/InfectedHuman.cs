@@ -127,7 +127,9 @@ public class InfectedHuman : MonoBehaviour
     {
         if (other.CompareTag("Sword"))
         {
-            ChangeHealth(-(int)other.GetComponentInParent<CharacterScript>().getATK);
+            var player = other.GetComponentInParent<CharacterScript>();
+            ChangeHealth(-(int)player.getATK);
+            player.ChangeKi(KaguraBachiData.KiRegeneratePerHit);
         }
         else if (other.CompareTag("SwordProjectile"))
         {

@@ -106,7 +106,9 @@ public class Cthulu : MonoBehaviour
     {
         if (other.CompareTag("Sword"))
         {
-            ChangeHealth(-(int)other.GetComponentInParent<CharacterScript>().getATK);
+            var player = other.GetComponentInParent<CharacterScript>();
+            ChangeHealth(-(int)player.getATK);
+            player.ChangeKi(KaguraBachiData.KiRegeneratePerHit);
         }
         else if (other.CompareTag("SwordProjectile"))
         {
@@ -120,6 +122,7 @@ public class Cthulu : MonoBehaviour
         {
             animator.SetTrigger("Hurt");
             currentHP = Mathf.Clamp(currentHP + amount, 0, hp);
+            BossHealthbar.instance.SetValue(currentHP / (float)hp);
 
             if (currentHP <= 0)
             {
@@ -130,6 +133,7 @@ public class Cthulu : MonoBehaviour
 
     void Dead()
     {
+        GetComponentInParent<BossZone>().BossDefeated();
         Destroy(gameObject, 1.5f);
         animator.SetTrigger("Death");
         var player = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterScript>();
