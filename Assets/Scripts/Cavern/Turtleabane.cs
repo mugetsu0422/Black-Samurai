@@ -24,6 +24,9 @@ public class TurtleabaneController : MonoBehaviour
     int atk = 1;
     private BoxCollider2D boxCollider;
     private bool isDead = false;
+    public float timeInvincible = 2f;
+    bool isInvincible = false;
+    float invincibleTimer;
 
     void Start()
     {
@@ -39,6 +42,15 @@ public class TurtleabaneController : MonoBehaviour
     {
         if (isDead)
             return;
+
+        if (isInvincible)
+        {
+            invincibleTimer -= Time.deltaTime;
+            if (invincibleTimer < 0)
+            {
+                isInvincible = false;
+            }
+        }
 
         AnimatorStateInfo currentState = animator.GetCurrentAnimatorStateInfo(0);
         Vector2 colliderSize = boxCollider.size;
@@ -142,10 +154,16 @@ public class TurtleabaneController : MonoBehaviour
 
     void ChangeHealth(int amount)
     {
+        if (isInvincible)
+        {
+            return;
+        }
         if (amount < 0 && currentHP > 0)
         {
             animator.SetTrigger("Hit");
             currentHP = Mathf.Clamp(currentHP + amount, 0, hp);
+            isInvincible = true;
+            invincibleTimer = timeInvincible;
 
             if (currentHP <= 0)
             {

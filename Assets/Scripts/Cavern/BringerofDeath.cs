@@ -26,8 +26,12 @@ public class BringerofDeath : MonoBehaviour
     int atk = 1;
     private BoxCollider2D boxCollider;
     private bool isDead = false;
+    public float timeInvincible = 2f;
+    bool isInvincible = false;
+    float invincibleTimer;
+    bool healthbar = false;
 
-     void Start()
+    void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
@@ -35,6 +39,7 @@ public class BringerofDeath : MonoBehaviour
         boxCollider = GetComponent<BoxCollider2D>();
         isPatrolling = true;
         currentHP = hp;
+        BossHealthbar.instance.SetBossName("Bringer of Deadth");
     }
 
     void Update()
@@ -42,13 +47,20 @@ public class BringerofDeath : MonoBehaviour
         if (isDead)
             return;
 
+        if (isInvincible)
+        {
+            invincibleTimer -= Time.deltaTime;
+            if (invincibleTimer < 0)
+            {
+                isInvincible = false;
+            }
+        }
+
         AnimatorStateInfo currentState = animator.GetCurrentAnimatorStateInfo(0);
         Vector2 colliderSize = boxCollider.size;
         Collider2D[] colliders = Physics2D.OverlapBoxAll(transform.position, colliderSize, 20f);
         foreach (Collider2D collider in colliders)
         {
-            Debug.Log("hi" + currentState.IsName("Attack"));
-            Debug.Log("hello" + collider.CompareTag("Player"));
             if (collider.CompareTag("Player") && currentState.IsName("Attack"))
             {
                 CharacterScript characterScript = collider.GetComponentInParent<CharacterScript>();
@@ -59,6 +71,10 @@ public class BringerofDeath : MonoBehaviour
 
         if (distanceToCharacter < chaseRange)
         {
+            if (!healthbar) {
+                healthbar = true;
+                BossHealthbar.instance.SetEnable(true);
+            }
             isChasing = true;
             isPatrolling = false;
         }
@@ -152,11 +168,18 @@ public class BringerofDeath : MonoBehaviour
 
     void ChangeHealth(int amount)
     {
+        if (isInvincible)
+        {
+            return;
+        }
+
         if (amount < 0 && currentHP > 0)
         {
             animator.SetTrigger("Hit");
             currentHP = Mathf.Clamp(currentHP + amount, 0, hp);
-
+            BossHealthbar.instance.SetValue(currentHP / (float)hp);
+            isInvincible = true;
+            invincibleTimer = timeInvincible;
             if (currentHP <= 0)
             {
                 isDead = true;
@@ -170,5 +193,6 @@ public class BringerofDeath : MonoBehaviour
         yield return new WaitForSeconds(0.6f);
         Destroy(gameObject, 1.3f);
         animator.SetTrigger("Dead");
+        BossHealthbar.instance.SetEnable(false);
     }
 }

@@ -8,7 +8,7 @@ public class Flowerbane : MonoBehaviour
     private Transform characterTransform;
     private bool isChasing = false;
     private bool isPatrolling = false;
-    private float patrolDirection = 1.0f; 
+    private float patrolDirection = 1.0f;
     public float patrolSpeed;
     public float chaseSpeed;
     public float patrolRange;
@@ -18,11 +18,14 @@ public class Flowerbane : MonoBehaviour
     private float lastAttackTime;
     Animator animator;
     private Vector2 lookDirection = new Vector2(1, 0);
-     public int hp = 10;
+    public int hp = 10;
     int currentHP;
     int atk = 1;
     private BoxCollider2D boxCollider;
     private bool isDead = false;
+    public float timeInvincible = 2f;
+    bool isInvincible = false;
+    float invincibleTimer;
 
     void Start()
     {
@@ -38,6 +41,15 @@ public class Flowerbane : MonoBehaviour
     {
         if (isDead)
             return;
+
+        if (isInvincible)
+        {
+            invincibleTimer -= Time.deltaTime;
+            if (invincibleTimer < 0)
+            {
+                isInvincible = false;
+            }
+        }
 
         AnimatorStateInfo currentState = animator.GetCurrentAnimatorStateInfo(0);
         Vector2 colliderSize = boxCollider.size;
@@ -67,17 +79,18 @@ public class Flowerbane : MonoBehaviour
         if (isChasing)
         {
             Vector2 direction = (characterTransform.position - transform.position).normalized;
-        
+
             if (distanceToCharacter < attackRange)
             {
                 if (Time.time - lastAttackTime > attackCooldown)
                 {
-                    int randomAttack = Random.Range(1, 3); 
+                    int randomAttack = Random.Range(1, 3);
                     animator.SetTrigger("Attack" + randomAttack);
                     lastAttackTime = Time.time;
                 }
             }
-            else {
+            else
+            {
                 rb2d.velocity = direction * chaseSpeed;
             }
         }
@@ -128,11 +141,16 @@ public class Flowerbane : MonoBehaviour
 
     void ChangeHealth(int amount)
     {
+        if (isInvincible)
+        {
+            return;
+        }
         if (amount < 0 && currentHP > 0)
         {
             animator.SetTrigger("Hit");
             currentHP = Mathf.Clamp(currentHP + amount, 0, hp);
-
+            isInvincible = true;
+            invincibleTimer = timeInvincible;
             if (currentHP <= 0)
             {
                 isDead = true;
