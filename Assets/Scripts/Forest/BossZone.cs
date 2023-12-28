@@ -5,12 +5,13 @@ using UnityEngine.Tilemaps;
 
 public class BossZone : MonoBehaviour
 {
+    [SerializeField] string bossName;
     [SerializeField] Tilemap bossZoneTilemap;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        BossHealthbar.instance.SetBossName(bossName);
     }
 
     // Update is called once per frame
@@ -24,11 +25,13 @@ public class BossZone : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             bossZoneTilemap.gameObject.SetActive(true);
+            BossHealthbar.instance.SetEnable(true);
         }
     }
 
     public void BossDefeated()
     {
         bossZoneTilemap.gameObject.SetActive(false);
+        BossHealthbar.instance.SetEnable(false);
     }
 }

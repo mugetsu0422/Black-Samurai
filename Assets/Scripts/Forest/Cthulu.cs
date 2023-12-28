@@ -122,6 +122,7 @@ public class Cthulu : MonoBehaviour
         {
             animator.SetTrigger("Hurt");
             currentHP = Mathf.Clamp(currentHP + amount, 0, hp);
+            BossHealthbar.instance.SetValue(currentHP / (float)hp);
 
             if (currentHP <= 0)
             {
