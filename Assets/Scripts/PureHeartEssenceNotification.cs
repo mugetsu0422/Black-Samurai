@@ -13,6 +13,10 @@ public class PureHeartEssenceNotification : MonoBehaviour
 
     public static PureHeartEssenceNotification instance { get; private set; }
 
+    AudioSource audioSource;
+
+    public AudioClip collectSound;
+
     void Awake()
     {
         instance = this;
@@ -21,6 +25,7 @@ public class PureHeartEssenceNotification : MonoBehaviour
 
     public void openNotification(){
         gameObject.SetActive(true);
+        audioSource = GetComponent<AudioSource>();
         StartCoroutine(FadeNotification());
     }
 
@@ -32,7 +37,7 @@ public class PureHeartEssenceNotification : MonoBehaviour
 
         float duration = 0.2f;
         float elapsedTime = 0f;
-
+        PlaySound(collectSound);
         while (elapsedTime < duration)
         {
             containerColor.a = Mathf.Lerp(0f, 1f, elapsedTime / duration);
@@ -54,5 +59,10 @@ public class PureHeartEssenceNotification : MonoBehaviour
         NotiContainer.color = containerColor;
         HeartEssence.color = HeartEssenceColor;
         Noti.color = NotiColor;
+    }
+
+    public void PlaySound(AudioClip clip)
+    {
+        audioSource.PlayOneShot(clip);
     }
 }
