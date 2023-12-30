@@ -19,6 +19,7 @@ public class StatusBoard : MonoBehaviour
 
     void Start()
     {
+        statusBoard.SetActive(false);
         getInformation();
     }
 
