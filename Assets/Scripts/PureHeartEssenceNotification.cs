@@ -16,9 +16,11 @@ public class PureHeartEssenceNotification : MonoBehaviour
     void Awake()
     {
         instance = this;
+        gameObject.SetActive(false);
     }
 
     public void openNotification(){
+        gameObject.SetActive(true);
         StartCoroutine(FadeNotification());
     }
 

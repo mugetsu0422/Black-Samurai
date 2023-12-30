@@ -138,5 +138,7 @@ public class Cthulu : MonoBehaviour
         animator.SetTrigger("Death");
         var player = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterScript>();
         player.ChangeParasiteEssence(parasiteEssenceDrop);
+        KaguraBachiData.PureParasiteHeart += 1;
+        PureHeartEssenceNotification.instance.openNotification();
     }
 }

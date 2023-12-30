@@ -128,6 +128,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64d6fe0020181f846b16d6ad1ac65a2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HeartEssence: {fileID: 3894707378657859234}
+  Noti: {fileID: 7080182145885914596}
+  NotiContainer: {fileID: 7111639681550779138}
+  Notification: {fileID: 0}
 --- !u!1 &4006593672651113268
 GameObject:
   m_ObjectHideFlags: 0
