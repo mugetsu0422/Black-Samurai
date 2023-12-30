@@ -20,9 +20,14 @@ public class Blacksmith : MonoBehaviour
 
     public GameObject talktome;
 
+    AudioSource audioSource;
+
+    public AudioClip Upgrade;
+
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         DialogueContainer.SetActive(false);
     }
 
@@ -93,6 +98,7 @@ public class Blacksmith : MonoBehaviour
                 index = 4;
                 StopCoroutine(cor);
                 dialogueText.text = "";
+                PlaySound(Upgrade);
                 cor  = StartCoroutine(Typing());
             }
             if(result == 2){
@@ -145,7 +151,7 @@ public class Blacksmith : MonoBehaviour
         if(KaguraBachiData.WeaponLevel == 2){
             if(KaguraBachiData.ParasiteEssence >= 100 && KaguraBachiData.PureParasiteHeart >=1){
                 KaguraBachiData.WeaponLevel = 3;
-                EssenceCollected.instance.setNormalEssence(KaguraBachiData.ParasiteEssence, -100);
+                EssenceCollected.instance.setNormalEssence(KaguraBachiData.ParasiteEssence, -300);
                 KaguraBachiData.ParasiteEssence -=300;
                 KaguraBachiData.PureParasiteHeart -=1;
                 return 1;
@@ -153,5 +159,10 @@ public class Blacksmith : MonoBehaviour
             else return 2;
         }
         return 3;
+    }
+
+    public void PlaySound(AudioClip clip)
+    {
+        audioSource.PlayOneShot(clip);
     }
 }
