@@ -10,7 +10,6 @@ public class CharacterScript : MonoBehaviour
     float jump;
     Vector2 lookDirection = new Vector2(1, 0);
     Animator animator;
-    int currentHealth;
 
     public float timeInvincible = 1.5f;
     bool isInvincible = false;
@@ -24,7 +23,6 @@ public class CharacterScript : MonoBehaviour
     float attackTimer;
 
     [Header("Stats")]
-    [SerializeField] int maxHealth = KaguraBachiData.MaxHealth;
     readonly int ATK = KaguraBachiData.Atk;
 
     int attackDamage = 1;
@@ -48,11 +46,13 @@ public class CharacterScript : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        currentHealth = maxHealth;
         isGrounded = true;
         width = GetComponent<Renderer>().bounds.size.x;
         height = GetComponent<Renderer>().bounds.size.y;
         restoreHPVFX = transform.Find("RestoreHPVFX").GetComponent<ParticleSystem>();
+
+        Healthbar.instance.setFillAmount(KaguraBachiData.Health - KaguraBachiData.MaxHealth);
+        Manabar.instance.setFillAmount(KaguraBachiData.Ki);
     }
 
     // Update is called once per frame
@@ -63,7 +63,7 @@ public class CharacterScript : MonoBehaviour
             attackTimer -= Time.deltaTime;
         }
         animator.SetFloat("yVelocity", rb2d.velocity.y);
-        if (currentHealth == 0)
+        if (KaguraBachiData.Health == 0)
         {
             Dead();
         }
@@ -119,7 +119,7 @@ public class CharacterScript : MonoBehaviour
         // Testing purpose
         if (Input.GetKey(KeyCode.A))
         {
-            if (currentHealth == maxHealth || KaguraBachiData.Ki < (int)KaguraBachiData.KiConsumption.RestoreHP)
+            if (KaguraBachiData.Health == KaguraBachiData.MaxHealth || KaguraBachiData.Ki < (int)KaguraBachiData.KiConsumption.RestoreHP)
             {
                 return;
             }
@@ -228,12 +228,6 @@ public class CharacterScript : MonoBehaviour
         animator.SetTrigger("Dead");
     }
 
-    public int health
-    {
-        get { return currentHealth; }
-        set { currentHealth = value; }
-    }
-
     public float getATK
     {
         get { return attackDamage; }
@@ -252,8 +246,8 @@ public class CharacterScript : MonoBehaviour
             isInvincible = true;
             invincibleTimer = timeInvincible;
         }
-        currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
-        Healthbar.instance.setFillAmount((float)amount);
+        KaguraBachiData.Health += amount;
+        Healthbar.instance.setFillAmount(amount);
     }
 
     public void ChangeKi(int amount)
