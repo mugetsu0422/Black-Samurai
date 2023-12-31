@@ -19,8 +19,12 @@ public class LevelManager : MonoBehaviour
         if (!Instance)
         {
             Instance = this;
-            iconStartingPosX = LoadingScreenProgressBar.Instance.loadingIndicativeIcon.transform.localPosition.x;
         }
+    }
+
+    private void Start()
+    {
+        iconStartingPosX = LoadingScreenProgressBar.Instance.loadingIndicativeIcon.transform.localPosition.x;
     }
 
     public async void LoadScene(string sceneName)
