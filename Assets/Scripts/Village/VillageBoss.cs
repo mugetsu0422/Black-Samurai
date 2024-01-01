@@ -54,7 +54,6 @@ public class VillageBoss : MonoBehaviour
         if (isChasing)
         {
             Vector2 direction = (characterTransform.position - transform.position).normalized;
-            Debug.Log(distanceToCharacter);
             if (distanceToCharacter < attackRange)
             {
                 if (Time.time - lastAttackTime > attackCooldown)

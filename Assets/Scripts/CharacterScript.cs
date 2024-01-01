@@ -10,7 +10,6 @@ public class CharacterScript : MonoBehaviour
     float jump;
     Vector2 lookDirection = new Vector2(1, 0);
     Animator animator;
-    int currentHealth;
 
     public float timeInvincible = 1.5f;
     bool isInvincible = false;
@@ -24,7 +23,6 @@ public class CharacterScript : MonoBehaviour
     float attackTimer;
 
     [Header("Stats")]
-    [SerializeField] int maxHealth = KaguraBachiData.MaxHealth;
     readonly int ATK = KaguraBachiData.Atk;
 
     int attackDamage = 1;
@@ -43,16 +41,34 @@ public class CharacterScript : MonoBehaviour
     // Character size
     float width;
     float height;
+
+    AudioSource[] audioSource;
+
+    public AudioClip attack;
+    public AudioClip specialAttackOne;
+    public AudioClip specialAttackTwo;
+
+    public AudioClip getHit;
+
+    public AudioClip restore;
+
+    public AudioClip Jump;
+
+    public GameObject backgroundMusic;
+    AudioSource bgm;
+
+    public AudioClip bossFightBGM;
     // Start is called before the first frame update
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        currentHealth = maxHealth;
         isGrounded = true;
         width = GetComponent<Renderer>().bounds.size.x;
         height = GetComponent<Renderer>().bounds.size.y;
         restoreHPVFX = transform.Find("RestoreHPVFX").GetComponent<ParticleSystem>();
+        audioSource = GetComponents<AudioSource>();
+        bgm = backgroundMusic.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -63,7 +79,7 @@ public class CharacterScript : MonoBehaviour
             attackTimer -= Time.deltaTime;
         }
         animator.SetFloat("yVelocity", rb2d.velocity.y);
-        if (currentHealth == 0)
+        if (KaguraBachiData.Health == 0)
         {
             Dead();
         }
@@ -92,6 +108,7 @@ public class CharacterScript : MonoBehaviour
             rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
             rb2d.AddForce(new Vector2(0, jumpHeight), ForceMode2D.Impulse);
             animator.SetBool("Jump", true);
+            PlaySound(Jump);
             isGrounded = false;
         }
 
@@ -119,14 +136,14 @@ public class CharacterScript : MonoBehaviour
         // Testing purpose
         if (Input.GetKey(KeyCode.A))
         {
-            if (currentHealth == maxHealth || KaguraBachiData.Ki < (int)KaguraBachiData.KiConsumption.RestoreHP)
+            if (KaguraBachiData.Health == KaguraBachiData.MaxHealth || KaguraBachiData.Ki < (int)KaguraBachiData.KiConsumption.RestoreHP)
             {
                 return;
             }
             if (restoreHPStartTime == 0)
             {
                 restoreHPVFX.Play();
-
+                PlaySoundHeal(restore);
             }
             restoreHPStartTime += Time.deltaTime;
             if (restoreHPStartTime >= restoreHPTime)
@@ -139,6 +156,7 @@ public class CharacterScript : MonoBehaviour
         else
         {
             restoreHPVFX.Stop();
+            audioSource[1].Stop();
             restoreHPStartTime = 0f;
         }
         if (Input.GetKeyDown(KeyCode.D))
@@ -154,6 +172,14 @@ public class CharacterScript : MonoBehaviour
             {
                 ChangeKi(100);
             }
+        }
+        if(Input.GetKeyDown(KeyCode.N)){
+            PureHeartEssenceNotification.instance.openNotification();
+            BackgroundMusic.instance.changeBossBGM();
+            EssenceCollected.instance.setNormalEssence(KaguraBachiData.ParasiteEssence, 300);
+            KaguraBachiData.ParasiteEssence +=300;
+            KaguraBachiData.PureParasiteHeart +=1;
+
         }
     }
 
@@ -178,6 +204,7 @@ public class CharacterScript : MonoBehaviour
     {
         attackDamage = (int)(ATK * KaguraBachiData.AttackMultiplier.Normal);
         animator.SetTrigger("Attack1");
+        PlaySound(attack);
         attackTimer = attackIntervalTime;
     }
 
@@ -196,6 +223,7 @@ public class CharacterScript : MonoBehaviour
         ChangeKi(-(int)KaguraBachiData.KiConsumption.SpecialAttack1);
         attackDamage = (int)(ATK * KaguraBachiData.AttackMultiplier.Special1);
         animator.SetTrigger("Attack2");
+        PlaySound(specialAttackOne);
         attackTimer = attackIntervalTime;
     }
 
@@ -214,6 +242,7 @@ public class CharacterScript : MonoBehaviour
         ChangeKi(-(int)KaguraBachiData.KiConsumption.SpecialAttack2);
         attackDamage = (int)(ATK * KaguraBachiData.AttackMultiplier.Special2);
         animator.SetTrigger("Attack3");
+        PlaySound(specialAttackTwo);
         attackTimer = attackIntervalTime;
     }
 
@@ -228,12 +257,6 @@ public class CharacterScript : MonoBehaviour
         animator.SetTrigger("Dead");
     }
 
-    public int health
-    {
-        get { return currentHealth; }
-        set { currentHealth = value; }
-    }
-
     public float getATK
     {
         get { return attackDamage; }
@@ -245,6 +268,7 @@ public class CharacterScript : MonoBehaviour
         {
             animator.SetTrigger("Hurt");
             animator.Play("ChangeColour");
+            PlaySound(getHit);
             if (isInvincible)
             {
                 return;
@@ -252,8 +276,8 @@ public class CharacterScript : MonoBehaviour
             isInvincible = true;
             invincibleTimer = timeInvincible;
         }
-        currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
-        Healthbar.instance.setFillAmount((float)amount);
+        KaguraBachiData.Health += amount;
+        Healthbar.instance.setFillAmount(amount);
     }
 
     public void ChangeKi(int amount)
@@ -267,4 +291,21 @@ public class CharacterScript : MonoBehaviour
         EssenceCollected.instance.setNormalEssence(KaguraBachiData.ParasiteEssence, amount);
         KaguraBachiData.ParasiteEssence += amount;
     }
+
+    public void PlaySound(AudioClip clip)
+    {
+        audioSource[0].PlayOneShot(clip);
+    }
+
+    public void PlaySoundHeal(AudioClip clip){
+        audioSource[1].PlayOneShot(clip);
+    }
+
+    /*IEnumerator changeBackgroundMusic(AudioClip clip){
+        bgm.Stop();
+        yield return new WaitForSeconds(2f);
+        bgm.clip = clip;
+        bgm.Play();
+    }*/
+
 }
