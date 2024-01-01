@@ -27,6 +27,7 @@ public class TurtleabaneController : MonoBehaviour
     public float timeInvincible = 2f;
     bool isInvincible = false;
     float invincibleTimer;
+    public int parasiteEssenceDrop = 100;
 
     void Start()
     {
@@ -150,6 +151,10 @@ public class TurtleabaneController : MonoBehaviour
             ChangeHealth(-(int)player.getATK);
             player.ChangeKi(KaguraBachiData.KiRegeneratePerHit);
         }
+        else if (other.CompareTag("SwordProjectile"))
+        {
+            ChangeHealth(-other.GetComponent<SpecialAttack2>().getATK);
+        }
     }
 
     void ChangeHealth(int amount)
@@ -178,5 +183,7 @@ public class TurtleabaneController : MonoBehaviour
         yield return new WaitForSeconds(0.6f);
         Destroy(gameObject, 1.3f);
         animator.SetTrigger("Dead");
+        var player = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterScript>();
+        player.ChangeParasiteEssence(parasiteEssenceDrop);
     }
 }
