@@ -244,7 +244,7 @@ MonoBehaviour:
   getHit: {fileID: 8300000, guid: ed8c7ab7725129d4596c37d07a59f3b6, type: 3}
   restore: {fileID: 8300000, guid: 6bb74c8f94b6f0f4eb44084d2298b46c, type: 3}
   Jump: {fileID: 8300000, guid: f88217975f3903a429aab930419a7766, type: 3}
-  backgroundMusic: {fileID: 0}
+  backgroundMusic: {fileID: 1742839672829943434, guid: 47045c69d2baa71439d2dd2cadb38e86, type: 3}
   bossFightBGM: {fileID: 8300000, guid: 4703aae902afe6548a278f8d06794d45, type: 3}
 --- !u!70 &3788585883854233059
 CapsuleCollider2D:
