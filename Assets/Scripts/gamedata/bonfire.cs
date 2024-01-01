@@ -49,5 +49,7 @@ public class bonfire : MonoBehaviour
         isActive = true;
         transform.GetChild(0).gameObject.SetActive(true);
         Save_Point.savePointData.SavePoint(gameObject.scene.name,location_name).isActive = true;
+        Save_Point.savePointData.respawnPoint.map = gameObject.scene.name;
+        Save_Point.savePointData.respawnPoint.location = transform.position;
     }
 }

@@ -21,12 +21,16 @@ public static class Save_Point
     [Serializable]
     private class SavePointWriter{
         public List<SavePoint> data = new List<SavePoint>();
+        public string scene;
+        public Vector3 pos;
         public SavePointWriter(SavePointData _right){
             foreach(string i in _right.data.Keys){
                 foreach(string k in _right.data[i].Keys){
                     data.Add(_right.data[i][k]);
                 }
             }
+            scene = _right.respawnPoint.map;
+            pos = _right.respawnPoint.location;
         }
 
         public SavePointData toSavePointData(){
@@ -36,6 +40,8 @@ public static class Save_Point
                     _data.data.Add(i.scene_name,new Dictionary<string, SavePoint>());
                 _data.data[i.scene_name].Add(i.name,i);
             }
+            _data.respawnPoint.map = scene;
+            _data.respawnPoint.location = pos;
             return _data;
         }
 
@@ -45,7 +51,7 @@ public static class Save_Point
     public class SavePointData{
         //public List<SavePoint> data = new List<SavePoint>();
         public Dictionary<string,Dictionary<string,SavePoint>> data = new Dictionary<string, Dictionary<string, SavePoint>>();
-
+        public (string map,Vector3 location) respawnPoint = ("", Vector3.zero);
         public SavePoint SavePoint(string scene,string location_name){
             try {
                 return data[scene][location_name];
