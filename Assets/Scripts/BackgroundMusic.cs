@@ -7,6 +7,9 @@ public class BackgroundMusic : MonoBehaviour
     AudioSource bgm;
     public AudioClip bossFightBGM;
     public AudioClip origin;
+    public AudioClip afterBossDefeated;
+    public AudioClip credit;
+    public AudioClip start;
 
     public static BackgroundMusic instance { get; private set; }
     // Start is called before the first frame update
@@ -32,6 +35,18 @@ public class BackgroundMusic : MonoBehaviour
 
     public void originalBGM(){
         StartCoroutine(changeBackgroundMusic(origin));
+    }
+
+    public void victoriousBGM(){
+        StartCoroutine(changeBackgroundMusic(afterBossDefeated));
+    }
+
+    public void creditBGM(){
+        StartCoroutine(changeBackgroundMusic(credit));
+    }
+
+    public void startBGM(){
+        StartCoroutine(changeBackgroundMusic(start));
     }
 
     IEnumerator changeBackgroundMusic(AudioClip clip){
