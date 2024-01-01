@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2699600299234302692}
   - component: {fileID: 2401572148183784267}
+  - component: {fileID: 4269915541477066354}
   m_Layer: 0
   m_Name: BackgroundMusic
   m_TagString: Untagged
@@ -128,3 +129,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4269915541477066354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1742839672829943434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af8080e130b90b642bf89a230b6ab18e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossFightBGM: {fileID: 8300000, guid: 4703aae902afe6548a278f8d06794d45, type: 3}
+  origin: {fileID: 8300000, guid: d5f4067238d769b4397bd1c9cfe8955a, type: 3}

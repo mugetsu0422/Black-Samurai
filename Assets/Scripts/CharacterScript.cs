@@ -175,7 +175,7 @@ public class CharacterScript : MonoBehaviour
         }
         if(Input.GetKeyDown(KeyCode.N)){
             PureHeartEssenceNotification.instance.openNotification();
-            //StartCoroutine(changeBackgroundMusic(bossFightBGM));
+            BackgroundMusic.instance.changeBossBGM();
             EssenceCollected.instance.setNormalEssence(KaguraBachiData.ParasiteEssence, 300);
             KaguraBachiData.ParasiteEssence +=300;
             KaguraBachiData.PureParasiteHeart +=1;
@@ -301,11 +301,11 @@ public class CharacterScript : MonoBehaviour
         audioSource[1].PlayOneShot(clip);
     }
 
-    IEnumerator changeBackgroundMusic(AudioClip clip){
+    /*IEnumerator changeBackgroundMusic(AudioClip clip){
         bgm.Stop();
         yield return new WaitForSeconds(2f);
         bgm.clip = clip;
         bgm.Play();
-    }
+    }*/
 
 }
