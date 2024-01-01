@@ -30,6 +30,8 @@ public class BringerofDeath : MonoBehaviour
     bool isInvincible = false;
     float invincibleTimer;
     bool healthbar = false;
+    public int parasiteEssenceDrop = 100;
+    public GameObject bossZone;
 
     void Start()
     {
@@ -74,6 +76,8 @@ public class BringerofDeath : MonoBehaviour
             if (!healthbar) {
                 healthbar = true;
                 BossHealthbar.instance.SetEnable(true);
+                bossZone.SetActive(true);
+                BackgroundMusic.instance.changeBossBGM();
             }
             isChasing = true;
             isPatrolling = false;
@@ -164,6 +168,10 @@ public class BringerofDeath : MonoBehaviour
             ChangeHealth(-(int)player.getATK);
             player.ChangeKi(KaguraBachiData.KiRegeneratePerHit);
         }
+        else if (other.CompareTag("SwordProjectile"))
+        {
+            ChangeHealth(-other.GetComponent<SpecialAttack2>().getATK);
+        }
     }
 
     void ChangeHealth(int amount)
@@ -194,5 +202,10 @@ public class BringerofDeath : MonoBehaviour
         Destroy(gameObject, 1.3f);
         animator.SetTrigger("Dead");
         BossHealthbar.instance.SetEnable(false);
+        var player = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterScript>();
+        player.ChangeParasiteEssence(parasiteEssenceDrop);
+        KaguraBachiData.PureParasiteHeart += 1;
+        PureHeartEssenceNotification.instance.openNotification();
+        bossZone.SetActive(false);
     }
 }
