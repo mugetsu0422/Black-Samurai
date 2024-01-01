@@ -26,6 +26,7 @@ public class BossZone : MonoBehaviour
         {
             bossZoneTilemap.gameObject.SetActive(true);
             BossHealthbar.instance.SetEnable(true);
+            BackgroundMusic.instance.changeBossBGM();
         }
     }
 
@@ -33,5 +34,6 @@ public class BossZone : MonoBehaviour
     {
         bossZoneTilemap.gameObject.SetActive(false);
         BossHealthbar.instance.SetEnable(false);
+        BackgroundMusic.instance.originalBGM();
     }
 }
