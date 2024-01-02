@@ -36,7 +36,10 @@ public class VillageBoss : MonoBehaviour
 
     void Update()
     {
-        float distanceToCharacter = Vector2.Distance(transform.position, characterTransform.position);
+        var player = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterScript>();
+        Transform playerTransform = player.GetComponent<Transform>();
+        Vector3 playerPosition = playerTransform.position;
+        float distanceToCharacter = Vector2.Distance(transform.position, playerPosition);
 
         if (distanceToCharacter < chaseRange)
         {
@@ -51,7 +54,7 @@ public class VillageBoss : MonoBehaviour
 
         if (isChasing)
         {
-            Vector2 direction = (characterTransform.position - transform.position).normalized;
+            Vector2 direction = (playerPosition - transform.position).normalized;
             if (distanceToCharacter < attackRange)
             {
                 if (Time.time - lastAttackTime > attackCooldown)
