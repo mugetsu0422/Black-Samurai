@@ -55,4 +55,9 @@ public class BackgroundMusic : MonoBehaviour
         bgm.clip = clip;
         bgm.Play();
     }
+
+    public void Stop() 
+    {
+        bgm.Stop();
+    }
 }

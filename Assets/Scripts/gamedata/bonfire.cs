@@ -33,7 +33,7 @@ public class bonfire : MonoBehaviour
     // Update is called once per frame
 
     void FixedUpdate(){
-        tip.transform.position =  Camera.main.WorldToScreenPoint(gameObject.transform.position+Vector3.up*6);
+        tip.transform.position =  Camera.allCameras[0].WorldToScreenPoint(gameObject.transform.position+Vector3.up*6);
         RaycastHit2D hit = Physics2D.CircleCast(gameObject.transform.position,4f,Vector2.zero,LayerMask.GetMask("Player"));
         if (hit.collider.tag == "Player"){
             Active();
