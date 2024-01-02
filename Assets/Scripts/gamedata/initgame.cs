@@ -21,7 +21,6 @@ public class initgame : MonoBehaviour
         if (player!=null && cam !=null){
             player.transform.localScale = player_scale;
             cam.GetComponent<CinemachineVirtualCamera>().Follow = player.transform;
-            enabled = false;
         }
     }
 }

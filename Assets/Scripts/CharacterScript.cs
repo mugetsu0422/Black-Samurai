@@ -69,6 +69,9 @@ public class CharacterScript : MonoBehaviour
         restoreHPVFX = transform.Find("RestoreHPVFX").GetComponent<ParticleSystem>();
         audioSource = GetComponents<AudioSource>();
         bgm = backgroundMusic.GetComponent<AudioSource>();
+        Healthbar.instance.setFillAmount(KaguraBachiData.Health - KaguraBachiData.MaxHealth);
+        Manabar.instance.setFillAmount(KaguraBachiData.Ki);
+        EssenceCollected.instance.setNormalEssence(KaguraBachiData.ParasiteEssence, 0);
     }
 
     // Update is called once per frame
@@ -173,12 +176,13 @@ public class CharacterScript : MonoBehaviour
                 ChangeKi(100);
             }
         }
-        if(Input.GetKeyDown(KeyCode.N)){
+        if (Input.GetKeyDown(KeyCode.N))
+        {
             PureHeartEssenceNotification.instance.openNotification();
             BackgroundMusic.instance.changeBossBGM();
             EssenceCollected.instance.setNormalEssence(KaguraBachiData.ParasiteEssence, 300);
-            KaguraBachiData.ParasiteEssence +=300;
-            KaguraBachiData.PureParasiteHeart +=1;
+            KaguraBachiData.ParasiteEssence += 300;
+            KaguraBachiData.PureParasiteHeart += 1;
 
         }
     }
@@ -264,6 +268,8 @@ public class CharacterScript : MonoBehaviour
 
     public void changeHealth(int amount)
     {
+        Debug.Log(amount);
+        Debug.Log(KaguraBachiData.Health);
         if (amount < 0)
         {
             animator.SetTrigger("Hurt");
@@ -278,6 +284,7 @@ public class CharacterScript : MonoBehaviour
         }
         KaguraBachiData.Health += amount;
         Healthbar.instance.setFillAmount(amount);
+        Debug.Log(KaguraBachiData.Health);
     }
 
     public void ChangeKi(int amount)
@@ -297,7 +304,8 @@ public class CharacterScript : MonoBehaviour
         audioSource[0].PlayOneShot(clip);
     }
 
-    public void PlaySoundHeal(AudioClip clip){
+    public void PlaySoundHeal(AudioClip clip)
+    {
         audioSource[1].PlayOneShot(clip);
     }
 

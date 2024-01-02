@@ -7,6 +7,7 @@ public class BossZone : MonoBehaviour
 {
     [SerializeField] string bossName;
     [SerializeField] Tilemap bossZoneTilemap;
+    bool isDefeated = false;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +23,7 @@ public class BossZone : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !isDefeated)
         {
             bossZoneTilemap.gameObject.SetActive(true);
             BossHealthbar.instance.SetEnable(true);
@@ -35,5 +36,6 @@ public class BossZone : MonoBehaviour
         bossZoneTilemap.gameObject.SetActive(false);
         BossHealthbar.instance.SetEnable(false);
         BackgroundMusic.instance.originalBGM();
+        isDefeated = true;
     }
 }

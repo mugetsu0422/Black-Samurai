@@ -22,6 +22,7 @@ public class LoadScenePoint : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             StartCoroutine(navigator.Teleport(sceneName, startPosition));
+            BackgroundMusic.instance.Stop();
         }
     }
 }
