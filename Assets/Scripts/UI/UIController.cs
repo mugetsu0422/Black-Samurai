@@ -13,7 +13,14 @@ public class UIController : MonoBehaviour
     {
         if (Pause.activeSelf == Teleport.activeSelf && Pause.activeSelf == false){
             if (Input.GetKeyDown(KeyCode.T)){
-                Teleport.SetActive(true);
+                GameObject player = GameObject.FindGameObjectWithTag("Player");
+                List<Save_Point.SavePoint> saves = Save_Point.savePointData.SavePoint(gameObject.scene.name);
+                foreach(Save_Point.SavePoint i in saves){
+                    if ( (player.transform.position - i.location).sqrMagnitude < 16f){
+                        Teleport.SetActive(true);
+                        return;
+                    }
+                }
             }
             if (Input.GetKeyDown(KeyCode.Escape)){
                 Pause.SetActive(true);
