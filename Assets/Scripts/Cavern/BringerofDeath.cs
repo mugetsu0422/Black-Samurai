@@ -73,7 +73,8 @@ public class BringerofDeath : MonoBehaviour
 
         if (distanceToCharacter < chaseRange)
         {
-            if (!healthbar) {
+            if (!healthbar)
+            {
                 healthbar = true;
                 BossHealthbar.instance.SetEnable(true);
                 bossZone.SetActive(true);
@@ -199,7 +200,13 @@ public class BringerofDeath : MonoBehaviour
     IEnumerator Dead()
     {
         yield return new WaitForSeconds(0.6f);
-        Destroy(gameObject, 1.3f);
+        // Destroy(gameObject, 1.3f);
+
+        Renderer[] renderers = GetComponentsInChildren<Renderer>();
+        foreach (Renderer renderer in renderers)
+        {
+            renderer.enabled = false;
+        }
         animator.SetTrigger("Dead");
         BossHealthbar.instance.SetEnable(false);
         var player = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterScript>();
@@ -207,5 +214,13 @@ public class BringerofDeath : MonoBehaviour
         KaguraBachiData.PureParasiteHeart += 1;
         PureHeartEssenceNotification.instance.openNotification();
         bossZone.SetActive(false);
+        BackgroundMusic.instance.victoriousBGM();
+        StartCoroutine(offVictoryMusic());
+    }
+
+    IEnumerator offVictoryMusic()
+    {
+        yield return new WaitForSeconds(6f);
+        BackgroundMusic.instance.originalBGM();
     }
 }
