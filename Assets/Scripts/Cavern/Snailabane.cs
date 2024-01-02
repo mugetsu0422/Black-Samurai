@@ -25,6 +25,7 @@ public class SnailabaneController : MonoBehaviour
     public float timeInvincible = 2f;
     bool isInvincible = false;
     float invincibleTimer;
+    public int parasiteEssenceDrop = 100;
 
     void Start()
     {
@@ -136,6 +137,10 @@ public class SnailabaneController : MonoBehaviour
             ChangeHealth(-(int)player.getATK);
             player.ChangeKi(KaguraBachiData.KiRegeneratePerHit);
         }
+        else if (other.CompareTag("SwordProjectile"))
+        {
+            ChangeHealth(-other.GetComponent<SpecialAttack2>().getATK);
+        }
     }
 
     void ChangeHealth(int amount)
@@ -164,5 +169,7 @@ public class SnailabaneController : MonoBehaviour
         yield return new WaitForSeconds(0.6f);
         Destroy(gameObject, 1f);
         animator.SetTrigger("Dead");
+        var player = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterScript>();
+        player.ChangeParasiteEssence(parasiteEssenceDrop);
     }
 }

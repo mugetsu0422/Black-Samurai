@@ -143,3 +143,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bossFightBGM: {fileID: 8300000, guid: 4703aae902afe6548a278f8d06794d45, type: 3}
   origin: {fileID: 8300000, guid: d5f4067238d769b4397bd1c9cfe8955a, type: 3}
+  afterBossDefeated: {fileID: 8300000, guid: 5b5842a18592a4b4c98bb2817180671e, type: 3}
+  credit: {fileID: 8300000, guid: f870468c95f1e5442abdc42efd428175, type: 3}
+  start: {fileID: 8300000, guid: 2f355cad8fdf99548843bb5e8ea755da, type: 3}

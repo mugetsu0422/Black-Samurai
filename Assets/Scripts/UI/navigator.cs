@@ -11,6 +11,7 @@ public class Navigator : MonoBehaviour
     public GameObject player;
     public GameObject UIGroup;
     public string[] scenePaths;
+    [SerializeField] GameObject loadingScreen;
     private Dictionary<string,string> name_to_path;
     void Start(){
         name_to_path  = new Dictionary<string, string>();
@@ -26,9 +27,14 @@ public class Navigator : MonoBehaviour
         string old_scene = gameObject.scene.name;
         if (old_scene != name){
             AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(name_to_path[name], LoadSceneMode.Additive);
+            LoadingScreenProgressBar.Instance.SetValue(0f);
+            loadingScreen.SetActive(true);
+            LoadingScreenProgressBar.Instance.isLoading = true;
             while (!asyncLoad.isDone) {
-                yield return null;
+                LoadingScreenProgressBar.Instance.SetValue(asyncLoad.progress);
+                yield return new WaitForSeconds(0.2f);
             }
+            yield return new WaitForSeconds(1f);
             UnityEngine.SceneManagement.Scene loadScene = SceneManager.GetSceneByName(name);
             if (keep == null){
                 SceneManager.MoveGameObjectToScene(UIGroup, loadScene);
@@ -42,6 +48,9 @@ public class Navigator : MonoBehaviour
                 SceneManager.UnloadSceneAsync(old_scene);
             }
             catch(Exception){}
+            LoadingScreenProgressBar.Instance.SetValue(1f);
+            loadingScreen.SetActive(false);
+            LoadingScreenProgressBar.Instance.isLoading = false;
         }
         else{
 
