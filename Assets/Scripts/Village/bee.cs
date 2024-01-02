@@ -11,11 +11,14 @@ public class bee : MonoBehaviour
     private Vector2 look_direction;
     private Vector2 direction;
     private Animator ani;
+    [Header("Mod stats")]
+    [SerializeField] int parasiteEssenceDrop = 50;
     public int health=1;
     public float speed;
+    public float force;
+    [Header("Components")]
     public GameObject projectile;
     public GameObject shoot_position;
-    public float force;
     private bool can_shoot = true;
     private GameObject player;
     Vector3 initPosition;
@@ -106,6 +109,8 @@ public class bee : MonoBehaviour
         ani.SetTrigger("dead");
         this.enabled = false;
         Destroy(gameObject,1);
+        var player = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterScript>();
+        player.ChangeParasiteEssence(parasiteEssenceDrop);
     }
 
     public void ChangeHealth(int x){

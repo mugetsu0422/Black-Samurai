@@ -6,6 +6,8 @@ using System;
 public class wolf : MonoBehaviour
 {
     // Start is called before the first frame update
+    [Header("Mod stats")]
+    [SerializeField] int parasiteEssenceDrop = 50;
     public float speed=20;
     public float force=2000;
     public int health=20;
@@ -15,7 +17,7 @@ public class wolf : MonoBehaviour
     private bool isjump = false;
     private float attackTime = -1;
     [Range(-1f, 1f)]
-    public float horizontal = 0;
+    private float horizontal = 0;
     
     void Start()
     {
@@ -100,5 +102,7 @@ public class wolf : MonoBehaviour
         ani.SetTrigger("Dead");
         this.enabled = false;
         Destroy(gameObject,1);
+        var player = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterScript>();
+        player.ChangeParasiteEssence(parasiteEssenceDrop);
     }
 }

@@ -5,6 +5,8 @@ using System;
 public class Otter : MonoBehaviour
 {
     // Start is called before the first frame update
+    [Header("Mod stats")]
+    [SerializeField] int parasiteEssenceDrop = 50;
     public float speed;
     public float force;
     public int health = 5;
@@ -108,5 +110,7 @@ public class Otter : MonoBehaviour
         ani.SetBool("Sleep",true);
         this.enabled = false;
         Destroy(gameObject,1);
+        var player = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterScript>();
+        player.ChangeParasiteEssence(parasiteEssenceDrop);
     }
 }
