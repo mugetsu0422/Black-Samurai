@@ -199,11 +199,11 @@ PrefabInstance:
       objectReference: {fileID: 1116659930}
     - target: {fileID: 2103967085183563849, guid: 02e4bddae9d200b4e8573787e5be7681, type: 3}
       propertyPath: init_player_index.x
-      value: -35.8
+      value: 1.79
       objectReference: {fileID: 0}
     - target: {fileID: 2103967085183563849, guid: 02e4bddae9d200b4e8573787e5be7681, type: 3}
       propertyPath: init_player_index.y
-      value: -8.3
+      value: -1.92
       objectReference: {fileID: 0}
     - target: {fileID: 2103967085183563849, guid: 02e4bddae9d200b4e8573787e5be7681, type: 3}
       propertyPath: listOfUI.Array.size

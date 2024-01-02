@@ -28,11 +28,13 @@ public class Instructor : MonoBehaviour
     public GameObject space;
 
     public GameObject teleport;
+    public GameObject startScene;
 
     // Start is called before the first frame update
     void Start()
     {
         DialogueContainer.SetActive(false);
+        startScene.SetActive(false);
     }
 
     // Update is called once per frame
@@ -120,7 +122,10 @@ public class Instructor : MonoBehaviour
                 A.SetActive(true);
             }
             else A.SetActive(false);
-            if(index == 16){
+            if (index == 16) {
+                StartCoroutine(waitForOpenStartScene());
+            }
+            if(index == 17){
                 KaguraBachiData.Ki = 0;
                 KaguraBachiData.Health = 3;
                 Manabar.instance.setFillAmount(-100);
@@ -129,5 +134,19 @@ public class Instructor : MonoBehaviour
             }
             else teleport.SetActive(false);
         }
+    }
+
+    IEnumerator waitForOpenStartScene()
+    {
+        yield return new WaitForSeconds(10);
+        startScene.SetActive(true);
+        StartCoroutine(closeStartScene());
+    }
+
+    IEnumerator closeStartScene()
+    {
+        yield return new WaitForSeconds(17);
+        startScene.SetActive(false);
+        NextLine();
     }
 }
