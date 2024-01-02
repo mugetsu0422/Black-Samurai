@@ -1,9 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
+using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
 using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class UI_teleport : MonoBehaviour
 {
@@ -123,7 +124,7 @@ public class UI_teleport : MonoBehaviour
         for(int i = 0 ; i < scenes.Count; i++){
             Transform child  = option.transform.GetChild(i);
             child.gameObject.SetActive(true);
-            child.GetComponentInChildren<TextMeshProUGUI>().SetText(scenes[i]);
+            child.GetComponentInChildren<Text>().text =  scenes[i];
         }
     }
 
@@ -144,7 +145,7 @@ public class UI_teleport : MonoBehaviour
             for(int i = 0 ; i < min ;i++){
                 Transform child = location.transform.GetChild(i);
                 child.gameObject.SetActive(true);
-                child.GetComponentInChildren<TextMeshProUGUI>().SetText(saves[i].name);
+                child.GetComponentInChildren<Text>().text = saves[i].name;
             }
         }
         else if (load_Mode == load_mode.up){
@@ -152,7 +153,7 @@ public class UI_teleport : MonoBehaviour
             List<Save_Point.SavePoint> saves = Save_Point.savePointData.SavePoint(scene,true);
             for(int i = index ; i < index + 8 ; i ++){
                 Transform child = location.transform.GetChild(i - index);
-                child.GetComponentInChildren<TextMeshProUGUI>().SetText(saves[i-index].name);
+                child.GetComponentInChildren<Text>().text = saves[i-index].name;
             }
         
         }
@@ -161,7 +162,7 @@ public class UI_teleport : MonoBehaviour
             List<Save_Point.SavePoint> saves = Save_Point.savePointData.SavePoint(scene,true);
             for(int i = index-8 ; i < index ; i++){
                 Transform child = location.transform.GetChild(i - (index - 8));
-                child.GetComponentInChildren<TextMeshProUGUI>().SetText(saves[index - 8].name);
+                child.GetComponentInChildren<Text>().text = saves[index - 8].name;
             }
         }
 
