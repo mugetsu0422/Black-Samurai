@@ -28,6 +28,7 @@ public class EndPoint : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             end.SetActive(true);
+            BackgroundMusic.instance.creditBGM();
         }
     }
 }
