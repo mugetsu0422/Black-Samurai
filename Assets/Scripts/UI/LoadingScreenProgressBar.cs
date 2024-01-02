@@ -8,10 +8,14 @@ public class LoadingScreenProgressBar : MonoBehaviour
     public static LoadingScreenProgressBar Instance { get; private set; }
     public Image currentLoadingPercent;
     public Image loadingIndicativeIcon;
+    float iconStartingPosX;
+    public bool isLoading = false;
+    float current;
 
     void Awake()
     {
         Instance = this;
+        iconStartingPosX = loadingIndicativeIcon.transform.localPosition.x;
         gameObject.SetActive(false);
     }
 
@@ -19,5 +23,22 @@ public class LoadingScreenProgressBar : MonoBehaviour
     void Start()
     {
         currentLoadingPercent.fillAmount = 0;
+    }
+
+    public void SetValue(float target)
+    {
+        current = target;
+    }
+
+    private void Update()
+    {
+        if (!isLoading)
+        {
+            return;
+        }
+        var amount = Mathf.MoveTowards(currentLoadingPercent.fillAmount, current, 3 * Time.deltaTime);
+        currentLoadingPercent.fillAmount = amount;
+        float iconPosition = amount * currentLoadingPercent.rectTransform.rect.width + iconStartingPosX;
+        loadingIndicativeIcon.transform.localPosition = new Vector3(iconPosition, loadingIndicativeIcon.transform.localEulerAngles.y, 0);
     }
 }
