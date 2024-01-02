@@ -6,6 +6,7 @@ using System;
 public class VillageBoss : MonoBehaviour
 {
     private Rigidbody2D rb2d;
+    public GameObject bossboder;
     float horizontal;
     public float speed;
     public int health;
@@ -21,6 +22,7 @@ public class VillageBoss : MonoBehaviour
     public float chaseRange;
     public float attackRange;
     public float attackCooldown;
+    public int parasiteEssenceDrop;
     private float lastAttackTime;
     
     void Start()
@@ -114,14 +116,22 @@ public class VillageBoss : MonoBehaviour
 
     public void ChangeHealth(int x){
         hurt();
-        health = Math.Max(0,health-x);
+        health = Math.Max(0,health+x);
         if (health < 1){
             Dead();
         }
     }
 
     private void Dead(){
-
+        animator.SetTrigger("Dead");
+        Destroy(gameObject,10f);
+        Destroy(bossboder);
+        this.enabled = false;
+        var player = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterScript>();
+        player.ChangeParasiteEssence(parasiteEssenceDrop);
+        KaguraBachiData.PureParasiteHeart += 1;
+        PureHeartEssenceNotification.instance.openNotification();
+        
     }
 
     private void hurt(){

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Cinemachine;
 using UnityEngine;
 
 public class initgame : MonoBehaviour
@@ -16,8 +17,10 @@ public class initgame : MonoBehaviour
     void Update()
     {
         var player = GameObject.FindWithTag("Player");
-        if (player!=null){
+        var cam = GameObject.FindWithTag("MainCamera");
+        if (player!=null && cam !=null){
             player.transform.localScale = player_scale;
+            cam.GetComponent<CinemachineVirtualCamera>().Follow = player.transform;
             enabled = false;
         }
     }
