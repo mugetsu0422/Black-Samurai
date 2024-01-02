@@ -7,7 +7,7 @@ public class BossHealthbar : MonoBehaviour
 {
     public static BossHealthbar instance { get; private set; }
     public Text bossName;
-    public Image mask;
+    public Image bar;
     float originalSize;
 
     void Awake()
@@ -18,7 +18,7 @@ public class BossHealthbar : MonoBehaviour
 
     void Start()
     {
-        originalSize = mask.rectTransform.rect.width;
+        originalSize = bar.rectTransform.rect.width;
     }
 
     public void SetEnable(bool value) {
@@ -27,7 +27,7 @@ public class BossHealthbar : MonoBehaviour
 
     public void SetValue(float value)
     {
-        mask.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, originalSize * value);
+        bar.fillAmount = value;
     }
 
     public void SetBossName(string value)
