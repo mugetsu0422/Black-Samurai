@@ -175,7 +175,7 @@ MonoBehaviour:
   patrolSpeed: 2
   chaseSpeed: 5
   patrolRange: 5
-  chaseRange: 10
+  chaseRange: 15
   attackRange: 4.3
   attackCooldown: 2
   bulletPrefab: {fileID: 645516695361413607, guid: 43a195114a34349fbbd44157d0e077ec, type: 3}
