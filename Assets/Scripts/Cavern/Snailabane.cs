@@ -4,7 +4,6 @@ using UnityEngine;
 public class SnailabaneController : MonoBehaviour
 {
     private Rigidbody2D rb2d;
-    private Transform characterTransform;
     private bool isChasing = false;
     private bool isPatrolling = false;
     private float patrolDirection = 1.0f;
@@ -31,7 +30,6 @@ public class SnailabaneController : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        characterTransform = GameObject.FindGameObjectWithTag("Player").transform;
         boxCollider = GetComponent<BoxCollider2D>();
         isPatrolling = true;
         currentHP = hp;
@@ -53,7 +51,7 @@ public class SnailabaneController : MonoBehaviour
 
         AnimatorStateInfo currentState = animator.GetCurrentAnimatorStateInfo(0);
         Vector2 colliderSize = boxCollider.size;
-        Collider2D[] colliders = Physics2D.OverlapBoxAll(transform.position, colliderSize, 5f);
+        Collider2D[] colliders = Physics2D.OverlapBoxAll(transform.position, colliderSize, 7f);
         foreach (Collider2D collider in colliders)
         {
             if (collider.CompareTag("Player") && (currentState.IsName("Attack1") || currentState.IsName("Attack2")))
@@ -62,7 +60,7 @@ public class SnailabaneController : MonoBehaviour
                 characterScript.changeHealth(-atk);
             }
         }
-        var player = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterScript>();
+        var player = GameObject.FindWithTag("Player").GetComponent<CharacterScript>();
         Transform playerTransform = player.GetComponent<Transform>();
         Vector3 playerPosition = playerTransform.position;
         float distanceToCharacter = Vector2.Distance(transform.position, playerPosition);
@@ -81,6 +79,7 @@ public class SnailabaneController : MonoBehaviour
         if (isChasing)
         {
             Vector2 direction = (playerPosition - transform.position).normalized;
+            rb2d.velocity = direction;
 
             if (distanceToCharacter < attackRange)
             {
@@ -124,6 +123,7 @@ public class SnailabaneController : MonoBehaviour
 
         animator.SetFloat("Look X", lookDirection.x);
         animator.SetFloat("Speed", move.magnitude);
+        Debug.Log(lookDirection.x);
     }
 
     void Awake()

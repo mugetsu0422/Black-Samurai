@@ -10,7 +10,6 @@ public class BringerofDeath : MonoBehaviour
     Animator animator;
     private Vector2 lookDirection = new Vector2(1, 0);
     public GameObject spellPrefab;
-    private Transform characterTransform;
     private bool isChasing = false;
     private bool isPatrolling = false;
     private float patrolDirection = 1.0f;
@@ -37,7 +36,6 @@ public class BringerofDeath : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        characterTransform = GameObject.FindGameObjectWithTag("Player").transform;
         boxCollider = GetComponent<BoxCollider2D>();
         isPatrolling = true;
         currentHP = hp;
@@ -69,7 +67,7 @@ public class BringerofDeath : MonoBehaviour
                 characterScript.changeHealth(-atk);
             }
         }
-        var player = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterScript>();
+        var player = GameObject.FindWithTag("Player").GetComponent<CharacterScript>();
         Transform playerTransform = player.GetComponent<Transform>();
         Vector3 playerPosition = playerTransform.position;
         float distanceToCharacter = Vector2.Distance(transform.position, playerPosition);

@@ -201,3 +201,7 @@ MonoBehaviour:
   chaseRange: 20
   attackRange: 6
   attackCooldown: 2
+  hp: 2000
+  timeInvincible: 2
+  parasiteEssenceDrop: 550
+  bossZone: {fileID: 0}

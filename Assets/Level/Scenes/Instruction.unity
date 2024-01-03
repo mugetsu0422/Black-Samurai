@@ -634,6 +634,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player_scale: {x: 0.7, y: 0.7, z: 0}
+  speed: 30
+  jumpHeight: 30
 --- !u!4 &406744352
 Transform:
   m_ObjectHideFlags: 0

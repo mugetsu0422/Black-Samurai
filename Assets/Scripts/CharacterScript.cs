@@ -271,8 +271,6 @@ public class CharacterScript : MonoBehaviour
 
     public void changeHealth(int amount)
     {
-        Debug.Log(amount);
-        Debug.Log(KaguraBachiData.Health);
         if (amount < 0)
         {
             animator.SetTrigger("Hurt");
@@ -287,7 +285,6 @@ public class CharacterScript : MonoBehaviour
         }
         KaguraBachiData.Health += amount;
         Healthbar.instance.setFillAmount(amount);
-        Debug.Log(KaguraBachiData.Health);
     }
 
     public void ChangeKi(int amount)
