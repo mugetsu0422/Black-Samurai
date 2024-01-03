@@ -82,10 +82,6 @@ public class CharacterScript : MonoBehaviour
             attackTimer -= Time.deltaTime;
         }
         animator.SetFloat("yVelocity", rb2d.velocity.y);
-        if (KaguraBachiData.Health == 0)
-        {
-            Dead();
-        }
         if (isInvincible)
         {
             invincibleTimer -= Time.deltaTime;
@@ -259,6 +255,20 @@ public class CharacterScript : MonoBehaviour
     void Dead()
     {
         animator.SetTrigger("Dead");
+
+
+        // respawn;
+        if (Save_Point.savePointData.respawnPoint.map == ""){
+            // go to instructtion;
+        }
+        else{
+            var temp = GameObject.Find("InGameUI_group");
+            Navigator navigator = temp.transform.Find("navigator").GetComponent<Navigator>();
+            StartCoroutine(navigator.Teleport(Save_Point.savePointData.respawnPoint.map, Save_Point.savePointData.respawnPoint.location));
+            BackgroundMusic.instance.Stop();
+        }
+
+        //
     }
 
     public float getATK
@@ -272,19 +282,21 @@ public class CharacterScript : MonoBehaviour
         Debug.Log(KaguraBachiData.Health);
         if (amount < 0)
         {
-            animator.SetTrigger("Hurt");
-            animator.Play("ChangeColour");
-            PlaySound(getHit);
             if (isInvincible)
             {
                 return;
             }
             isInvincible = true;
             invincibleTimer = timeInvincible;
+            animator.SetTrigger("Hurt");
+            animator.Play("ChangeColour");
+            PlaySound(getHit);
         }
         KaguraBachiData.Health += amount;
         Healthbar.instance.setFillAmount(amount);
         Debug.Log(KaguraBachiData.Health);
+        if (KaguraBachiData.Health  <=0)
+            Dead();
     }
 
     public void ChangeKi(int amount)

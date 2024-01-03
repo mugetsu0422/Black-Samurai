@@ -11,17 +11,20 @@ public class wolf : MonoBehaviour
     public float speed=20;
     public float force=2000;
     public int health=20;
-
+    public int atk = 1;
     private Animator ani;
     private Rigidbody2D rgbd;
     private bool isjump = false;
     private float attackTime = -1;
     [Range(-1f, 1f)]
     private float horizontal = 0;
+
+    private CapsuleCollider2D capCol;
     
     void Start()
     {
         ani = gameObject.GetComponent<Animator>();
+        capCol = gameObject.GetComponent<CapsuleCollider2D>();
         rgbd = gameObject.transform.GetComponent<Rigidbody2D>();
     }
 
@@ -51,6 +54,11 @@ public class wolf : MonoBehaviour
             if (hit.collider==null){
                 isjump = true;
             }
+        }
+
+        Collider2D player = Physics2D.OverlapBox(rgbd.position, capCol.bounds.size , 0, LayerMask.GetMask("Player"));
+        if(player){
+            player.GetComponent<CharacterScript>().changeHealth(-atk);
         }
     }
 

@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
         public int parasiteEssence;
         public string scene;
         public Vector3 position;
+        public List<String> boss = new List<String>();
+        public List<bool> bossKilled = new List<bool>();
         public void Save(){
                 string data_s = JsonUtility.ToJson(this);
                 using (FileStream file = new FileStream(paths,FileMode.Create)){
@@ -48,6 +50,10 @@ public class GameManager : MonoBehaviour
         data.ki = KaguraBachiData.Ki;
         data.weaponLevel = KaguraBachiData.WeaponLevel;
         data.parasiteEssence = KaguraBachiData.ParasiteEssence;
+        foreach(var i in KaguraBachiData.bossKilled){
+                data.boss.Add(i.Key);
+                data.bossKilled.Add(i.Value);
+        }
 
         data.Save();
         Save_Point.SaveData(Save_Point.savePointData);
@@ -63,6 +69,12 @@ public class GameManager : MonoBehaviour
         KaguraBachiData.Ki = data.ki;
         KaguraBachiData.WeaponLevel = data.weaponLevel;
         KaguraBachiData.ParasiteEssence = data.parasiteEssence;
+        for(int i = 0 ; i < data.boss.Count ; i ++){
+                try{
+                KaguraBachiData.bossKilled.Add(data.boss[i],data.bossKilled[i]);
+                }
+                catch(Exception){}
+        }
 
         return (data.scene,data.position);
     }

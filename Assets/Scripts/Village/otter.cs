@@ -10,8 +10,10 @@ public class Otter : MonoBehaviour
     public float speed;
     public float force;
     public int health = 5;
+    public int atk=1;
     private Animator ani;
     private Rigidbody2D rgbd;
+    private CapsuleCollider2D capCol;
     private bool isjump = false;
     
     [Range(-1f, 1f)]
@@ -21,6 +23,7 @@ public class Otter : MonoBehaviour
     {
         ani = transform.GetComponent<Animator>();
         rgbd = transform.GetComponent<Rigidbody2D>();
+        capCol = transform.GetComponent<CapsuleCollider2D>();
         horizontal = 0;
     }
 
@@ -56,10 +59,16 @@ public class Otter : MonoBehaviour
                 rgbd.velocity.Set(rgbd.velocity.x,0);
             }
         }
+
+        Collider2D player = Physics2D.OverlapBox(rgbd.position, capCol.bounds.size , 0, LayerMask.GetMask("Player"));
+        if(player){
+            player.GetComponent<CharacterScript>().changeHealth(-atk);
+        }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log(other.tag);
         if (other.CompareTag("Sword"))
         {   
             ChangeHealth(-(int)other.GetComponentInParent<CharacterScript>().getATK);
@@ -67,13 +76,6 @@ public class Otter : MonoBehaviour
         else if (other.CompareTag("SwordProjectile"))
         {
             ChangeHealth(-other.GetComponent<SpecialAttack2>().getATK);
-        }
-    }
-
-    void OnCollisionEnter(Collision collision)
-    {
-        if(collision.transform.tag == "Player"){
-            collision.transform.GetComponent<CharacterScript>().changeHealth(-1);
         }
     }
 
