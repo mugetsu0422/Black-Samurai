@@ -68,7 +68,6 @@ public class Otter : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log(other.tag);
         if (other.CompareTag("Sword"))
         {   
             ChangeHealth(-(int)other.GetComponentInParent<CharacterScript>().getATK);

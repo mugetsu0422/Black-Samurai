@@ -1,8 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.SearchService;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class CharacterScript : MonoBehaviour
 {
@@ -59,6 +56,7 @@ public class CharacterScript : MonoBehaviour
     AudioSource bgm;
 
     public AudioClip bossFightBGM;
+    bool isDead = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -264,17 +262,17 @@ public class CharacterScript : MonoBehaviour
 
     IEnumerator Respawn() {
         yield return new WaitForSeconds(3f);
+        isDead = false;
         GameOverScreen.Instance.OpenScreen();
         BossHealthbar.instance.SetEnable(false);
         KaguraBachiData.Health = KaguraBachiData.MaxHealth;
         KaguraBachiData.Ki = 0;
         Healthbar.instance.setFillAmount(3);
         Manabar.instance.setFillAmount(0);
-        Debug.Log(KaguraBachiData.Health);
         animator.SetBool("Dead", false);
         // respawn;
         if (Save_Point.savePointData.respawnPoint.map == ""){
-           
+           Debug.Log("hello");
             // go to instructtion;
             if (gameObject.scene.name == "VillageScene") {
                 var temp = GameObject.Find("InGameUI_group");
@@ -295,11 +293,13 @@ public class CharacterScript : MonoBehaviour
                 BackgroundMusic.instance.Stop();
             }
         else{
+            Debug.Log(Save_Point.savePointData.respawnPoint.location);
             var temp = GameObject.Find("InGameUI_group");
             Navigator navigator = temp.transform.Find("navigator").GetComponent<Navigator>();
             StartCoroutine(navigator.Teleport(Save_Point.savePointData.respawnPoint.map, Save_Point.savePointData.respawnPoint.location));
             BackgroundMusic.instance.Stop();
         }
+    }
     }
 
     public float getATK
@@ -311,7 +311,7 @@ public class CharacterScript : MonoBehaviour
     {
         if (amount < 0)
         {
-            if (isInvincible)
+            if (isInvincible || isDead)
             {
                 return;
             }
@@ -324,9 +324,12 @@ public class CharacterScript : MonoBehaviour
         KaguraBachiData.Health += amount;
         Healthbar.instance.setFillAmount(amount);
 
-        Debug.Log(KaguraBachiData.Health);
-        if (KaguraBachiData.Health  <=0)
+
+        if (!isDead && KaguraBachiData.Health  <=0) {
             Dead();
+            isDead = true;
+        }
+            
 
     }
 

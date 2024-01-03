@@ -10,7 +10,7 @@ public class BringerofDeath : MonoBehaviour
     Animator animator;
     private Vector2 lookDirection = new Vector2(1, 0);
     public GameObject spellPrefab;
-    private bool isChasing = false;
+    public bool isChasing = false;
     private float patrolDirection = 1.0f;
     public float patrolSpeed;
     public float chaseSpeed;
@@ -19,11 +19,11 @@ public class BringerofDeath : MonoBehaviour
     public float attackRange;
     public float attackCooldown;
     private float lastAttackTime;
-    public int hp = 10;
-    int currentHP;
+    public int hp = 40;
+    public int currentHP;
     int atk = 1;
     private BoxCollider2D boxCollider;
-    private bool isDead = false;
+    public bool isDead = false;
     public float timeInvincible = 2f;
     bool isInvincible = false;
     float invincibleTimer;
@@ -37,7 +37,6 @@ public class BringerofDeath : MonoBehaviour
         animator = GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider2D>();
         currentHP = hp;
-        BossHealthbar.instance.SetBossName("Bringer of Deadth");
     }
 
     void Update()
@@ -75,11 +74,11 @@ public class BringerofDeath : MonoBehaviour
             if (!healthbar)
             {
                 healthbar = true;
-                BossHealthbar.instance.SetEnable(true);
-                bossZone.SetActive(true);
-                BackgroundMusic.instance.changeBossBGM();
             }
             isChasing = true;
+        }
+        else {
+            isChasing = false;
         }
 
         if (isChasing)

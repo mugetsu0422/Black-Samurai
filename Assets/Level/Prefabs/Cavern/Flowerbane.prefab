@@ -199,6 +199,6 @@ MonoBehaviour:
   chaseRange: 6
   attackRange: 3.5
   attackCooldown: 2
-  hp: 100
+  hp: 20
   timeInvincible: 2
   parasiteEssenceDrop: 50

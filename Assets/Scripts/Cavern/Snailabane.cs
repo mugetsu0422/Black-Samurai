@@ -123,7 +123,6 @@ public class SnailabaneController : MonoBehaviour
 
         animator.SetFloat("Look X", lookDirection.x);
         animator.SetFloat("Speed", move.magnitude);
-        Debug.Log(lookDirection.x);
     }
 
     void Awake()

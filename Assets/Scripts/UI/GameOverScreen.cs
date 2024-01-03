@@ -25,6 +25,7 @@ public class GameOverScreen : MonoBehaviour
         if (Input.anyKeyDown && isOpen)
         {
             CloseScreen();
+            BackgroundMusic.instance.originalBGM();
         }
     }
 
