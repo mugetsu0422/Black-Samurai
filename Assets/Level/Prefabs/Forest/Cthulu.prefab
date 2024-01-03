@@ -206,6 +206,7 @@ MonoBehaviour:
   direction: 1
   speed: 10
   chaseSpeed: 20
+  parasiteEssenceDrop: 0
 --- !u!114 &7964944151527956153
 MonoBehaviour:
   m_ObjectHideFlags: 0
