@@ -9,11 +9,17 @@ public class SpecialAttack2 : MonoBehaviour
     public int getATK => attackDamage;
     Rigidbody2D rb2D;
     Animator animator;
+    initgame initgame;
 
     void Awake()
     {
         rb2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        initgame = GameObject.Find("InitGame").GetComponent<initgame>();
+        if (initgame)
+        {
+            transform.localScale = 4 * initgame.player_scale;
+        }
     }
 
     void Start()
