@@ -150,13 +150,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossboder: {fileID: 0}
-  speed: 5
+  speed: 10
   health: 50
   patrolSpeed: 5
-  chaseSpeed: 5
+  chaseSpeed: 20
   patrolRange: 15
-  chaseRange: 15
-  attackRange: 9
+  chaseRange: 50
+  attackRange: 8
   attackCooldown: 2
   parasiteEssenceDrop: 100
 --- !u!70 &352328884316527820
@@ -201,7 +201,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8926110410401655532}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:

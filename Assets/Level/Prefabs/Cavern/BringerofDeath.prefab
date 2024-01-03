@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 582973598719761983}
   - component: {fileID: 5936577521342230604}
   - component: {fileID: 7435895106579142488}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BringerofDeath
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114,7 +114,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &582973598719761983
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -198,10 +198,10 @@ MonoBehaviour:
   patrolSpeed: 2
   chaseSpeed: 5
   patrolRange: 5
-  chaseRange: 20
+  chaseRange: 35
   attackRange: 6
   attackCooldown: 2
-  hp: 550
+  hp: 100
   timeInvincible: 2
   parasiteEssenceDrop: 550
   bossZone: {fileID: 0}

@@ -32,13 +32,24 @@ public class villageBossZone : MonoBehaviour
     }
 
     void OnTriggerExit2D(Collider2D other)
+{
+    if (other.tag == "Player" && spawnboss)
     {
-        if (other.tag == "Player" && spawnboss){
-            tileRender.enabled = true;
-            col.isTrigger = false;
-            GameObject g_boss = Instantiate(boss,boss_pos, new Quaternion());
-            g_boss.GetComponent<VillageBoss>().bossboder = boder;
-        }
-        Destroy(gameObject);
+        BossHealthbar.instance.SetBossName("Bessen");
+        tileRender.enabled = true;
+        col.isTrigger = false;
+        
+        GameObject g_boss = Instantiate(boss, boss_pos, Quaternion.identity);
+
+        // Set the scale of the instantiated boss
+        Vector3 newScale = new Vector3(4f, 4f, 1f); // Adjust the values as needed
+        g_boss.transform.localScale = newScale;
+
+        g_boss.GetComponent<VillageBoss>().bossboder = boder;
+        BackgroundMusic.instance.changeBossBGM();
+        BossHealthbar.instance.SetEnable(true);
     }
+
+    Destroy(gameObject);
+}
 }

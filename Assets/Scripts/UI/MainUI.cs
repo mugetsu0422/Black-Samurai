@@ -21,6 +21,7 @@ public class MainUI : MonoBehaviour
     public UIController uIController;
     private int chossing;
     private List<GameObject> Bars = new List<GameObject>();
+    public GameObject canvas;
     void Awake()
     {   
         chossing = 0;
@@ -32,6 +33,7 @@ public class MainUI : MonoBehaviour
         var temp = ChossingBar.transform.position;
         temp.y = Bars[chossing].transform.position.y;
         ChossingBar.transform.position =  temp;
+        canvas.SetActive(false);
     }
 
     // Update is called once per frame
@@ -74,6 +76,7 @@ public class MainUI : MonoBehaviour
         player.SetActive(true);
         player.transform.position = init_player_index;
         uIController.enabled = true;
+        canvas.SetActive(true);
         try{
             SceneManager.UnloadSceneAsync(gameObject.scene.name);
         }
@@ -92,6 +95,7 @@ public class MainUI : MonoBehaviour
         player.SetActive(true);
         player.transform.position = player_pos;
         uIController.enabled = true;
+        canvas.SetActive(true);
         try{
             SceneManager.UnloadSceneAsync(gameObject.scene.name);
         }

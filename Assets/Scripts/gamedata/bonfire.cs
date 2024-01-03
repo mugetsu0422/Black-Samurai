@@ -46,6 +46,14 @@ public class bonfire : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D other) {
+        if (other.CompareTag("Player")) 
+        {
+            KaguraBachiData.Health = KaguraBachiData.MaxHealth;
+            Healthbar.instance.setFillAmount(3);
+        }
+    }
+
     public void Active(){
         isActive = true;
         transform.GetChild(0).gameObject.SetActive(true);
