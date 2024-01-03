@@ -199,7 +199,7 @@ MonoBehaviour:
   atk: 1
   projectilePrefab: {fileID: 3742973803233758581, guid: 2edfb78655002cc4fa29d17082e21fdb, type: 3}
   projectileForce: 1000
-  parasiteEssenceDrop: 50
+  parasiteEssenceDrop: 30
 --- !u!114 &446088381361119451
 MonoBehaviour:
   m_ObjectHideFlags: 0

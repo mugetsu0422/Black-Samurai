@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class InGameUI : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -52,8 +52,10 @@ public class InGameUI : MonoBehaviour
                 GameObject pl =  GameObject.FindGameObjectWithTag("Player");
                 GameManager.Save(pl);
                 Time.timeScale = 1;
+                SceneManager.LoadScene(0,LoadSceneMode.Single);
                 gameObject.SetActive(false);
                 //return main screen
+                
             }
         }
     }
