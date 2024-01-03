@@ -63,7 +63,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0.03137255, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -93,6 +93,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentLoadingPercent: {fileID: 625457641508896292}
   loadingIndicativeIcon: {fileID: 349990058104382690}
+  isLoading: 0
 --- !u!1 &2138772988215365534
 GameObject:
   m_ObjectHideFlags: 0

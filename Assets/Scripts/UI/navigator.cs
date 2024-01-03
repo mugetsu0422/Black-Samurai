@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -22,22 +23,19 @@ public class Navigator : MonoBehaviour
     }
 
     // Update is called once per frame
-    public IEnumerator Teleport(string name,Vector3 position,GameObject[] keep = null)
+    public IEnumerator Teleport(string name,Vector3 position,GameObject[] keep = null,GameObject close_afterload = null)
     {
         string old_scene = gameObject.scene.name;
-        Debug.Log(name);
-        Debug.Log(old_scene);
         if (old_scene != name){
             AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(name_to_path[name], LoadSceneMode.Additive);
             LoadingScreenProgressBar.Instance.SetValue(0f);
             loadingScreen.SetActive(true);
             LoadingScreenProgressBar.Instance.isLoading = true;
-            Debug.Log(asyncLoad);
             while (!asyncLoad.isDone) {
                 LoadingScreenProgressBar.Instance.SetValue(asyncLoad.progress);
-                yield return null;
+                yield return new WaitForSeconds(0.2f);
             }
-            // yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(1f);
             UnityEngine.SceneManagement.Scene loadScene = SceneManager.GetSceneByName(name);
             if (keep == null){
                 SceneManager.MoveGameObjectToScene(UIGroup, loadScene);
@@ -50,8 +48,7 @@ public class Navigator : MonoBehaviour
             try{
                 SceneManager.UnloadSceneAsync(old_scene);
             }
-            catch(Exception){
-            }
+            catch(Exception){}
             LoadingScreenProgressBar.Instance.SetValue(1f);
             loadingScreen.SetActive(false);
             LoadingScreenProgressBar.Instance.isLoading = false;
@@ -61,5 +58,7 @@ public class Navigator : MonoBehaviour
         }
         position.y+=5;
         player.transform.position= position;
+        if (close_afterload != null)
+            close_afterload.SetActive(false);
     }
 }
