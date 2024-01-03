@@ -5,7 +5,6 @@ using UnityEngine;
 public class TurtleabaneController : MonoBehaviour
 {
     private Rigidbody2D rb2d;
-    private Transform characterTransform;
     private bool isChasing = false;
     private bool isPatrolling = false;
     private float patrolDirection = 1.0f;
@@ -33,7 +32,6 @@ public class TurtleabaneController : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        characterTransform = GameObject.FindGameObjectWithTag("Player").transform;
         boxCollider = GetComponent<BoxCollider2D>();
         isPatrolling = true;
         currentHP = hp;
@@ -64,7 +62,7 @@ public class TurtleabaneController : MonoBehaviour
                 characterScript.changeHealth(-atk);
             }
         }
-        var player = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterScript>();
+        var player = GameObject.FindWithTag("Player").GetComponent<CharacterScript>();
         Transform playerTransform = player.GetComponent<Transform>();
         Vector3 playerPosition = playerTransform.position;
         float distanceToCharacter = Vector2.Distance(transform.position, playerPosition);
