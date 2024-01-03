@@ -22,7 +22,7 @@ public class EndPoint : MonoBehaviour
         
     }
 
-     private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         // Collide with player
         if (other.CompareTag("Player"))

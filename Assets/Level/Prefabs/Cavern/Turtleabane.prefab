@@ -179,7 +179,7 @@ MonoBehaviour:
   attackRange: 4.3
   attackCooldown: 2
   bulletPrefab: {fileID: 645516695361413607, guid: 43a195114a34349fbbd44157d0e077ec, type: 3}
-  hp: 50
+  hp: 20
   timeInvincible: 2
   parasiteEssenceDrop: 50
 --- !u!95 &5677285888336118924
