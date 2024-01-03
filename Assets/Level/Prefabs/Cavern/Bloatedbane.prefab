@@ -175,11 +175,13 @@ MonoBehaviour:
   patrolSpeed: 2
   chaseSpeed: 5
   patrolRange: 5
-  chaseRange: 10
+  chaseRange: 15
   attackRange: 5
   attackCooldown: 2
   bulletPrefab: {fileID: 6261261447466212459, guid: 07cd529a7353444d09b70a2e9c8f1e94, type: 3}
-  hp: 10
+  hp: 150
+  timeInvincible: 2
+  parasiteEssenceDrop: 50
 --- !u!95 &9130457699367128238
 Animator:
   serializedVersion: 5

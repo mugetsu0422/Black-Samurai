@@ -138,7 +138,7 @@ public class Instructor : MonoBehaviour
 
     IEnumerator waitForOpenStartScene()
     {
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(5);
         startScene.SetActive(true);
         StartCoroutine(closeStartScene());
     }

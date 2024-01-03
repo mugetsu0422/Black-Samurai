@@ -210,7 +210,8 @@ public class CharacterScript : MonoBehaviour
 
     void NormalAttackVFX(float direction)
     {
-        GameObject vfx = Instantiate(normalAttack, rb2d.position + new Vector2(width * direction, height * 0.75f), normalAttack.transform.rotation);
+        var skillOffset = new Vector2(width * direction, height * 0.75f) * transform.localScale / 1.5f;
+        GameObject vfx = Instantiate(normalAttack, rb2d.position + skillOffset, normalAttack.transform.rotation);
         vfx.GetComponent<NormalAttack>().SetDirection(direction);
     }
 
@@ -229,7 +230,8 @@ public class CharacterScript : MonoBehaviour
 
     void SpecialAttack1VFX(float direction)
     {
-        GameObject vfx = Instantiate(specialAttack1, rb2d.position + new Vector2(width * direction, 0f), Quaternion.identity);
+        var skillOffset = new Vector2(width * direction, 0) * transform.localScale / 1.5f;
+        GameObject vfx = Instantiate(specialAttack1, rb2d.position + skillOffset, Quaternion.identity);
         vfx.GetComponent<SpecialAttack1>().SetDirection(direction);
     }
 
@@ -248,7 +250,8 @@ public class CharacterScript : MonoBehaviour
 
     void SpecialAttack2VFX(float direction)
     {
-        GameObject vfx = Instantiate(specialAttack2, rb2d.position + new Vector2(width * direction, 1f + height / 2), Quaternion.identity);
+        var skillOffset = new Vector2(width * direction, 1f + height / 2) * transform.localScale / 1.5f;
+        GameObject vfx = Instantiate(specialAttack2, rb2d.position + skillOffset, Quaternion.identity);
         vfx.GetComponent<SpecialAttack2>().SetDirection(direction);
     }
 
@@ -278,8 +281,6 @@ public class CharacterScript : MonoBehaviour
 
     public void changeHealth(int amount)
     {
-        Debug.Log(amount);
-        Debug.Log(KaguraBachiData.Health);
         if (amount < 0)
         {
             if (isInvincible)
@@ -294,9 +295,11 @@ public class CharacterScript : MonoBehaviour
         }
         KaguraBachiData.Health += amount;
         Healthbar.instance.setFillAmount(amount);
+
         Debug.Log(KaguraBachiData.Health);
         if (KaguraBachiData.Health  <=0)
             Dead();
+
     }
 
     public void ChangeKi(int amount)

@@ -5,9 +5,15 @@ using UnityEngine;
 public class NormalAttack : MonoBehaviour
 {
     Animator animator;
+    initgame initgame;
     void Awake()
     {
         animator = GetComponent<Animator>();
+        initgame = GameObject.Find("InitGame").GetComponent<initgame>();
+        if (initgame)
+        {
+            transform.localScale = 4 * initgame.player_scale;
+        }
     }
 
     public void SetDirection(float direction)
