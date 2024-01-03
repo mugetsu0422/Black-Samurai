@@ -16,6 +16,13 @@ public class villageBossZone : MonoBehaviour
     {
         col = boder.gameObject.GetComponent<CompositeCollider2D>();
         tileRender = boder.gameObject.GetComponent<TilemapRenderer>();
+        if (KaguraBachiData.bossKilled.ContainsKey(boss.transform.name)){
+            spawnboss = !KaguraBachiData.bossKilled[boss.transform.name];
+        }
+        else{
+            KaguraBachiData.bossKilled.Add(boss.transform.name,false);
+            spawnboss = true;
+        }
     }
 
     // Update is called once per frame

@@ -13,7 +13,6 @@ public class UI_teleport : MonoBehaviour
     public GameObject map_mask;
     public GameObject location_mask;
     public Navigator navigator;
-    public int pad;
     private int selected_scene;
     private int selected_location;
 
@@ -62,9 +61,9 @@ public class UI_teleport : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.DownArrow) && selected_scene < scenes.Count - 1)
             {
                 Vector3 position = map_mask.GetComponent<RectTransform>().position;
-                position.y -= pad;
-                map_mask.GetComponent<RectTransform>().position = position;
                 selected_scene += 1;
+                position.y  = option.transform.GetChild(selected_scene).GetComponent<RectTransform>().position.y;
+                map_mask.GetComponent<RectTransform>().position = position;
                 LoadLocation_text(0, scenes[selected_scene], load_mode.init);
             }
 
@@ -72,9 +71,9 @@ public class UI_teleport : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.UpArrow) && selected_scene > 0)
             {
                 Vector3 position = map_mask.GetComponent<RectTransform>().position;
-                position.y += pad;
-                map_mask.GetComponent<RectTransform>().position = position;
                 selected_scene -= 1;
+                position.y  = option.transform.GetChild(selected_scene).GetComponent<RectTransform>().position.y;
+                map_mask.GetComponent<RectTransform>().position = position;
                 LoadLocation_text(0, scenes[selected_scene], load_mode.init);
             }
 
@@ -85,9 +84,10 @@ public class UI_teleport : MonoBehaviour
                 location_mask.SetActive(true);
 
                 Vector3 position = location_mask.GetComponent<RectTransform>().position;
-                position.y += pad * selected_location;
-                location_mask.GetComponent<RectTransform>().position = position;
                 selected_location = 0;
+                position.y = location.transform.GetChild(selected_location).GetComponent<RectTransform>().position.y;
+                location_mask.GetComponent<RectTransform>().position = position;
+                
                 LoadLocation_text(0, scenes[selected_scene], load_mode.init);
             }
         }
@@ -97,9 +97,9 @@ public class UI_teleport : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.DownArrow) && selected_location < number_of_location[scenes[selected_scene]] - 1)
             {
                 Vector3 position = location_mask.GetComponent<RectTransform>().position;
-                position.y -= pad;
-                location_mask.GetComponent<RectTransform>().position = position;
                 selected_location += 1;
+                position.y = location.transform.GetChild(selected_location).GetComponent<RectTransform>().position.y;
+                location_mask.GetComponent<RectTransform>().position = position;
                 LoadLocation_text(selected_location, scenes[selected_scene], load_mode.down);
             }
 
@@ -107,9 +107,9 @@ public class UI_teleport : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.UpArrow) && selected_location > 0)
             {
                 Vector3 position = location_mask.GetComponent<RectTransform>().position;
-                position.y += pad;
-                location_mask.GetComponent<RectTransform>().position = position;
                 selected_location -= 1;
+                position.y = location.transform.GetChild(selected_location).GetComponent<RectTransform>().position.y;
+                location_mask.GetComponent<RectTransform>().position = position;
                 LoadLocation_text(selected_location, scenes[selected_scene], load_mode.up);
             }
 
@@ -128,8 +128,7 @@ public class UI_teleport : MonoBehaviour
                 {
                     var navigator2 = temp.transform.Find("navigator").GetComponent<Navigator>();
                     List<Save_Point.SavePoint> saves = Save_Point.savePointData.SavePoint(scenes[selected_scene], true);
-                    StartCoroutine(navigator2.Teleport(scenes[selected_scene], saves[selected_location].location));
-                    gameObject.SetActive(false);
+                    StartCoroutine(navigator2.Teleport(scenes[selected_scene], saves[selected_location].location,null,gameObject));
                 }
             }
         }

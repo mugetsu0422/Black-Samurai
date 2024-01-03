@@ -16,6 +16,7 @@ public class LoadingScreenProgressBar : MonoBehaviour
     {
         Instance = this;
         iconStartingPosX = loadingIndicativeIcon.transform.localPosition.x;
+        gameObject.transform.parent.GetComponent<Canvas>().sortingOrder = 100;
         gameObject.SetActive(false);
     }
 

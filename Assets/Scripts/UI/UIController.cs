@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class UIController : MonoBehaviour
@@ -34,6 +35,17 @@ public class UIController : MonoBehaviour
                 Pause.SetActive(false);
                 Time.timeScale = 1;
             }
+        }
+        if (Teleport.activeSelf == true){
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            List<Save_Point.SavePoint> saves = Save_Point.savePointData.SavePoint(gameObject.scene.name);
+            bool setactive = false;
+            foreach(Save_Point.SavePoint i in saves){
+                if ( (player.transform.position - i.location).sqrMagnitude < 16f){
+                    setactive = true;
+                }
+            }
+            Teleport.SetActive(setactive);
         }
     }
 }

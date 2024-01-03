@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public static class KaguraBachiData
@@ -31,8 +33,12 @@ public static class KaguraBachiData
     private static int weaponLevel = 1;
     private static int parasiteEssence = 0;
     private static int pureParasiteHeart = 0;
-
+    private static Dictionary<String,bool> bosskilled = new Dictionary<string, bool>();
     // Attributes
+    public static Dictionary<String,bool> bossKilled{
+        get {return bosskilled;}
+        set {bossKilled = value;}
+    }
     public static int MaxHealth
     {
         get { return maxHealth; }
