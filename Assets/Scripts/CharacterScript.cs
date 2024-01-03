@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -257,21 +258,48 @@ public class CharacterScript : MonoBehaviour
 
     void Dead()
     {
-        animator.SetTrigger("Dead");
+        animator.SetBool("Dead", true);
+        StartCoroutine(Respawn());
+    }
 
-
+    IEnumerator Respawn() {
+        yield return new WaitForSeconds(3f);
+        GameOverScreen.Instance.OpenScreen();
+        BossHealthbar.instance.SetEnable(false);
+        KaguraBachiData.Health = KaguraBachiData.MaxHealth;
+        KaguraBachiData.Ki = 0;
+        Healthbar.instance.setFillAmount(3);
+        Manabar.instance.setFillAmount(0);
+        Debug.Log(KaguraBachiData.Health);
+        animator.SetBool("Dead", false);
         // respawn;
         if (Save_Point.savePointData.respawnPoint.map == ""){
+           
             // go to instructtion;
-        }
+            if (gameObject.scene.name == "VillageScene") {
+                var temp = GameObject.Find("InGameUI_group");
+                Navigator navigator = temp.transform.Find("navigator").GetComponent<Navigator>();
+                StartCoroutine(navigator.Teleport("VillageScene", new Vector3(-336,-102,0)));
+                BackgroundMusic.instance.Stop();
+            }
+            else if (gameObject.scene.name == "ForestScene") {
+                var temp = GameObject.Find("InGameUI_group");
+                Navigator navigator = temp.transform.Find("navigator").GetComponent<Navigator>();
+                StartCoroutine(navigator.Teleport("ForestScene", new Vector3(-34,-8.6f,0)));
+                BackgroundMusic.instance.Stop();
+            }
+            else if (gameObject.scene.name == "CavernScene") {
+                var temp = GameObject.Find("InGameUI_group");
+                Navigator navigator = temp.transform.Find("navigator").GetComponent<Navigator>();
+                StartCoroutine(navigator.Teleport("CavernScene", new Vector3(-46,-6.8f,0)));
+                BackgroundMusic.instance.Stop();
+            }
         else{
             var temp = GameObject.Find("InGameUI_group");
             Navigator navigator = temp.transform.Find("navigator").GetComponent<Navigator>();
             StartCoroutine(navigator.Teleport(Save_Point.savePointData.respawnPoint.map, Save_Point.savePointData.respawnPoint.location));
             BackgroundMusic.instance.Stop();
         }
-
-        //
     }
 
     public float getATK

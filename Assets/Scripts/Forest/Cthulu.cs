@@ -140,5 +140,13 @@ public class Cthulu : MonoBehaviour
         player.ChangeParasiteEssence(parasiteEssenceDrop);
         KaguraBachiData.PureParasiteHeart += 1;
         PureHeartEssenceNotification.instance.openNotification();
+        BackgroundMusic.instance.victoriousBGM();
+        StartCoroutine(offVictoryMusic());
+    }
+
+    IEnumerator offVictoryMusic()
+    {
+        yield return new WaitForSeconds(6f);
+        BackgroundMusic.instance.originalBGM();
     }
 }

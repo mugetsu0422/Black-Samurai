@@ -14,7 +14,6 @@ public class VillageBoss : MonoBehaviour
     private Vector2 lookDirection = new Vector2(1, 0);
     private Transform characterTransform;
     private bool isChasing = false;
-    private bool isPatrolling = false;
     private float patrolDirection = 1.0f;
     public float patrolSpeed;
     public float chaseSpeed;
@@ -24,41 +23,48 @@ public class VillageBoss : MonoBehaviour
     public float attackCooldown;
     public int parasiteEssenceDrop;
     private float lastAttackTime;
+    private BoxCollider2D boxCollider;
+    int atk = 1;
+    public int MaxHealth = 50;
+    bool dead = false;
     
     void Start()
     {
+        health = MaxHealth;
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         characterTransform = GameObject.FindGameObjectWithTag("Player").transform;
-        StartPatrol();
-    }
-
-    void StartPatrol()
-    {
-        isPatrolling = true;
+        boxCollider =  GetComponent<BoxCollider2D>();
     }
 
     void Update()
     {
-        var player = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterScript>();
+        AnimatorStateInfo currentState = animator.GetCurrentAnimatorStateInfo(0);
+        Vector2 colliderSize = boxCollider.size;
+        Collider2D collider = Physics2D.OverlapBox(rb2d.position, boxCollider.bounds.size, 0f, LayerMask.GetMask("Player"));
+       if (collider && collider.CompareTag("Player"))
+            {
+                CharacterScript characterScript = collider.GetComponentInParent<CharacterScript>();
+                characterScript.changeHealth(-atk);
+            }
+        var player = GameObject.FindWithTag("Player").GetComponent<CharacterScript>();
         Transform playerTransform = player.GetComponent<Transform>();
         Vector3 playerPosition = playerTransform.position;
         float distanceToCharacter = Vector2.Distance(transform.position, playerPosition);
-
         if (distanceToCharacter < chaseRange)
         {
             isChasing = true;
-            isPatrolling = false;
         }
         else
         {
             isChasing = false;
-            isPatrolling = true;
         }
 
         if (isChasing)
         {
             Vector2 direction = (playerPosition - transform.position).normalized;
+            rb2d.velocity = direction;
+
             if (distanceToCharacter < attackRange)
             {
                 if (Time.time - lastAttackTime > attackCooldown)
@@ -71,16 +77,6 @@ public class VillageBoss : MonoBehaviour
             else
             {
                 rb2d.velocity = direction * chaseSpeed;
-            }
-        }
-        else if (isPatrolling)
-        {
-            rb2d.velocity = new Vector2(patrolSpeed * patrolDirection, rb2d.velocity.y + Physics2D.gravity.y*Time.deltaTime);
-
-            if ((patrolDirection > 0 && transform.position.x >= initialPosition.x + patrolRange) ||
-                (patrolDirection < 0 && transform.position.x <= initialPosition.x - patrolRange))
-            {
-                patrolDirection *= -1;
             }
         }
     }
@@ -120,12 +116,15 @@ public class VillageBoss : MonoBehaviour
     public void ChangeHealth(int x){
         hurt();
         health = Math.Max(0,health+x);
+        BossHealthbar.instance.SetValue(health / (float)MaxHealth);
         if (health < 1){
             Dead();
         }
     }
 
     private void Dead(){
+        if (dead)
+            return;
         animator.SetTrigger("Dead");
         Destroy(gameObject,10f);
         Destroy(bossboder);
@@ -134,7 +133,16 @@ public class VillageBoss : MonoBehaviour
         player.ChangeParasiteEssence(parasiteEssenceDrop);
         KaguraBachiData.PureParasiteHeart += 1;
         PureHeartEssenceNotification.instance.openNotification();
-        
+        BossHealthbar.instance.SetEnable(false);
+        BackgroundMusic.instance.victoriousBGM();
+        StartCoroutine(offVictoryMusic());
+        dead = true;
+    }
+
+    IEnumerator offVictoryMusic()
+    {
+        yield return new WaitForSeconds(6f);
+        BackgroundMusic.instance.originalBGM();
     }
 
     private void hurt(){

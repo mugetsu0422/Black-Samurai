@@ -26,7 +26,7 @@ public class BackgroundMusic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        bgm.volume = Setting.GameSettings.volume;
     }
 
     public void changeBossBGM(){
