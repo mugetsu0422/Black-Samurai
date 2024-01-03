@@ -206,7 +206,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   showGizmos: 1
-  parasiteEssenceDrop: 50
+  parasiteEssenceDrop: 20
 --- !u!114 &5317835152814863918
 MonoBehaviour:
   m_ObjectHideFlags: 0
