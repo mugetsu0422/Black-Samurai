@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class bee : MonoBehaviour
@@ -16,15 +17,18 @@ public class bee : MonoBehaviour
     public int health=1;
     public float speed;
     public float force;
+    public int atk = 1;
     [Header("Components")]
     public GameObject projectile;
     public GameObject shoot_position;
     private bool can_shoot = true;
     private GameObject player;
+    private BoxCollider2D boxCol;
     Vector3 initPosition;
     void Start()
     {
         ani = gameObject.GetComponent<Animator>();
+        boxCol = gameObject.GetComponent<BoxCollider2D>();
         ani.SetFloat("X",0.1f);
     }
 
@@ -44,10 +48,6 @@ public class bee : MonoBehaviour
                 Vector2 temp = hit.collider.transform.position - gameObject.transform.position;
                 temp.Normalize();
                 setMove(temp);
-                if ( Mathf.Abs(temp.y)<0.1f){
-                    Attack();
-                    Invoke("Dead",3);
-                }
             }
             else{
                 Vector2 temp = initPosition - gameObject.transform.position;
@@ -68,6 +68,11 @@ public class bee : MonoBehaviour
             positison.x += direction.x * speed * Time.deltaTime;
             positison.y += direction.y * speed * Time.deltaTime;
             transform.position = positison;
+        }
+
+        Collider2D player = Physics2D.OverlapBox(transform.position, boxCol.bounds.size , 0, LayerMask.GetMask("Player"));
+        if(player){
+            player.GetComponent<CharacterScript>().changeHealth(-atk);
         }
     }
 
@@ -118,6 +123,12 @@ public class bee : MonoBehaviour
         health = Math.Max(0,health+x);
         if (health < 1){
              Dead();
+        }
+    }
+
+    public void OnCollisionEnter(Collision col){
+        if (col.transform.tag == "Player"){
+            col.transform.GetComponent<CharacterScript>().changeHealth(-atk);
         }
     }
 }
