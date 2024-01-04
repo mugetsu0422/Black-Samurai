@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 8115161784937267894}
   - component: {fileID: 3390169438495717418}
   - component: {fileID: -5835377168384354655}
+  - component: {fileID: 2827043006134065227}
+  - component: {fileID: 3598832767641658733}
   m_Layer: 7
   m_Name: wolf_black
   m_TagString: Untagged
@@ -179,7 +181,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &-5835377168384354655
 MonoBehaviour:
@@ -194,5 +196,58 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  force: 2000
-  horizontal: 0
+  force: 1000
+  health: 20
+  horizontal: 0.256
+--- !u!114 &2827043006134065227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4356141278095689120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0f1696f749696d418268fa76e8dfccd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _wolf: {fileID: -5835377168384354655}
+  detect_size: {x: 60, y: 5}
+  Sensitivity: 1
+  max_trace: 60
+  time_trace: 5
+--- !u!70 &3598832767641658733
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4356141278095689120}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.00059785595, y: -0.078845695}
+  m_Size: {x: 0.3719454, y: 0.16231361}
+  m_Direction: 1

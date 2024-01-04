@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class FirewomFireBall : MonoBehaviour
 {
+    [Header("Attack parameters")]
+    [SerializeField] int atk = 1;
+
     Rigidbody2D rb2D;
     Animator animator;
     void Awake()
@@ -15,26 +18,28 @@ public class FirewomFireBall : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // if (transform.position.magnitude > 100f)
-        // {
-        //     Destroy(gameObject);
-        // }
+        
     }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.collider.CompareTag("Player"))
-        {
-            // Change Health here
-        }
+        // Collide with map
+        rb2D.velocity = new Vector2(0, 0);
         animator.SetTrigger("Explode");
-        StartCoroutine(DestroyAfterDelay(1f));
+        Destroy(gameObject, 1f);
     }
 
-    IEnumerator DestroyAfterDelay(float delay)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        yield return new WaitForSeconds(delay);
-        Destroy(gameObject);
+        // Collide with player
+        if (other.CompareTag("Player"))
+        {
+            // Change Health here
+            other.GetComponent<CharacterScript>().changeHealth(-atk);
+        }
+        rb2D.velocity = new Vector2(0, 0);
+        animator.SetTrigger("Explode");
+        Destroy(gameObject, 1f);
     }
 
     public void Launch(Vector2 direction, float force)

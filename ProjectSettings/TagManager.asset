@@ -8,6 +8,8 @@ TagManager:
   - Teleport_canvas
   - Enemy
   - Ground
+  - Sword
+  - SwordProjectile
   layers:
   - Default
   - TransparentFX
@@ -20,8 +22,8 @@ TagManager:
   - Enemy_thought_map
   - projectile
   - Player
-  - 
-  - 
+  - Blacksmith
+  - Confiner
   - 
   - 
   - 

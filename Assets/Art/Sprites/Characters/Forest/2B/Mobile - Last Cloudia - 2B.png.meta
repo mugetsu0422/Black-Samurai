@@ -1,0 +1,3396 @@
+fileFormatVersion: 2
+guid: d84bdefe7d6b1f64ba610dbc47081e9f
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 972
+        width: 55
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c600e8f6e553f24dba9b6194959fb7c
+      internalID: 1526210814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_1
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 958
+        width: 53
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abfc7f8eb0b4700459f49b4841af4f0b
+      internalID: 450616420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_2
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 994
+        width: 35
+        height: 21
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c80ca7f0c6f1ecb4ca748dc6aac832f1
+      internalID: 217365446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_3
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 989
+        width: 22
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93e550db07ad64c47a3061f3f997545d
+      internalID: 197887777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_4
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 886
+        width: 31
+        height: 84
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66eea2dbec4a34c40aed619dfeae2d05
+      internalID: -1713639377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_5
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 958
+        width: 21
+        height: 11
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d25fcc7295dbbe94dacbd12ee791dc8e
+      internalID: 1717316391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_6
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 957
+        width: 22
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 818919ed91bd6f24c97801fa0f99d28b
+      internalID: -1886324339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_7
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 957
+        width: 21
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63bfc7b857536d74499b99e0e2afeaa7
+      internalID: -1077325007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_8
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 953
+        width: 22
+        height: 34
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d4dfc90801f9284a893ae059066e69e
+      internalID: 1720202883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_9
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 953
+        width: 21
+        height: 34
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dac32d529fe7184418bd7d7d27f7de57
+      internalID: 1260891983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_10
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 878
+        width: 47
+        height: 78
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3caec91b80b97894e92914899fc83c4c
+      internalID: 573224672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_11
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 948
+        width: 15
+        height: 8
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f13a1ae60e720c40a1a3ea810192543
+      internalID: -930287302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_12
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 934
+        width: 36
+        height: 21
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcd34436d70d3f34aae08f19eeec02b3
+      internalID: -1079497032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_13
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 925
+        width: 64
+        height: 26
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eee5373c8b908d049a15cec43fca41cd
+      internalID: 1298600448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_14
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 875
+        width: 35
+        height: 71
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a32607cf6545254a9e848113340c32d
+      internalID: -1188874309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_15
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 865
+        width: 37
+        height: 67
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1cf1cc5bbef42046b92e00629206194
+      internalID: -1510692428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_16
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 925
+        width: 15
+        height: 13
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ddd7f5b3778ee24db177299f15e262f
+      internalID: 1145364117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_17
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 899
+        width: 50
+        height: 39
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6409d30fe3b9b3d40883fe77dea537b1
+      internalID: 2006326877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_18
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 795
+        width: 31
+        height: 89
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4496f532024028643b3f848b0f189e89
+      internalID: 2000247803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_19
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 795
+        width: 45
+        height: 81
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c8962b5a0a996e49b9f7fb7e55f56ff
+      internalID: -2057566451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_20
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 795
+        width: 29
+        height: 78
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bec82953cba0ae4e8a09c1cc8f630f2
+      internalID: -860571447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_21
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 863
+        width: 54
+        height: 60
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5667303243d88314f87701f704067bb1
+      internalID: -1542883770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_22
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 858
+        width: 25
+        height: 65
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50cd2636703683145a33675dd74bcdc7
+      internalID: -406319790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_23
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 845
+        width: 35
+        height: 51
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffecca616a02ce74daf5052d79faeaf0
+      internalID: 706879835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_24
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 795
+        width: 33
+        height: 68
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc0b3ecf3f0f4394b8cbe62e85cf3bc1
+      internalID: -1984151920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_25
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 807
+        width: 60
+        height: 54
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3f33c0291d3d484a9310f44c9223d25
+      internalID: 182366473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_26
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 792
+        width: 28
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26a84fa77b8b8ab4d98ade5d45ec961f
+      internalID: 1605228592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_27
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 786
+        width: 40
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47c5b32a58a8ed1468e690f08771cf11
+      internalID: -453970409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_28
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 655
+        width: 19
+        height: 137
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31b91bd96867ac94fbc95d0a80ac6aac
+      internalID: -431146990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_29
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 749
+        width: 68
+        height: 44
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1b8842de8b332046ae7e0b2cace6287
+      internalID: 757527982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_30
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 749
+        width: 51
+        height: 44
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5980d91c444b6f4dab794fe6f84d84b
+      internalID: 1568636825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_31
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 744
+        width: 46
+        height: 61
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eab1af498da06274e8daa29b4e45e3ab
+      internalID: 327727164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_32
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 735
+        width: 42
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5e8cc181aa45ca47a2ab9cff32e413d
+      internalID: 1390079827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_33
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 723
+        width: 27
+        height: 61
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20e97e745b317ad4dbe216f84362f0f7
+      internalID: 866385266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_34
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 713
+        width: 23
+        height: 54
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11a33777643d98d41ba5688ce5a8982d
+      internalID: 239375048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_35
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 654
+        width: 60
+        height: 91
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9b199e1f8a93b048950b44eb6ba76c6
+      internalID: 129204483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_36
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 687
+        width: 54
+        height: 60
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 245bf5a7a372e904e8f71338928e5092
+      internalID: 605454783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_37
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 680
+        width: 44
+        height: 62
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccf05a5b3df79474a9614a96ba36b0a0
+      internalID: 1198799534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_38
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 681
+        width: 47
+        height: 52
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccc8a1f93c71de049a76d8dfd14dd15a
+      internalID: 1211239407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_39
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 657
+        width: 25
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6ad3b47fc66c1a4781f7baeb1451f78
+      internalID: 1632737646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_40
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 657
+        width: 25
+        height: 54
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5361d11e3318a1546933ac04b696f422
+      internalID: 2012141943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_41
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 551
+        width: 84
+        height: 100
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cec2614dab5ed374ab291efaff4a0721
+      internalID: -1166293413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_42
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 619
+        width: 47
+        height: 66
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38af76be12320e640ae3e5e0e68290ce
+      internalID: 1969227384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_43
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 615
+        width: 43
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79fcfd75ebb961445881fed4f18f7327
+      internalID: 60343963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_44
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 615
+        width: 25
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9f31bfb9220c794183a0132c7e05be7
+      internalID: -536249685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_45
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 615
+        width: 28
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 019c87bdb16b9544d9d26d0b81965df9
+      internalID: -712168910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_46
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 594
+        width: 29
+        height: 61
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d63dd39043618d42bb9ef7281ea0e60
+      internalID: 624680252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_47
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 594
+        width: 29
+        height: 54
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7bb040943505be74b8ecad8fa71c098e
+      internalID: -309311635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_48
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 580
+        width: 23
+        height: 54
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf240cb063dfdc74e8be9ac03cd40a6f
+      internalID: 779077071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_49
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 551
+        width: 46
+        height: 66
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69fd03aa914ba1449bb17d899c7e59f2
+      internalID: -409057613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_50
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 551
+        width: 46
+        height: 62
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79258d813ee2e3c4dbe21e9d8b26c8b3
+      internalID: -1107404887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_51
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 595
+        width: 51
+        height: 18
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abfc22fe40efdaf4a8c79e5b1cc791d0
+      internalID: -1810999771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_52
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 535
+        width: 7
+        height: 9
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32dd213ad7d78794dbd8ab4fb7d8360d
+      internalID: -1810170376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_53
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 496
+        width: 48
+        height: 53
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39d74eca1c2a7cd4ab6e311b4cdbb043
+      internalID: -1903033104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_54
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 496
+        width: 49
+        height: 53
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84155323d6fd9f54babbf07fad24ffb7
+      internalID: 1755527928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_55
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 540
+        width: 48
+        height: 53
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 508920cb10d7e8749a11a93d7408cf5c
+      internalID: 1231752338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_56
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 540
+        width: 40
+        height: 52
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e0d5474168e0f848a981376334d2d29
+      internalID: 234742523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_57
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 529
+        width: 42
+        height: 49
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c688c127612a3374fa7def11e8e543b3
+      internalID: 163180903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_58
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 414
+        width: 76
+        height: 103
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d80434a3add25dd4eb488d03b3bce6e4
+      internalID: 1435157870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_59
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 416
+        width: 14
+        height: 78
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c500a29afc64b76488f1bf12e175c68f
+      internalID: -1519121827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_60
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 483
+        width: 57
+        height: 11
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a872cc236e94fe94697d01f59d41e5bb
+      internalID: 155381187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_61
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 480
+        width: 47
+        height: 58
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2359609ce5220844b48869a7032d35c
+      internalID: 535030540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_62
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 480
+        width: 39
+        height: 58
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 948458a0f032fa744afececfb468018e
+      internalID: -1668653291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_63
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 480
+        width: 46
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afce7c7c0f8ab4246be87f572ef582e0
+      internalID: 1983225630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_64
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 426
+        width: 60
+        height: 54
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70ba78f80849d794c9d4ad5ad93c61e8
+      internalID: 504818106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_65
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 432
+        width: 60
+        height: 46
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62a7ddbf3e2682e4482f1f92033e2fa6
+      internalID: 193660793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_66
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 432
+        width: 47
+        height: 46
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb228caf50ddf8b4381e1e9f94d80847
+      internalID: 26949300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_67
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 437
+        width: 47
+        height: 41
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e0253202c1378d4e8329b915d224cd6
+      internalID: -1927113569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_68
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 239
+        width: 80
+        height: 171
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15b4452ecda233d4eaf03568e59d7d09
+      internalID: -1426109479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_69
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 399
+        width: 65
+        height: 25
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d78bb10692250214ab8b858af28ea86b
+      internalID: -617120467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_70
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 405
+        width: 65
+        height: 25
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9629f7a96c46c34cb98426c99155b24
+      internalID: -342147355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_71
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 383
+        width: 46
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33584f7f2ce9ae7479473e24a81108a4
+      internalID: -30341500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_72
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 383
+        width: 33
+        height: 52
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fac48fcd319b99344be3590a30eecc53
+      internalID: -1227836105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_73
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 389
+        width: 52
+        height: 43
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0b4b260b21920945b29d3b04174efb6
+      internalID: 935389517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_74
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 389
+        width: 18
+        height: 44
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9e97910437b8c54389fdb56873ac9aa
+      internalID: 1594550983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_75
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 384
+        width: 21
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0da99f76d7e4274cad63ea314f470dc
+      internalID: -177129827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_76
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 245
+        width: 16
+        height: 153
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c65c7cfc94aaf847a405ac6b896d732
+      internalID: 292037662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_77
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 351
+        width: 77
+        height: 46
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3057d9bdf17731547906bd68335c3b73
+      internalID: -391780048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_78
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 350
+        width: 61
+        height: 53
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 380a9d1df92acfb448d091780848cb3c
+      internalID: -1216467796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_79
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 333
+        width: 60
+        height: 54
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8ba70cd8b66bfe4da0f272f67e9692f
+      internalID: -1624974683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_80
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 339
+        width: 44
+        height: 43
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c084eabcfadd2a4cb35223929c4594d
+      internalID: -474951082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_81
+      rect:
+        serializedVersion: 2
+        x: 437
+        y: 339
+        width: 34
+        height: 44
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a72c55bb697ce1b4faa100eaac6ddd06
+      internalID: 2130993141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_82
+      rect:
+        serializedVersion: 2
+        x: 473
+        y: 381
+        width: 51
+        height: 10
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ed41838082d0db4b8515a2dfcd1c821
+      internalID: 768210336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_83
+      rect:
+        serializedVersion: 2
+        x: 526
+        y: 381
+        width: 39
+        height: 11
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af7bf1ff9f41028499f3e54dfa31a90a
+      internalID: -253123727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_84
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 310
+        width: 24
+        height: 66
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a02eb9ad4150a745baa1c3900f078a8
+      internalID: -380928218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_85
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 332
+        width: 55
+        height: 49
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63be0a4ce1e5e2a4193c63cd44b12f0b
+      internalID: 1736283705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_86
+      rect:
+        serializedVersion: 2
+        x: 473
+        y: 361
+        width: 44
+        height: 18
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ecd97fe464c2054bab65be4fdf75e87
+      internalID: 2078682439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_87
+      rect:
+        serializedVersion: 2
+        x: 519
+        y: 361
+        width: 44
+        height: 18
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f1323ddc3a3d814595a9b610b70590d
+      internalID: 1995834949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_88
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 300
+        width: 76
+        height: 49
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16e8a3ceeeeb4574c8b495888f5ac23e
+      internalID: -1538790697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_89
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 310
+        width: 62
+        height: 38
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1052990c36049dd4cb1b93302c2b5bf0
+      internalID: -488477856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_90
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 271
+        width: 56
+        height: 59
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2583810dc960b5a4eb4f6f4deb63a798
+      internalID: -688481474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_91
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 277
+        width: 60
+        height: 54
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 287ab9b249e20b641831f85941f27d8d
+      internalID: 152553055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_92
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 268
+        width: 28
+        height: 54
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd50d62c24b22f547bf1271abc59d4e1
+      internalID: 2071239971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_93
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 314
+        width: 54
+        height: 23
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91a965b3379225242a5b61cb75526937
+      internalID: -1508528453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_94
+      rect:
+        serializedVersion: 2
+        x: 478
+        y: 314
+        width: 45
+        height: 45
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66c27ff2f81d31544bf5de21e3a46a09
+      internalID: -258450437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_95
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 314
+        width: 41
+        height: 45
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e852a332365ad944d9788305ebe911ac
+      internalID: 1490067298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_96
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 251
+        width: 78
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 212fa0d48a815ad438d4c7b464327892
+      internalID: 488323523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_97
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 272
+        width: 65
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdff916b09403ef45b7a2ff3d97cdec5
+      internalID: 496442595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_98
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 214
+        width: 54
+        height: 61
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e482f9765a4a7a4092268159a5d5c5a
+      internalID: 322797163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_99
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 265
+        width: 44
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50c16645f3c24544f8c531d4883a5f5d
+      internalID: -999784099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_100
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 265
+        width: 44
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f7e71625baf6a943970084f2fdb10b3
+      internalID: 1640877095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_101
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 265
+        width: 44
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00620734227d4404bb39a8625fc5b609
+      internalID: -234299528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_102
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 251
+        width: 14
+        height: 15
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18f63e92d421fc544bc6b1b1ae9b9c3f
+      internalID: 511555470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_103
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 224
+        width: 64
+        height: 46
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fee46a149efc614397089ce1616f9b6
+      internalID: -1230715669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_104
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 214
+        width: 62
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3dfdf606627b6364ea8bb553df093352
+      internalID: -791967958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_105
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 212
+        width: 30
+        height: 54
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfbfb80d52ac26746a58f6050b999699
+      internalID: -1627914028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_106
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 216
+        width: 44
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31d8a14b101318d4a946a143c4720073
+      internalID: -1666557096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_107
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 223
+        width: 42
+        height: 40
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 700c68a344a61c34ea4db53d7bf8e618
+      internalID: -129517778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_108
+      rect:
+        serializedVersion: 2
+        x: 508
+        y: 216
+        width: 44
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9149af99972771e49b2fefcf9cee4a11
+      internalID: -1625601544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_109
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 4
+        width: 108
+        height: 233
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7019b60858b1143408380f0be3a875b9
+      internalID: 1972779184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_110
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 224
+        width: 81
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f70c20fe8d4ac74ea0bf410fd25f174
+      internalID: 1972268727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_111
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 161
+        width: 104
+        height: 60
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0178a1869cafc584aa6c0a2493be8c0f
+      internalID: 411242010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_112
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 160
+        width: 42
+        height: 62
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f77b942c755e6ab49b468af71987a172
+      internalID: -1591354600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_113
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 157
+        width: 65
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bdacc0279d99134ea10e30d3a85b317
+      internalID: -566532381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_114
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 157
+        width: 47
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2328c3d3ea35c8540bb2fea0243fb11e
+      internalID: 1621014614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_115
+      rect:
+        serializedVersion: 2
+        x: 382
+        y: 156
+        width: 34
+        height: 54
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8ba705275521a543b28e2f969e459fe
+      internalID: -722447911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_116
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 167
+        width: 46
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6258ced94c9c92b4289b6d763fa5eba9
+      internalID: -337700653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_117
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 167
+        width: 24
+        height: 54
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1ada1ba57bab6a4087c92c5ca04d21d
+      internalID: 460295059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_118
+      rect:
+        serializedVersion: 2
+        x: 492
+        y: 167
+        width: 44
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c538e3709e96b9140b56249b859ba14a
+      internalID: -1217141467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_119
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 82
+        width: 108
+        height: 75
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4b35bc52e661aa449bc2f9003a9d43c
+      internalID: 2012851849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_120
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 86
+        width: 69
+        height: 66
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ebd9045c93f0a149973775818215d02
+      internalID: -617067184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_121
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 86
+        width: 54
+        height: 69
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97cc53f9371d2e042a2a606e164b855a
+      internalID: -105166035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_122
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 87
+        width: 26
+        height: 67
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80b5ecb1bc577114e972fd6c1ed943ce
+      internalID: 1437349604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_123
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 117
+        width: 43
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0604889228a35ce489d582c222aa291c
+      internalID: -609915432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_124
+      rect:
+        serializedVersion: 2
+        x: 439
+        y: 119
+        width: 47
+        height: 46
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9726c6fdf1279704e93c4b22b55a018b
+      internalID: 1571627175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_125
+      rect:
+        serializedVersion: 2
+        x: 488
+        y: 127
+        width: 39
+        height: 38
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f614cf4d97e5ad4996d17966ffd5a1a
+      internalID: -1750066244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_126
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 2
+        width: 135
+        height: 77
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d11cacad891c1cc43a8105b73decc3f4
+      internalID: -892374107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_127
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 54
+        width: 113
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8fd9c6b070d68d419e16a9d853c0c0c
+      internalID: 1390983958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_128
+      rect:
+        serializedVersion: 2
+        x: 374
+        y: 53
+        width: 17
+        height: 31
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a61bb2f8d0f24854f995aafdc8513027
+      internalID: 1074902784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_129
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 68
+        width: 43
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebf96a9017c424e4bbf9a2bfb71f990a
+      internalID: 1799167723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_130
+      rect:
+        serializedVersion: 2
+        x: 439
+        y: 71
+        width: 47
+        height: 46
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92fa75d6b794be144a62a4e709c8b43a
+      internalID: -151015782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_131
+      rect:
+        serializedVersion: 2
+        x: 488
+        y: 71
+        width: 23
+        height: 54
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca7a7018ae310d849a1708a260f06eec
+      internalID: 1133389325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_132
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 31
+        width: 137
+        height: 19
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 717a350e6e111444496e6e0e1a667e54
+      internalID: -1704504584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_133
+      rect:
+        serializedVersion: 2
+        x: 414
+        y: 12
+        width: 23
+        height: 54
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12853e266a102fd4b8290a9ce1fb967d
+      internalID: 1834011178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_134
+      rect:
+        serializedVersion: 2
+        x: 439
+        y: 39
+        width: 55
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 781222d05d7af6f43b396e5854687e33
+      internalID: 426515972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_135
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 39
+        width: 13
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 432d8fd5f338d8e469573833fec12867
+      internalID: -1000502438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_136
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 2
+        width: 76
+        height: 45
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71a2a87158352c34fb61f1cb3ca1c17c
+      internalID: 373283478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_137
+      rect:
+        serializedVersion: 2
+        x: 603
+        y: 2
+        width: 73
+        height: 43
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ce5c5e69bf817945bd7a2d83fe91930
+      internalID: -734165025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_138
+      rect:
+        serializedVersion: 2
+        x: 678
+        y: 2
+        width: 69
+        height: 43
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f9ec4d008bc88843a24833b524c240f
+      internalID: 1611400302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_139
+      rect:
+        serializedVersion: 2
+        x: 749
+        y: 44
+        width: 54
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ebc46d7facc5594ab3f81b8a1a05604
+      internalID: -915359151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_140
+      rect:
+        serializedVersion: 2
+        x: 805
+        y: 44
+        width: 54
+        height: 25
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf22975f9891aab4795fb2d48b6cb7e4
+      internalID: 665906982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_141
+      rect:
+        serializedVersion: 2
+        x: 893
+        y: 2
+        width: 67
+        height: 44
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6e50a2fdc947e040ab54f1a48e28983
+      internalID: 24738275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_142
+      rect:
+        serializedVersion: 2
+        x: 964
+        y: 2
+        width: 57
+        height: 49
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa797f2ac0e9c7744a50f9d504edf1d8
+      internalID: -826748278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_143
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 12
+        width: 153
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4344adfbe232748409f83738698b651e
+      internalID: 363024636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_144
+      rect:
+        serializedVersion: 2
+        x: 439
+        y: 2
+        width: 84
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcf1b25425df8f04189c7c4c94c573dd
+      internalID: 206569169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_145
+      rect:
+        serializedVersion: 2
+        x: 749
+        y: 2
+        width: 70
+        height: 40
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f1fa1ffb29027a42beea768ed1262dc
+      internalID: -1052721430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_146
+      rect:
+        serializedVersion: 2
+        x: 821
+        y: 2
+        width: 70
+        height: 40
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01d9d7c24fc483f48a1c071d03c02833
+      internalID: -49499780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Last Cloudia - 2B_147
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 2
+        width: 173
+        height: 8
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 421859cc91f3365458929ebde75f1ec7
+      internalID: 144903426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Mobile - Last Cloudia - 2B_0: 1526210814
+      Mobile - Last Cloudia - 2B_1: 450616420
+      Mobile - Last Cloudia - 2B_10: 573224672
+      Mobile - Last Cloudia - 2B_100: 1640877095
+      Mobile - Last Cloudia - 2B_101: -234299528
+      Mobile - Last Cloudia - 2B_102: 511555470
+      Mobile - Last Cloudia - 2B_103: -1230715669
+      Mobile - Last Cloudia - 2B_104: -791967958
+      Mobile - Last Cloudia - 2B_105: -1627914028
+      Mobile - Last Cloudia - 2B_106: -1666557096
+      Mobile - Last Cloudia - 2B_107: -129517778
+      Mobile - Last Cloudia - 2B_108: -1625601544
+      Mobile - Last Cloudia - 2B_109: 1972779184
+      Mobile - Last Cloudia - 2B_11: -930287302
+      Mobile - Last Cloudia - 2B_110: 1972268727
+      Mobile - Last Cloudia - 2B_111: 411242010
+      Mobile - Last Cloudia - 2B_112: -1591354600
+      Mobile - Last Cloudia - 2B_113: -566532381
+      Mobile - Last Cloudia - 2B_114: 1621014614
+      Mobile - Last Cloudia - 2B_115: -722447911
+      Mobile - Last Cloudia - 2B_116: -337700653
+      Mobile - Last Cloudia - 2B_117: 460295059
+      Mobile - Last Cloudia - 2B_118: -1217141467
+      Mobile - Last Cloudia - 2B_119: 2012851849
+      Mobile - Last Cloudia - 2B_12: -1079497032
+      Mobile - Last Cloudia - 2B_120: -617067184
+      Mobile - Last Cloudia - 2B_121: -105166035
+      Mobile - Last Cloudia - 2B_122: 1437349604
+      Mobile - Last Cloudia - 2B_123: -609915432
+      Mobile - Last Cloudia - 2B_124: 1571627175
+      Mobile - Last Cloudia - 2B_125: -1750066244
+      Mobile - Last Cloudia - 2B_126: -892374107
+      Mobile - Last Cloudia - 2B_127: 1390983958
+      Mobile - Last Cloudia - 2B_128: 1074902784
+      Mobile - Last Cloudia - 2B_129: 1799167723
+      Mobile - Last Cloudia - 2B_13: 1298600448
+      Mobile - Last Cloudia - 2B_130: -151015782
+      Mobile - Last Cloudia - 2B_131: 1133389325
+      Mobile - Last Cloudia - 2B_132: -1704504584
+      Mobile - Last Cloudia - 2B_133: 1834011178
+      Mobile - Last Cloudia - 2B_134: 426515972
+      Mobile - Last Cloudia - 2B_135: -1000502438
+      Mobile - Last Cloudia - 2B_136: 373283478
+      Mobile - Last Cloudia - 2B_137: -734165025
+      Mobile - Last Cloudia - 2B_138: 1611400302
+      Mobile - Last Cloudia - 2B_139: -915359151
+      Mobile - Last Cloudia - 2B_14: -1188874309
+      Mobile - Last Cloudia - 2B_140: 665906982
+      Mobile - Last Cloudia - 2B_141: 24738275
+      Mobile - Last Cloudia - 2B_142: -826748278
+      Mobile - Last Cloudia - 2B_143: 363024636
+      Mobile - Last Cloudia - 2B_144: 206569169
+      Mobile - Last Cloudia - 2B_145: -1052721430
+      Mobile - Last Cloudia - 2B_146: -49499780
+      Mobile - Last Cloudia - 2B_147: 144903426
+      Mobile - Last Cloudia - 2B_15: -1510692428
+      Mobile - Last Cloudia - 2B_16: 1145364117
+      Mobile - Last Cloudia - 2B_17: 2006326877
+      Mobile - Last Cloudia - 2B_18: 2000247803
+      Mobile - Last Cloudia - 2B_19: -2057566451
+      Mobile - Last Cloudia - 2B_2: 217365446
+      Mobile - Last Cloudia - 2B_20: -860571447
+      Mobile - Last Cloudia - 2B_21: -1542883770
+      Mobile - Last Cloudia - 2B_22: -406319790
+      Mobile - Last Cloudia - 2B_23: 706879835
+      Mobile - Last Cloudia - 2B_24: -1984151920
+      Mobile - Last Cloudia - 2B_25: 182366473
+      Mobile - Last Cloudia - 2B_26: 1605228592
+      Mobile - Last Cloudia - 2B_27: -453970409
+      Mobile - Last Cloudia - 2B_28: -431146990
+      Mobile - Last Cloudia - 2B_29: 757527982
+      Mobile - Last Cloudia - 2B_3: 197887777
+      Mobile - Last Cloudia - 2B_30: 1568636825
+      Mobile - Last Cloudia - 2B_31: 327727164
+      Mobile - Last Cloudia - 2B_32: 1390079827
+      Mobile - Last Cloudia - 2B_33: 866385266
+      Mobile - Last Cloudia - 2B_34: 239375048
+      Mobile - Last Cloudia - 2B_35: 129204483
+      Mobile - Last Cloudia - 2B_36: 605454783
+      Mobile - Last Cloudia - 2B_37: 1198799534
+      Mobile - Last Cloudia - 2B_38: 1211239407
+      Mobile - Last Cloudia - 2B_39: 1632737646
+      Mobile - Last Cloudia - 2B_4: -1713639377
+      Mobile - Last Cloudia - 2B_40: 2012141943
+      Mobile - Last Cloudia - 2B_41: -1166293413
+      Mobile - Last Cloudia - 2B_42: 1969227384
+      Mobile - Last Cloudia - 2B_43: 60343963
+      Mobile - Last Cloudia - 2B_44: -536249685
+      Mobile - Last Cloudia - 2B_45: -712168910
+      Mobile - Last Cloudia - 2B_46: 624680252
+      Mobile - Last Cloudia - 2B_47: -309311635
+      Mobile - Last Cloudia - 2B_48: 779077071
+      Mobile - Last Cloudia - 2B_49: -409057613
+      Mobile - Last Cloudia - 2B_5: 1717316391
+      Mobile - Last Cloudia - 2B_50: -1107404887
+      Mobile - Last Cloudia - 2B_51: -1810999771
+      Mobile - Last Cloudia - 2B_52: -1810170376
+      Mobile - Last Cloudia - 2B_53: -1903033104
+      Mobile - Last Cloudia - 2B_54: 1755527928
+      Mobile - Last Cloudia - 2B_55: 1231752338
+      Mobile - Last Cloudia - 2B_56: 234742523
+      Mobile - Last Cloudia - 2B_57: 163180903
+      Mobile - Last Cloudia - 2B_58: 1435157870
+      Mobile - Last Cloudia - 2B_59: -1519121827
+      Mobile - Last Cloudia - 2B_6: -1886324339
+      Mobile - Last Cloudia - 2B_60: 155381187
+      Mobile - Last Cloudia - 2B_61: 535030540
+      Mobile - Last Cloudia - 2B_62: -1668653291
+      Mobile - Last Cloudia - 2B_63: 1983225630
+      Mobile - Last Cloudia - 2B_64: 504818106
+      Mobile - Last Cloudia - 2B_65: 193660793
+      Mobile - Last Cloudia - 2B_66: 26949300
+      Mobile - Last Cloudia - 2B_67: -1927113569
+      Mobile - Last Cloudia - 2B_68: -1426109479
+      Mobile - Last Cloudia - 2B_69: -617120467
+      Mobile - Last Cloudia - 2B_7: -1077325007
+      Mobile - Last Cloudia - 2B_70: -342147355
+      Mobile - Last Cloudia - 2B_71: -30341500
+      Mobile - Last Cloudia - 2B_72: -1227836105
+      Mobile - Last Cloudia - 2B_73: 935389517
+      Mobile - Last Cloudia - 2B_74: 1594550983
+      Mobile - Last Cloudia - 2B_75: -177129827
+      Mobile - Last Cloudia - 2B_76: 292037662
+      Mobile - Last Cloudia - 2B_77: -391780048
+      Mobile - Last Cloudia - 2B_78: -1216467796
+      Mobile - Last Cloudia - 2B_79: -1624974683
+      Mobile - Last Cloudia - 2B_8: 1720202883
+      Mobile - Last Cloudia - 2B_80: -474951082
+      Mobile - Last Cloudia - 2B_81: 2130993141
+      Mobile - Last Cloudia - 2B_82: 768210336
+      Mobile - Last Cloudia - 2B_83: -253123727
+      Mobile - Last Cloudia - 2B_84: -380928218
+      Mobile - Last Cloudia - 2B_85: 1736283705
+      Mobile - Last Cloudia - 2B_86: 2078682439
+      Mobile - Last Cloudia - 2B_87: 1995834949
+      Mobile - Last Cloudia - 2B_88: -1538790697
+      Mobile - Last Cloudia - 2B_89: -488477856
+      Mobile - Last Cloudia - 2B_9: 1260891983
+      Mobile - Last Cloudia - 2B_90: -688481474
+      Mobile - Last Cloudia - 2B_91: 152553055
+      Mobile - Last Cloudia - 2B_92: 2071239971
+      Mobile - Last Cloudia - 2B_93: -1508528453
+      Mobile - Last Cloudia - 2B_94: -258450437
+      Mobile - Last Cloudia - 2B_95: 1490067298
+      Mobile - Last Cloudia - 2B_96: 488323523
+      Mobile - Last Cloudia - 2B_97: 496442595
+      Mobile - Last Cloudia - 2B_98: 322797163
+      Mobile - Last Cloudia - 2B_99: -999784099
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

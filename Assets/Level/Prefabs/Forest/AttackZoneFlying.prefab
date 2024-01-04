@@ -51,7 +51,7 @@ MonoBehaviour:
   detectionDelay: 0.3
   detectorLayerMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 1024
   gizmoIdleColor: {r: 0, g: 1, b: 0, a: 0.2}
   gizmoDetectedcolor: {r: 1, g: 0, b: 0, a: 0.2}
   showGizmos: 1
@@ -67,17 +67,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: InfectedFlying
       objectReference: {fileID: 0}
-    - target: {fileID: 5317835152814863918, guid: 486c7d38d14af934c96328371798aeb8, type: 3}
-      propertyPath: radius
-      value: 4.5
+    - target: {fileID: 2692191107521948422, guid: 486c7d38d14af934c96328371798aeb8, type: 3}
+      propertyPath: direction
+      value: -1
       objectReference: {fileID: 0}
-    - target: {fileID: 5317835152814863918, guid: 486c7d38d14af934c96328371798aeb8, type: 3}
-      propertyPath: targetLayer.m_Bits
-      value: 8
+    - target: {fileID: 7914869380285958502, guid: 486c7d38d14af934c96328371798aeb8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 5317835152814863918, guid: 486c7d38d14af934c96328371798aeb8, type: 3}
-      propertyPath: detectorOriginOffset.x
-      value: 2
+    - target: {fileID: 7914869380285958502, guid: 486c7d38d14af934c96328371798aeb8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7914869380285958502, guid: 486c7d38d14af934c96328371798aeb8, type: 3}
       propertyPath: m_LocalPosition.x

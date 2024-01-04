@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8287078081811076017}
   m_Layer: 7
   m_Name: Snailabane
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.0026703253, w: 0.9999965}
   m_LocalPosition: {x: -1.8025979, y: -1.0940303, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -173,11 +173,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   patrolSpeed: 2
-  chaseSpeed: 5
-  patrolRange: 5
-  chaseRange: 6
-  attackRange: 3
+  chaseSpeed: 3
+  patrolRange: 6
+  chaseRange: 10
+  attackRange: 3.5
   attackCooldown: 2
+  hp: 20
+  timeInvincible: 2
+  parasiteEssenceDrop: 50
 --- !u!95 &8287078081811076017
 Animator:
   serializedVersion: 5

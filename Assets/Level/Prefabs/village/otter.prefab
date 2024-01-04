@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -1508917576770708332}
   - component: {fileID: 8562489743505864507}
   - component: {fileID: -3521872494370537083}
+  - component: {fileID: 8312775154068200827}
   m_Layer: 7
   m_Name: otter
   m_TagString: Untagged
@@ -135,7 +136,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!70 &-1508917576770708332
 CapsuleCollider2D:
@@ -184,8 +185,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c44196fe12143694bb96bdb4eb7b6449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 49
-  force: 49
+  parasiteEssenceDrop: 50
+  speed: 30
+  force: 50
+  health: 5
+  atk: 1
   horizontal: 0
 --- !u!114 &-3521872494370537083
 MonoBehaviour:
@@ -200,3 +204,42 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   otter: {fileID: 8562489743505864507}
+  detect_size: {x: 60, y: 5}
+  Sensitivity: 1
+  max_trace: 60
+  time_trace: 5
+--- !u!70 &8312775154068200827
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8770647459644887601}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.05037537, y: -0.2308857}
+  m_Size: {x: 0.33762017, y: 0.7826012}
+  m_Direction: 0

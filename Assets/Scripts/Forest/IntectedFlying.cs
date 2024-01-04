@@ -4,13 +4,25 @@ using UnityEngine;
 
 public class InfectedFlying : MonoBehaviour
 {
+    [Header("Health parameters")]
+    [SerializeField] int hp = 20;
+    int currentHP;
+
+    [Header("Movement parameters")]
     [SerializeField] float direction = 1f;
     [SerializeField] float speed = 10f;
-    [SerializeField] float pauseTime = 1f;
-
-    [Header("Chase player parameters")]
     [SerializeField] float chaseSpeed = 20f;
 
+    [Header("Attack parameters")]
+    [SerializeField] int atk = 1;
+    [SerializeField] float attackIntervalTime = 1.5f;
+    [SerializeField] Vector2 attackSize = Vector2.one;
+    [SerializeField] Vector2 attackOriginOffset = Vector2.zero;
+    [SerializeField] LayerMask attackLayerMask;
+    [SerializeField] bool showGizmos = true;
+    float attackTimer;
+
+    [SerializeField] int parasiteEssenceDrop = 50;
 
     Rigidbody2D rb2D;
     Vector2 initialPosition;
@@ -29,6 +41,7 @@ public class InfectedFlying : MonoBehaviour
         attackDetector = GetComponent<AIMeleeAttackDetector>();
         initialPosition = transform.position;
         animator.SetFloat("LookX", direction);
+        currentHP = hp;
 
         if (attackDetector != null)
         {
@@ -44,14 +57,25 @@ public class InfectedFlying : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (currentHP <= 0)
+        {
+            return;
+        }
+        if (attackTimer > 0)
+        {
+            rb2D.velocity = Vector2.zero;
+            attackTimer -= Time.deltaTime;
+            return;
+        }
         if (playerDetector && playerDetector.PlayerDetected)
         {
             if (isInitialPosition)
             {
                 isInitialPosition = false;
             }
+            var directionToTarget = (Vector2)playerDetector.Target.transform.position - rb2D.position;
             rb2D.position = Vector2.MoveTowards(rb2D.position, playerDetector.Target.transform.position, Time.deltaTime * chaseSpeed);
-            animator.SetFloat("LookX", playerDetector.DirectionToTarget.x);
+            animator.SetFloat("LookX", directionToTarget.x >= 0 ? 1f : -1f);
         }
         else
         {
@@ -62,9 +86,68 @@ public class InfectedFlying : MonoBehaviour
 
     private void AttackPlayer(GameObject player)
     {
+        if (attackTimer > 0)
+        {
+            return;
+        }
         // Perform the attack logic here.
-        // For this example, let's assume the enemy inflicts 10 damage to the player.
-        // player.GetComponent<PlayerHealth>()?.TakeDamage(10);
         animator.SetTrigger("Attack");
+        attackTimer = attackIntervalTime;
+    }
+
+    // Call in animation event
+    void DealDamage()
+    {
+        Collider2D player = Physics2D.OverlapBox(rb2D.position + attackOriginOffset, attackSize, 0, attackLayerMask);
+        if (player)
+        {
+            player.GetComponent<CharacterScript>().changeHealth(-atk);
+        }
+    }
+
+    void OnDrawGizmos()
+    {
+        if (showGizmos)
+        {
+            Gizmos.color = new Color(0, 1f, 1f, 50f / 255f);
+            Gizmos.DrawCube((Vector2)transform.position + attackOriginOffset, attackSize);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Sword"))
+        {
+            var player = other.GetComponentInParent<CharacterScript>();
+            ChangeHealth(-(int)player.getATK);
+            player.ChangeKi(KaguraBachiData.KiRegeneratePerHit);
+        }
+        else if (other.CompareTag("SwordProjectile"))
+        {
+            ChangeHealth(-other.GetComponent<SpecialAttack2>().getATK);
+        }
+    }
+
+    void ChangeHealth(int amount)
+    {
+        if (amount < 0 && currentHP > 0)
+        {
+            animator.SetTrigger("Hurt");
+            currentHP = Mathf.Clamp(currentHP + amount, 0, hp);
+
+            if (currentHP <= 0)
+            {
+                Dead();
+            }
+        }
+    }
+
+    void Dead()
+    {
+        Destroy(gameObject, 1.5f);
+        Destroy(transform.parent.gameObject, 2f);
+        animator.SetTrigger("Death");
+        var player = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterScript>();
+        player.ChangeParasiteEssence(parasiteEssenceDrop);
     }
 }

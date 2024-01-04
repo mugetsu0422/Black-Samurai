@@ -5,7 +5,6 @@ using UnityEngine;
 public class Bloatedbane : MonoBehaviour
 {
     private Rigidbody2D rb2d;
-    private Transform characterTransform;
     private bool isChasing = false;
     private bool isPatrolling = false;
     private float patrolDirection = 1.0f;
@@ -19,23 +18,54 @@ public class Bloatedbane : MonoBehaviour
     Animator animator;
     private Vector2 lookDirection = new Vector2(1, 0);
     public GameObject bulletPrefab;
+    public int hp = 10;
+    int currentHP;
+    int atk = 1;
+    private BoxCollider2D boxCollider;
+    private bool isDead = false;
+    public float timeInvincible = 2f;
+    bool isInvincible = false;
+    float invincibleTimer;
+    public int parasiteEssenceDrop = 100;
 
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        characterTransform = GameObject.FindGameObjectWithTag("Player").transform;
-        StartPatrol();
-    }
-
-    void StartPatrol()
-    {
+        boxCollider = GetComponent<BoxCollider2D>();
         isPatrolling = true;
+        currentHP = hp;
     }
 
     void Update()
     {
-        float distanceToCharacter = Vector2.Distance(transform.position, characterTransform.position);
+        if (isDead)
+            return;
+
+        if (isInvincible)
+        {
+            invincibleTimer -= Time.deltaTime;
+            if (invincibleTimer < 0)
+            {
+                isInvincible = false;
+            }
+        }
+
+        AnimatorStateInfo currentState = animator.GetCurrentAnimatorStateInfo(0);
+        Vector2 colliderSize = boxCollider.size;
+        Collider2D[] colliders = Physics2D.OverlapBoxAll(transform.position, colliderSize, 5f);
+        foreach (Collider2D collider in colliders)
+        {
+            if (collider.CompareTag("Player") && currentState.IsName("Attack2"))
+            {
+                CharacterScript characterScript = collider.GetComponentInParent<CharacterScript>();
+                characterScript.changeHealth(-atk);
+            }
+        }
+        var player = GameObject.FindWithTag("Player").GetComponent<CharacterScript>();
+        Transform playerTransform = player.GetComponent<Transform>();
+        Vector3 playerPosition = playerTransform.position;
+        float distanceToCharacter = Vector2.Distance(transform.position, playerPosition);
 
         if (distanceToCharacter < chaseRange)
         {
@@ -50,14 +80,13 @@ public class Bloatedbane : MonoBehaviour
 
         if (isChasing)
         {
-            Vector2 direction = (characterTransform.position - transform.position).normalized;
+            Vector2 direction = (playerPosition - transform.position).normalized;
             rb2d.velocity = direction;
 
             if (distanceToCharacter < attackRange)
             {
                 if (Time.time - lastAttackTime > attackCooldown)
                 {
-                    ResetAllTriggers();
                     animator.SetTrigger("Attack2");
                     lastAttackTime = Time.time;
                 }
@@ -66,7 +95,6 @@ public class Bloatedbane : MonoBehaviour
             {
                 if (Time.time - lastAttackTime > attackCooldown)
                 {
-                    ResetAllTriggers();
                     animator.SetTrigger("Attack1");
                     Launch();
                     lastAttackTime = Time.time;
@@ -115,16 +143,46 @@ public class Bloatedbane : MonoBehaviour
         bullet.Launch(lookDirection, 50);
     }
 
-    void ResetAllTriggers()
+    void OnTriggerEnter2D(Collider2D other)
     {
-        AnimatorControllerParameter[] parameters = animator.parameters;
-
-        foreach (AnimatorControllerParameter parameter in parameters)
+        if (other.CompareTag("Sword"))
         {
-            if (parameter.type == AnimatorControllerParameterType.Trigger)
+            var player = other.GetComponentInParent<CharacterScript>();
+            ChangeHealth(-(int)player.getATK);
+            player.ChangeKi(KaguraBachiData.KiRegeneratePerHit);
+        }
+        else if (other.CompareTag("SwordProjectile"))
+        {
+            ChangeHealth(-other.GetComponent<SpecialAttack2>().getATK);
+        }
+    }
+
+    void ChangeHealth(int amount)
+    {
+        if (isInvincible)
+        {
+            return;
+        }
+        if (amount < 0 && currentHP > 0)
+        {
+            animator.SetTrigger("Hit");
+            currentHP = Mathf.Clamp(currentHP + amount, 0, hp);
+            isInvincible = true;
+            invincibleTimer = timeInvincible;
+            if (currentHP <= 0)
             {
-                animator.ResetTrigger(parameter.name);
+                isDead = true;
+                StartCoroutine(Dead());
             }
         }
+    }
+
+    IEnumerator Dead()
+    {
+        yield return new WaitForSeconds(0.6f);
+        Destroy(gameObject, 1.3f);
+        animator.SetTrigger("Dead");
+        var player = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterScript>();
+        player.ChangeParasiteEssence(parasiteEssenceDrop);
     }
 }
