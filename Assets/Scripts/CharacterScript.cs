@@ -260,7 +260,8 @@ public class CharacterScript : MonoBehaviour
         StartCoroutine(Respawn());
     }
 
-    IEnumerator Respawn() {
+    IEnumerator Respawn()
+    {
         yield return new WaitForSeconds(3f);
         isDead = false;
         GameOverScreen.Instance.OpenScreen();
@@ -271,35 +272,39 @@ public class CharacterScript : MonoBehaviour
         Manabar.instance.setFillAmount(0);
         animator.SetBool("Dead", false);
         // respawn;
-        if (Save_Point.savePointData.respawnPoint.map == ""){
-           Debug.Log("hello");
+        if (Save_Point.savePointData.respawnPoint.map == "" || Save_Point.savePointData.respawnPoint.map != gameObject.scene.name)
+        {
             // go to instructtion;
-            if (gameObject.scene.name == "VillageScene") {
+            if (gameObject.scene.name == "VillageScene")
+            {
                 var temp = GameObject.Find("InGameUI_group");
                 Navigator navigator = temp.transform.Find("navigator").GetComponent<Navigator>();
-                StartCoroutine(navigator.Teleport("VillageScene", new Vector3(-336,-102,0)));
+                StartCoroutine(navigator.Teleport("VillageScene", new Vector3(-336, -102, 0)));
                 BackgroundMusic.instance.Stop();
             }
-            else if (gameObject.scene.name == "ForestScene") {
+            else if (gameObject.scene.name == "ForestScene")
+            {
                 var temp = GameObject.Find("InGameUI_group");
                 Navigator navigator = temp.transform.Find("navigator").GetComponent<Navigator>();
-                StartCoroutine(navigator.Teleport("ForestScene", new Vector3(-34,-8.6f,0)));
+                StartCoroutine(navigator.Teleport("ForestScene", new Vector3(-34, -8.6f, 0)));
                 BackgroundMusic.instance.Stop();
             }
-            else if (gameObject.scene.name == "CavernScene") {
+            else if (gameObject.scene.name == "CavernScene")
+            {
                 var temp = GameObject.Find("InGameUI_group");
                 Navigator navigator = temp.transform.Find("navigator").GetComponent<Navigator>();
-                StartCoroutine(navigator.Teleport("CavernScene", new Vector3(-46,-6.8f,0)));
+                StartCoroutine(navigator.Teleport("CavernScene", new Vector3(-46, -6.8f, 0)));
                 BackgroundMusic.instance.Stop();
             }
-        else{
-            Debug.Log(Save_Point.savePointData.respawnPoint.location);
-            var temp = GameObject.Find("InGameUI_group");
-            Navigator navigator = temp.transform.Find("navigator").GetComponent<Navigator>();
-            StartCoroutine(navigator.Teleport(Save_Point.savePointData.respawnPoint.map, Save_Point.savePointData.respawnPoint.location));
-            BackgroundMusic.instance.Stop();
+            else
+            {
+                var temp = GameObject.Find("InGameUI_group");
+                Navigator navigator = temp.transform.Find("navigator").GetComponent<Navigator>();
+                StartCoroutine(navigator.Teleport(Save_Point.savePointData.respawnPoint.map, Save_Point.savePointData.respawnPoint.location));
+                BackgroundMusic.instance.Stop();
+            }
+
         }
-    }
     }
 
     public float getATK
@@ -325,11 +330,12 @@ public class CharacterScript : MonoBehaviour
         Healthbar.instance.setFillAmount(amount);
 
 
-        if (!isDead && KaguraBachiData.Health  <=0) {
+        if (!isDead && KaguraBachiData.Health <= 0)
+        {
             Dead();
             isDead = true;
         }
-            
+
 
     }
 

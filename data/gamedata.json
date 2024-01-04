@@ -1,1 +1,1 @@
-{"pureParasiteHeart":0,"health":3,"ki":0,"weaponLevel":1,"parasiteEssence":0,"scene":"VillageScene","position":{"x":-291.0176696777344,"y":-85.65287017822266,"z":0.0},"boss":["VillageBoss"],"bossKilled":[false]}
+{"pureParasiteHeart":1,"health":3,"ki":100,"weaponLevel":2,"parasiteEssence":350,"scene":"CavernScene","position":{"x":-45.24993133544922,"y":-6.701622486114502,"z":0.0},"boss":["VillageBoss"],"bossKilled":[false]}

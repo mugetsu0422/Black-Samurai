@@ -90,25 +90,28 @@ public class Blacksmith : MonoBehaviour
             index++;
             StopCoroutine(cor);
             dialogueText.text = "";
+            if (index == 3 && KaguraBachiData.WeaponLevel == 2) {
+                index++;
+            }
             cor  = StartCoroutine(Typing());
         }
-        else if(index ==3){
+        else if(index ==3 || index == 4){
             int result = UpgradeWeapon();
             if(result == 1){
-                index = 4;
+                index = 5;
                 StopCoroutine(cor);
                 dialogueText.text = "";
                 PlaySound(Upgrade);
                 cor  = StartCoroutine(Typing());
             }
             if(result == 2){
-                index = 5;
+                index = 6;
                 StopCoroutine(cor);
                 dialogueText.text = "";
                 cor  = StartCoroutine(Typing());
             }
             if(result == 3){
-                index = 6;
+                index = 7;
                 StopCoroutine(cor);
                 dialogueText.text = "";
                 cor  = StartCoroutine(Typing());
@@ -149,7 +152,7 @@ public class Blacksmith : MonoBehaviour
             else return 2;
         }
         if(KaguraBachiData.WeaponLevel == 2){
-            if(KaguraBachiData.ParasiteEssence >= 100 && KaguraBachiData.PureParasiteHeart >=1){
+            if(KaguraBachiData.ParasiteEssence >= 300 && KaguraBachiData.PureParasiteHeart >=1){
                 KaguraBachiData.WeaponLevel = 3;
                 EssenceCollected.instance.setNormalEssence(KaguraBachiData.ParasiteEssence, -300);
                 KaguraBachiData.ParasiteEssence -=300;

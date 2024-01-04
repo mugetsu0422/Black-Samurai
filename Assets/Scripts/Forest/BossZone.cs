@@ -12,7 +12,6 @@ public class BossZone : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        BossHealthbar.instance.SetBossName(bossName);
     }
 
     // Update is called once per frame
@@ -27,6 +26,7 @@ public class BossZone : MonoBehaviour
         {
             bossZoneTilemap.gameObject.SetActive(true);
             BossHealthbar.instance.SetEnable(true);
+            BossHealthbar.instance.SetBossName(bossName);
             BackgroundMusic.instance.changeBossBGM();
         }
     }
