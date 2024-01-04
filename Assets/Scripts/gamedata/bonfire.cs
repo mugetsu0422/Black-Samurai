@@ -48,6 +48,9 @@ public class bonfire : MonoBehaviour
         {
             KaguraBachiData.Health = KaguraBachiData.MaxHealth;
             Healthbar.instance.setFillAmount(3);
+            Save_Point.savePointData.SavePoint(gameObject.scene.name,location_name).isActive = true;
+            Save_Point.savePointData.respawnPoint.map = gameObject.scene.name;
+            Save_Point.savePointData.respawnPoint.location = transform.position;
         }
     }
 
