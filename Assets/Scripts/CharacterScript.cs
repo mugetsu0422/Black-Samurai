@@ -272,7 +272,7 @@ public class CharacterScript : MonoBehaviour
         Manabar.instance.setFillAmount(0);
         animator.SetBool("Dead", false);
         // respawn;
-        if (Save_Point.savePointData.respawnPoint.map == "" || Save_Point.savePointData.respawnPoint.map != gameObject.scene.name)
+        if (Save_Point.savePointData.respawnPoint.map == "")
         {
             // go to instructtion;
             if (gameObject.scene.name == "VillageScene")
@@ -296,14 +296,13 @@ public class CharacterScript : MonoBehaviour
                 StartCoroutine(navigator.Teleport("CavernScene", new Vector3(-46, -6.8f, 0)));
                 BackgroundMusic.instance.Stop();
             }
-            else
-            {
-                var temp = GameObject.Find("InGameUI_group");
-                Navigator navigator = temp.transform.Find("navigator").GetComponent<Navigator>();
-                StartCoroutine(navigator.Teleport(Save_Point.savePointData.respawnPoint.map, Save_Point.savePointData.respawnPoint.location));
-                BackgroundMusic.instance.Stop();
-            }
-
+        }
+        else
+        {
+            var temp = GameObject.Find("InGameUI_group");
+            Navigator navigator = temp.transform.Find("navigator").GetComponent<Navigator>();
+            StartCoroutine(navigator.Teleport(Save_Point.savePointData.respawnPoint.map, Save_Point.savePointData.respawnPoint.location));
+            BackgroundMusic.instance.Stop();
         }
     }
 
